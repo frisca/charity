@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon.png');?>">
+    <title>Charity</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/css/dataTables.bootstrap.min.css');?>" id="theme" rel="stylesheet">
     <!-- chartist CSS -->
     <link href="<?php echo base_url('assets/plugins/chartist-js/dist/chartist.min.css');?>" rel="stylesheet">
@@ -24,6 +24,7 @@
     <link href="<?php echo base_url('assets/plugins/css/style.css');?>" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="<?php echo base_url('assets/plugins/css/colors/blue.css');?>" id="theme" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.css');?>">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

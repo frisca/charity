@@ -37,10 +37,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Profil</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Donatur</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profil</li>
+                            <li class="breadcrumb-item active">Donatur</li>
                         </ol>
                     </div>
                 </div>
@@ -53,23 +53,7 @@
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card">
-                            <div class="card-block">
-                                <center class="m-t-30"> <img src="<?php echo base_url('assets/images/users/9.jpg');?>" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10"><?php echo $profile->nama;?></h4>
-                                   <!--  <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div> -->
-                                </center>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-block">
                                 <?php if($this->session->flashdata('success') != ""){ ?>
@@ -83,55 +67,85 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>                                
-                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('profile/processUpdate');?>">
-                                    <?php if($profile->role == 1){?>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Nama</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->nama;?>" class="form-control form-control-line" name="nama" required>
-                                            </div>
+                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('donatur/processAdd');?>">
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Jenis Keanggotan</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="jenisKeanggotan" required>
+                                                <option value="1">Rutin</option>
+                                                <option value="2">Tidak Rutin</option>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="example-email" class="col-md-12">Email</label>
-                                            <div class="col-md-12">
-                                                <input type="email" value="<?php echo $profile->email;?>" class="form-control form-control-line" name="email" id="example-email" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="nama" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Username</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->username;?>" class="form-control form-control-line" name="username" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" value="" class="form-control form-control-line" name="email" id="example-email" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-md-12">Password</label>
-                                            <div class="col-md-12">
-                                                <input type="password" value="" class="form-control form-control-line" name="password">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Username</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="username" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">No. Handphone</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->phone;?>" class="form-control form-control-line" name="phone" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="" class="form-control form-control-line" name="password" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Tanggal Bergabung</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo date('d/m/Y', strtotime($profile->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No. Handphone</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="phone" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Alamat</label>
-                                            <div class="col-md-12">
-                                                <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $profile->alamat;?></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Tanggal Bergabung</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="joinDate" id="joinDate" required>
                                         </div>
-                                    <?php }else{ ?>
-                                    <?php } ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Tanggal Lahir</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="birthDate" id="birthDate" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Jenis Kelamin</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="gender" required>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Angkatan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="angkatan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Alamat</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required></textarea>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Ubah Profil</button>
+                                            <button class="btn btn-success" type="submit">Simpan</button> &nbsp;
+                                            <a href="<?php echo base_url('donatur/index');?>">
+                                                <button class="btn btn-default" type="button">Kembali</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </form>

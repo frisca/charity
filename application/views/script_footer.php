@@ -21,11 +21,14 @@
     <!--c3 JavaScript -->
     <script src="<?php echo base_url('assets/plugins/d3/d3.min.js');?>"></script>
     <script src="<?php echo base_url('assets/plugins/c3-master/c3.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
     <!-- Chart JS -->
     <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable();
             $('[data-toggle="tooltip"]').tooltip();
+            $("#joinDate").datepicker({dateFormat: 'dd/mm/yy'});
+            $("#birthDate").datepicker({dateFormat: 'dd/mm/yy'});
         });
     </script>
 </body>

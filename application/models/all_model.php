@@ -20,6 +20,48 @@ class All_model extends CI_Model {
 		$this->db->where($condition);
 		return $this->db->update($table, $data);
 	}
+
+	public function getDataByLimit($table, $condition, $order, $limit)
+	{
+		$this->db->order_by($condition, $order);
+		$this->db->limit($limit);
+		return $this->db->get($table);
+	}
+	
+	public function deleteData($table, $condition){
+		$this->db->delete($table, $condition);
+		return true;
+	}
+
+	public function getListTransaksiMasuk(){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListDonatur(){
+		$query = "SELECT  d.*, u.* FROM donatur d left join user u on d.id_user = u.idUser where role = 2";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getTransaksiMasukById($id){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where tm.idTransaksiMasuk = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListTransaksiKeluar(){
+		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getTransaksiKeluarById($id){
+		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa where tk.idTransaksiKeluar = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */

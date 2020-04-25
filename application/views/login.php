@@ -31,7 +31,7 @@
 					            <p ><span class="fa fa-user"></span><input type="text" name="username" Placeholder="Username" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
 					            <p><span class="fa fa-lock"></span><input type="password" name="password" Placeholder="Password" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
 			             		<div>
-	                                <span style="float: right;"><input type="submit" value="Sign In"></span>
+	                                <span style="float: right;"><input type="submit" value="Masuk"></span>
 	                            </div>
 				          	</fieldset>
 							<div class="clearfix"></div>

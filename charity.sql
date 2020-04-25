@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2020 at 10:40 AM
+-- Generation Time: Apr 25, 2020 at 06:34 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -25,17 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `approve`
---
-
-CREATE TABLE `approve` (
-  `idApprove` bigint(20) NOT NULL,
-  `description` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `donatur`
 --
 
@@ -53,7 +42,7 @@ CREATE TABLE `donatur` (
 --
 
 INSERT INTO `donatur` (`idDonatur`, `angkatan`, `jenisKeanggotaan`, `gender`, `birthDate`, `id_user`) VALUES
-(4, '2010', 1, 'Laki-laki', '2019-01-12', 9),
+(4, '2010', 2, 'Perempuan', '2019-12-01', 9),
 (7, '2010', 2, 'Laki-laki', '2019-01-12', 12),
 (8, '2010', 3, 'Perempuan', '2019-01-12', 13);
 
@@ -77,53 +66,8 @@ CREATE TABLE `iuran` (
   `namaPengirim` varchar(200) NOT NULL,
   `buktiTransfer` varchar(200) NOT NULL,
   `idTransaksiMasuk` bigint(20) NOT NULL,
-  `idApprove` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `komplain`
---
-
-CREATE TABLE `komplain` (
-  `idKomplain` bigint(20) NOT NULL,
-  `idDonatur` bigint(20) NOT NULL,
-  `judul` varchar(200) NOT NULL,
-  `keterangan` varchar(200) NOT NULL,
-  `jenisKomplain` varchar(200) NOT NULL,
-  `idTransaksiMasuk` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `konfirmasi_bursa`
---
-
-CREATE TABLE `konfirmasi_bursa` (
-  `id_konfirmasi_bursa` int(11) NOT NULL,
-  `id_penerima_beasiswa` bigint(20) NOT NULL,
-  `total_dana` int(11) NOT NULL,
-  `lembar_kontrol_pembayaran` varchar(200) NOT NULL,
-  `tgl_bursa` date NOT NULL,
-  `created_date` date NOT NULL,
-  `deskripsi` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `log_transaksi`
---
-
-CREATE TABLE `log_transaksi` (
-  `idLogTransaksi` bigint(20) NOT NULL,
-  `jenisTransaksi` varchar(200) NOT NULL,
-  `description` int(11) NOT NULL,
-  `idUser` bigint(20) NOT NULL,
-  `idTransaksi` bigint(20) NOT NULL,
-  `typeTransaksi` varchar(50) NOT NULL
+  `idApprove` bigint(20) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -151,7 +95,44 @@ CREATE TABLE `penerima_beasiswa` (
   `penghasilan_ibu` varchar(200) NOT NULL,
   `rekening` varchar(200) NOT NULL,
   `keterangan` varchar(200) NOT NULL,
-  `birth_date` date NOT NULL
+  `birth_date` date NOT NULL,
+  `nama` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penerima_beasiswa`
+--
+
+INSERT INTO `penerima_beasiswa` (`id_beasiswa`, `angkatan`, `jenjang_studi`, `status`, `gender`, `alamat`, `tgl_bergabung`, `semester`, `anak_ke`, `jmlh_saudara`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `penghasilan_ayah`, `penghasilan_ibu`, `rekening`, `keterangan`, `birth_date`, `nama`) VALUES
+(3, '2010', 'S1 Sistem Informasi', 1, 'Laki-laki', 'karet', '2020-04-25', 1, 2, 3, 'test1', 'test2', 'polisi', 'ibu rumah tangga', '1000000', '500000', '12312312131', 'penerima beasiswa', '2020-04-25', 'test');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengumuman`
+--
+
+CREATE TABLE `pengumuman` (
+  `id_pengumuman` bigint(20) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `createdBy` varchar(200) NOT NULL,
+  `createdDate` date NOT NULL,
+  `isi` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi_keluar`
+--
+
+CREATE TABLE `transaksi_keluar` (
+  `idTransaksiKeluar` bigint(20) NOT NULL,
+  `jenisTransaksiKeluar` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `id_beasiswa` bigint(20) NOT NULL,
+  `tanggalTransaksi` date NOT NULL,
+  `keterangan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -165,7 +146,6 @@ CREATE TABLE `transaksi_masuk` (
   `idDonatur` bigint(20) NOT NULL,
   `jumlah` bigint(20) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `createdBy` varchar(200) NOT NULL,
   `bankTransfer` varchar(200) NOT NULL,
   `transferDate` date NOT NULL,
   `jenisTransaksi` varchar(50) NOT NULL,
@@ -176,8 +156,9 @@ CREATE TABLE `transaksi_masuk` (
 -- Dumping data for table `transaksi_masuk`
 --
 
-INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `createdBy`, `bankTransfer`, `transferDate`, `jenisTransaksi`, `buktiBayar`) VALUES
-(7, 7, 3000, 'test', '2019-10-12', 'BRI', '2019-01-12', 'Transfer', '1584903906background_phone.jpg');
+INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransfer`, `transferDate`, `jenisTransaksi`, `buktiBayar`) VALUES
+(7, 8, 3000, 'test', 'BRI', '2019-01-12', 'Transfer', '1584903906background_phone.jpg'),
+(8, 8, 100000, 'test', 'BRI', '2020-01-16', 'Transfer', '1587749201background_phone.jpg');
 
 -- --------------------------------------------------------
 
@@ -202,20 +183,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `nama`, `alamat`, `phone`, `joinDate`, `email`, `password`, `role`, `username`) VALUES
-(1, 'admin', 'balige', '0813231312312', '2020-03-15', 'admin@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'admin'),
-(9, 'test', 'balige', '081231231213', '2019-01-20', 'test@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test'),
+(1, 'admin', 'balige', '0813231312312', '1970-01-01', 'admin@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 1, 'admin'),
+(9, 'test', 'balige', '081231231213', '0000-00-00', 'test@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test'),
 (12, 'test1', 'test1', '081231231214', '2019-01-20', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 2, 'test'),
 (13, 'test3', 'test2', '081231231235', '2019-01-20', 'test2@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test2');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `approve`
---
-ALTER TABLE `approve`
-  ADD PRIMARY KEY (`idApprove`);
 
 --
 -- Indexes for table `donatur`
@@ -230,28 +205,22 @@ ALTER TABLE `iuran`
   ADD PRIMARY KEY (`idIuran`);
 
 --
--- Indexes for table `komplain`
---
-ALTER TABLE `komplain`
-  ADD PRIMARY KEY (`idKomplain`);
-
---
--- Indexes for table `konfirmasi_bursa`
---
-ALTER TABLE `konfirmasi_bursa`
-  ADD PRIMARY KEY (`id_konfirmasi_bursa`);
-
---
--- Indexes for table `log_transaksi`
---
-ALTER TABLE `log_transaksi`
-  ADD PRIMARY KEY (`idLogTransaksi`);
-
---
 -- Indexes for table `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
   ADD PRIMARY KEY (`id_beasiswa`);
+
+--
+-- Indexes for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  ADD PRIMARY KEY (`id_pengumuman`);
+
+--
+-- Indexes for table `transaksi_keluar`
+--
+ALTER TABLE `transaksi_keluar`
+  ADD PRIMARY KEY (`idTransaksiKeluar`);
 
 --
 -- Indexes for table `transaksi_masuk`
@@ -270,12 +239,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `approve`
---
-ALTER TABLE `approve`
-  MODIFY `idApprove` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `donatur`
 --
 ALTER TABLE `donatur`
@@ -288,34 +251,28 @@ ALTER TABLE `iuran`
   MODIFY `idIuran` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `komplain`
---
-ALTER TABLE `komplain`
-  MODIFY `idKomplain` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `konfirmasi_bursa`
---
-ALTER TABLE `konfirmasi_bursa`
-  MODIFY `id_konfirmasi_bursa` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `log_transaksi`
---
-ALTER TABLE `log_transaksi`
-  MODIFY `idLogTransaksi` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
-  MODIFY `id_beasiswa` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_beasiswa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  MODIFY `id_pengumuman` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `transaksi_keluar`
+--
+ALTER TABLE `transaksi_keluar`
+  MODIFY `idTransaksiKeluar` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi_masuk`
 --
 ALTER TABLE `transaksi_masuk`
-  MODIFY `idTransaksiMasuk` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idTransaksiMasuk` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
