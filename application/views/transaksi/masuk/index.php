@@ -78,27 +78,55 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Donatur</th>
+                                                <th>Bulan</th>
                                                 <th>Total Dana</th>
-                                                <th>Bank Transfer</th>
+                                                <th>Status</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                             <?php foreach($transaksi_masuk as $key=>$value){?>
+                                            <?php foreach($transaksi_masuk as $key=>$value){?>
                                             <tr>
                                                 <td><?php echo $value->nama;?></td>
-                                                <td><?php echo $value->jumlah?></td>
-                                                <td><?php echo $value->bankTransfer;?></td>
+                                                <td>
+                                                    <?php 
+                                                        foreach ($bulan as $keys => $values) {
+                                                            if($value->month == $values->value){
+                                                                echo $values->name;
+                                                            }
+                                                        }
+                                                    ?>
+                                                </td>
+                                                <td><?php echo $value->jumlah;?></td>
+                                                <td>
+                                                    <?php 
+                                                        if($value->status_approve == 1){    
+                                                            echo 'Proses';
+                                                        }elseif($value->status_approve == 2){
+                                                            echo 'Diterima';
+                                                        }else{
+                                                            echo 'Ditolak';
+                                                        }
+                                                    ?>
+                                                </td>
                                                 <td>
                                                     <a href="<?php echo base_url('transaksi_masuk/views/' . $value->idTransaksiMasuk);?>">
                                                         <button class="btn btn-success"><i class="ti-search"></i></button>
                                                     </a>
+                                                    <?php if($value->status_approve == 1){?>
                                                     <a href="<?php echo base_url('transaksi_masuk/edit/' . $value->idTransaksiMasuk);?>">
                                                         <button class="btn btn-warning"><i class="mdi mdi-border-color"></i></button>
                                                     </a>
                                                     <a href="<?php echo base_url('transaksi_masuk/delete/' . $value->idTransaksiMasuk);?>">
                                                         <button class="btn btn-danger"><i class="mdi mdi-beer"></i></button>
                                                     </a>
+                                                    <a href="<?php echo base_url('transaksi_masuk/approve/' . $value->idTransaksiMasuk);?>">
+                                                        <button class="btn btn-primary"><i class="mdi mdi-check"></i></button>
+                                                    </a>
+                                                    <a href="<?php echo base_url('transaksi_masuk/reject/' . $value->idTransaksiMasuk);?>">
+                                                        <button class="btn btn-primary" style="background: green;"><i class="mdi mdi-minus"></i></button>
+                                                    </a>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
                                             <?php } ?>                                       

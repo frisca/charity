@@ -9,11 +9,161 @@ class Transaksi_Masuk extends CI_Controller {
 
 	public function index()
 	{
+		$bulan = array();
+		$bulans = array();
+
+		$bulan['name'] = "Januari";
+		$bulan['value'] = 1;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Februari";
+		$bulan['value'] = 2;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Maret";
+		$bulan['value'] = 3;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "April";
+		$bulan['value'] = 4;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Mei";
+		$bulan['value'] = 5;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juni";
+		$bulan['value'] = 6;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juli";
+		$bulan['value'] = 7;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Agustus";
+		$bulan['value'] = 8;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "September";
+		$bulan['value'] = 9;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Oktober";
+		$bulan['value'] = 10;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Nopember";
+		$bulan['value'] = 11;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Desember";
+		$bulan['value'] = 12;
+
+		$bulans[] = $bulan;
+		$month = json_encode($bulans);
+		$data['bulan'] = json_decode($month);
 		$data['transaksi_masuk'] = $this->all_model->getListTransaksiMasuk()->result();
 		$this->load->view('transaksi/masuk/index', $data);
 	}
 
 	public function add(){
+		$bulan = array();
+		$bulans = array();
+
+		$bulan['name'] = "Januari";
+		$bulan['value'] = 1;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Februari";
+		$bulan['value'] = 2;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Maret";
+		$bulan['value'] = 3;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "April";
+		$bulan['value'] = 4;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Mei";
+		$bulan['value'] = 5;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juni";
+		$bulan['value'] = 6;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juli";
+		$bulan['value'] = 7;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Agustus";
+		$bulan['value'] = 8;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "September";
+		$bulan['value'] = 9;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Oktober";
+		$bulan['value'] = 10;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Nopember";
+		$bulan['value'] = 11;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Desember";
+		$bulan['value'] = 12;
+
+		$bulans[] = $bulan;
+		$month = json_encode($bulans);
+		$data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$this->load->view('transaksi/masuk/add', $data);
 	}
@@ -35,9 +185,16 @@ class Transaksi_Masuk extends CI_Controller {
 				'idDonatur' => $this->input->post('idDonatur'),
 				'jumlah' => $this->input->post('jumlah'),
 				'description' => $this->input->post('description'),
-				'bankTransfer' => $this->input->post('bankTransfer'),
+				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
-				'jenisTransaksi' => $this->input->post('jenisTransaksi')
+				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
+				'month' => $this->input->post('month'),
+				'status_approve' => 2,
+				'bankDonatur' => $this->input->post('bankDonatur'),
+				'noRekTujuan' => $this->input->post('noRekTujuan'),
+				'noRekPengirim' => $this->input->post('noRekPengirim'),
+				'namaPenerima' => $this->input->post('namaPenerima'),
+				'namaPengirim' => $this->input->post('namaPengirim')
 			);
 			$result = $this->all_model->insertData('transaksi_masuk', $data);
 			if($result == true){
@@ -50,6 +207,82 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function edit($id){
+		$bulan = array();
+		$bulans = array();
+
+		$bulan['name'] = "Januari";
+		$bulan['value'] = 1;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Februari";
+		$bulan['value'] = 2;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Maret";
+		$bulan['value'] = 3;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "April";
+		$bulan['value'] = 4;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Mei";
+		$bulan['value'] = 5;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juni";
+		$bulan['value'] = 6;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juli";
+		$bulan['value'] = 7;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Agustus";
+		$bulan['value'] = 8;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "September";
+		$bulan['value'] = 9;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Oktober";
+		$bulan['value'] = 10;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Nopember";
+		$bulan['value'] = 11;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Desember";
+		$bulan['value'] = 12;
+
+		$bulans[] = $bulan;
+		$month = json_encode($bulans);
+		
+		$data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$data['transaksi'] = $this->all_model->getTransaksiMasukById((int) $id)->row();
 		$this->load->view('transaksi/masuk/edit', $data);
@@ -65,9 +298,16 @@ class Transaksi_Masuk extends CI_Controller {
 				'idDonatur' => $this->input->post('idDonatur'),
 				'jumlah' => $this->input->post('jumlah'),
 				'description' => $this->input->post('description'),
-				'bankTransfer' => $this->input->post('bankTransfer'),
+				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
-				'jenisTransaksi' => $this->input->post('jenisTransaksi')
+				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
+				'month' => $this->input->post('month'),
+				'status_approve' => 1,
+				'bankDonatur' => $this->input->post('bankDonatur'),
+				'noRekTujuan' => $this->input->post('noRekTujuan'),
+				'noRekPengirim' => $this->input->post('noRekPengirim'),
+				'namaPenerima' => $this->input->post('namaPenerima'),
+				'namaPengirim' => $this->input->post('namaPengirim')
 			);
 
 			$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
@@ -96,9 +336,16 @@ class Transaksi_Masuk extends CI_Controller {
 					'idDonatur' => $this->input->post('idDonatur'),
 					'jumlah' => $this->input->post('jumlah'),
 					'description' => $this->input->post('description'),
-					'bankTransfer' => $this->input->post('bankTransfer'),
-					'transferDate' => $this->input->post('transferDate'),
-					'jenisTransaksi' => $this->input->post('jenisTransaksi')
+					'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
+					'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
+					'jenisTransaksi' => $this->input->post('jenisTransaksi'),
+					'month' => $this->input->post('month'),
+					'status_approve' => 1,
+					'bankDonatur' => $this->input->post('bankDonatur'),
+					'noRekTujuan' => $this->input->post('noRekTujuan'),
+					'noRekPengirim' => $this->input->post('noRekPengirim'),
+					'namaPenerima' => $this->input->post('namaPenerima'),
+					'namaPengirim' => $this->input->post('namaPengirim')
 				);
 
 				// var_dump($data);exit();
@@ -117,6 +364,82 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function views($id){
+		$bulan = array();
+		$bulans = array();
+
+		$bulan['name'] = "Januari";
+		$bulan['value'] = 1;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Februari";
+		$bulan['value'] = 2;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Maret";
+		$bulan['value'] = 3;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "April";
+		$bulan['value'] = 4;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Mei";
+		$bulan['value'] = 5;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juni";
+		$bulan['value'] = 6;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Juli";
+		$bulan['value'] = 7;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Agustus";
+		$bulan['value'] = 8;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "September";
+		$bulan['value'] = 9;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Oktober";
+		$bulan['value'] = 10;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Nopember";
+		$bulan['value'] = 11;
+
+		$bulans[] = $bulan;
+		$bulan= array();
+
+		$bulan['name'] = "Desember";
+		$bulan['value'] = 12;
+
+		$bulans[] = $bulan;
+		$month = json_encode($bulans);
+
+		$data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$data['transaksi'] = $this->all_model->getTransaksiMasukById((int) $id)->row();
 		$this->load->view('transaksi/masuk/view', $data);
@@ -137,5 +460,85 @@ class Transaksi_Masuk extends CI_Controller {
 		}
 		$this->session->set_flashdata('error', 'Data transaksi masuk gagal dihapus');
 		return redirect(base_url() . 'transaksi_masuk/index');
+	}
+
+
+	public function approve($id){
+		$condition = array('idTransaksiMasuk' => $id);
+		$data = array(
+			'status_approve' => 2,
+			'read' => 0
+		);
+
+		$result = $this->all_model->updateData('transaksi_masuk', $condition, $data);
+		if($result == true){
+			$this->session->set_flashdata('success', 'Data transaksi masuk diterima');
+			return redirect(base_url() . 'transaksi_masuk/index');
+		}
+		$this->session->set_flashdata('error', 'Data transaksi masuk gagal diterima');
+		return redirect(base_url() . 'transaksi_masuk/index');
+	}
+
+	public function reject($id){
+		$condition = array('idTransaksiMasuk' => $id);
+		$data = array(
+			'status_approve' => 3,
+			'read' => 0
+		);
+
+		$result = $this->all_model->updateData('transaksi_masuk', $condition, $data);
+		if($result == true){
+			$this->session->set_flashdata('success', 'Data transaksi masuk ditolak');
+			return redirect(base_url() . 'transaksi_masuk/index');
+		}
+		$this->session->set_flashdata('error', 'Data transaksi masuk gagal ditolak');
+		return redirect(base_url() . 'transaksi_masuk/index');
+	}
+
+	public function notif(){
+		if($this->session->userdata('role') == 1){
+			$data['notif'] = $this->all_model->getListTransaksiMasukProses()->result();
+			echo json_encode($data);
+		}
+
+		if($this->session->userdata('role') == 2){
+			$condition = array('id_user' => $this->session->userdata('id'));
+			$donatur = $this->all_model->getDataByCondition('donatur', $condition)->row();
+			$data['notif'] = $this->all_model->getListTransaksiMasukApproveAndReject($donatur->idDonatur)->result();
+			echo json_encode($data);
+		}
+	}
+
+	public function read($id){
+		$condition = array('idTransaksiMasuk' => $id);
+		$data = array('read' => 1);
+		$res = $this->all_model->updateData('transaksi_masuk', $condition, $data);
+		if($res == true){
+			if($this->session->userdata('role') == 1){
+				return redirect(base_url() . 'transaksi_masuk/views/' . $id);
+			}else{
+				return redirect(base_url() . 'konfirmasi_pembayaran/edit/' . $id);
+			}
+		}else{
+			return redirect(base_url().'home/index');
+		}
+	}
+
+	public function allRead(){
+		$tm = $this->all_model->getListTransaksiMasukProses()->result();
+		foreach ($tm as $key => $value) {
+			$condition = array('idTransaksiMasuk' => $value->idTransaksiMasuk);
+			$data = array('read' => 1);
+			$res = $this->all_model->updateData('transaksi_masuk', $condition, $data);
+			if($res == true){
+				if($this->session->userdata('role') == 1){
+					return redirect(base_url() . 'transaksi_masuk/index');
+				}else{
+					return redirect(base_url() . 'konfirmasi_pembayaran/index');
+				}
+			}else{
+				return redirect(base_url().'home/index');
+			}
+		}
 	}
 }

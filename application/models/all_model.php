@@ -62,6 +62,24 @@ class All_model extends CI_Model {
 		$result = $this->db->query($query);
 		return $result;
 	}
+
+	public function getTransaksiMasukByUserId($id){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where d.id_user = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListTransaksiMasukProses(){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where tm.read = 0 and tm.status_approve = 1";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListTransaksiMasukApproveAndReject($id){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where (tm.read = 0 and tm.status_approve = 2) or (tm.read = 0 and tm.status_approve = 3) and d.idDonatur = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */

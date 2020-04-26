@@ -60,7 +60,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Nama Donatur</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line" name="idDonatur" required>
+                                            <select class="form-control form-control-line" name="idDonatur" required disabled>
                                                 <?php
                                                     foreach ($donatur as $key => $value) {
                                                         if($value->idDonatur == $transaksi->idDonatur){
@@ -78,40 +78,104 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Jenis Transaksi</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="jenisTransaksi" required disabled>
+                                                <?php if($transaksi->jenisTransaksi == 1){?>
+                                                <option value="1" selected>Iuran</option>
+                                                <option value="2">Sumbangan</option>
+                                                <option value="3">Dan Lain-lain</option>
+                                                <?php }elseif($transaksi->jenisTransaksi == 2){ ?>
+                                                <option value="1">Iuran</option>
+                                                <option value="2" selected>Sumbangan</option>
+                                                <option value="3">Dan Lain-lain</option>
+                                                <?php }else{ ?>
+                                                <option value="1">Iuran</option>
+                                                <option value="2">Sumbangan</option>
+                                                <option value="3" selected>Dan Lain-lain</option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bulan</label>
+                                        <div class="col-md-12">
+                                            <select class="form-control form-control-line" name="month" required disabled>
+                                                <?php 
+                                                    foreach ($bulan as $key => $value) {
+                                                        if($transaksi->month == $value->value){
+                                                ?>  
+                                                <option value="<?php echo $value->value;?>" selected><?php echo $value->name;?></option>
+                                                <?php
+                                                        }else{
+                                                ?>
+                                                <option value="<?php echo $value->value;?>"><?php echo $value->name;?></option>
+                                                <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bank Donatur</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->bankDonatur;?>" class="form-control form-control-line" name="bankDonatur" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No.Rekening Pengirim</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->noRekPengirim;?>" class="form-control form-control-line" name="noRekPengirim" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama Pengirim</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->namaPengirim;?>" class="form-control form-control-line" name="namaPengirim" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bank Transfer Tujuan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->bankTransferTujuan;?>" class="form-control form-control-line" name="bankTransferTujuan" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No.Rekening Tujuan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->noRekTujuan;?>" class="form-control form-control-line" name="noRekTujuan" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama Penerima</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->namaPenerima;?>" class="form-control form-control-line" name="namaPenerima" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Total Dana</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->jumlah;?>" class="form-control form-control-line" name="jumlah" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Deskripsi</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->description;?>" class="form-control form-control-line" name="description" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Bank Transfer</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->bankTransfer;?>" class="form-control form-control-line" name="bankTransfer" required>
+                                            <input type="text" value="<?php echo $transaksi->jumlah;?>" class="form-control form-control-line" name="jumlah" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Transfer</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($transaksi->transferDate));?>" class="form-control form-control-line" name="transferDate" required id="joinDate">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Jenis Transaksi</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->jenisTransaksi;?>" class="form-control form-control-line" name="jenisTransaksi" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($transaksi->transferDate));?>" class="form-control form-control-line" name="transferDate" required id="joinDate" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Bukti Bayar</label>
-                                        <img src="<?php echo base_url('gambar/' . $transaksi->buktiBayar);?>" style="margin: 10px 10px 13px 10px;width: 100px;height: 100px;">
                                         <div class="col-md-12">
-                                            <input type="file" value="" class="form-control form-control-line" name="buktiBayar">
+                                            <img src="<?php echo base_url('gambar/' . $transaksi->buktiBayar);?>" style="margin: 10px 10px 13px 10px;width: 100px;height: 100px;">
+                                            <input type="file" value="" class="form-control form-control-line" name="buktiBayar" required disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Keterangan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->description;?>" class="form-control form-control-line" name="description" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">

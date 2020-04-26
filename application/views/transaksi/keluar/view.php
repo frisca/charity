@@ -143,7 +143,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Keterangan</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->keterangan;?>" class="form-control form-control-line" name="keterangan" required>
+                                            <input type="text" value="<?php echo $transaksi->keterangan;?>" class="form-control form-control-line" name="keterangan" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">

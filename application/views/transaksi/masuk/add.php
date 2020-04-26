@@ -84,21 +84,69 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Jenis Transaksi</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="jenisTransaksi" required>
+                                                <option value="1">Iuran</option>
+                                                <option value="2">Sumbangan</option>
+                                                <option value="3">Dan Lain-lain</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bulan</label>
+                                        <div class="col-md-12">
+                                            <select class="form-control form-control-line" name="month" required>
+                                                <?php 
+                                                    foreach ($bulan as $key => $value) {
+                                                ?>  
+                                                <option value="<?php echo $value->value;?>"><?php echo $value->name;?></option>
+                                                <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bank Donatur</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="bankDonatur" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No.Rekening Pengirim</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="noRekPengirim" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama Pengirim</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="namaPengirim" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Bank Transfer Tujuan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="bankTransferTujuan" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No.Rekening Tujuan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="noRekTujuan" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama Penerima</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="namaPenerima" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Total Dana</label>
                                         <div class="col-md-12">
                                             <input type="text" value="" class="form-control form-control-line" name="jumlah" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Deskripsi</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="description" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Bank Transfer</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="bankTransfer" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -108,15 +156,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Jenis Transaksi</label>
-                                        <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="jenisTransaksi" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-12">Bukti Bayar</label>
                                         <div class="col-md-12">
                                             <input type="file" value="" class="form-control form-control-line" name="buktiBayar" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Keterangan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="description" required>
                                         </div>
                                     </div>
                                     <div class="form-group">

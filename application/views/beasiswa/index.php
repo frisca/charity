@@ -43,11 +43,13 @@
                             <li class="breadcrumb-item active">Penerima Beasiswa</li>
                         </ol>
                     </div>
+                    <?php if($this->session->userdata('role') == 1){?>
                     <div class="col-md-7 col-4 align-self-center">
                         <a href="<?php echo base_url('penerima_beasiswa/add');?>">
                             <button class="btn waves-effect waves-light btn-success pull-right hidden-sm-down"><i class="mdi mdi-plus"></i> Tambah</button>
                         </a>
                     </div>
+                    <?php } ?>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -93,12 +95,14 @@
                                                     <a href="<?php echo base_url('penerima_beasiswa/views/' . $value->id_beasiswa);?>">
                                                         <button class="btn btn-success"><i class="ti-search"></i></button>
                                                     </a>
+                                                    <?php if($this->session->userdata('role') == 1){?>
                                                     <a href="<?php echo base_url('penerima_beasiswa/edit/' . $value->id_beasiswa);?>">
                                                         <button class="btn btn-warning"><i class="mdi mdi-border-color"></i></button>
                                                     </a>
                                                     <a href="<?php echo base_url('penerima_beasiswa/delete/' . $value->id_beasiswa);?>">
                                                         <button class="btn btn-danger"><i class="mdi mdi-beer"></i></button>
                                                     </a>
+                                                    <?php } ?>
                                                 </td>
                                             </tr>
                                             <?php } ?>

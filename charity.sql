@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2020 at 06:34 AM
+-- Generation Time: Apr 26, 2020 at 10:46 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -44,31 +44,7 @@ CREATE TABLE `donatur` (
 INSERT INTO `donatur` (`idDonatur`, `angkatan`, `jenisKeanggotaan`, `gender`, `birthDate`, `id_user`) VALUES
 (4, '2010', 2, 'Perempuan', '2019-12-01', 9),
 (7, '2010', 2, 'Laki-laki', '2019-01-12', 12),
-(8, '2010', 3, 'Perempuan', '2019-01-12', 13);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `iuran`
---
-
-CREATE TABLE `iuran` (
-  `idIuran` bigint(20) NOT NULL,
-  `idDonatur` bigint(20) NOT NULL,
-  `dueMonth` date NOT NULL,
-  `jumlah` bigint(20) NOT NULL,
-  `createdDate` date NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `bankDonatur` varchar(200) NOT NULL,
-  `bankTransferTujuan` varchar(200) NOT NULL,
-  `noRekTujuan` varchar(50) NOT NULL,
-  `noRekPengirim` varchar(50) NOT NULL,
-  `namaPengirim` varchar(200) NOT NULL,
-  `buktiTransfer` varchar(200) NOT NULL,
-  `idTransaksiMasuk` bigint(20) NOT NULL,
-  `idApprove` bigint(20) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(8, '2009', 2, 'Perempuan', '2019-01-12', 13);
 
 -- --------------------------------------------------------
 
@@ -117,7 +93,8 @@ CREATE TABLE `pengumuman` (
   `judul` varchar(200) NOT NULL,
   `createdBy` varchar(200) NOT NULL,
   `createdDate` date NOT NULL,
-  `isi` varchar(1000) NOT NULL
+  `isi` varchar(1000) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -146,19 +123,29 @@ CREATE TABLE `transaksi_masuk` (
   `idDonatur` bigint(20) NOT NULL,
   `jumlah` bigint(20) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `bankTransfer` varchar(200) NOT NULL,
+  `bankTransferTujuan` varchar(200) NOT NULL,
   `transferDate` date NOT NULL,
-  `jenisTransaksi` varchar(50) NOT NULL,
-  `buktiBayar` varchar(250) NOT NULL
+  `jenisTransaksi` int(50) NOT NULL,
+  `buktiBayar` varchar(250) NOT NULL,
+  `status_approve` int(11) NOT NULL,
+  `dueMonth` date NOT NULL,
+  `month` int(11) NOT NULL,
+  `bankDonatur` varchar(200) NOT NULL,
+  `noRekTujuan` varchar(200) NOT NULL,
+  `noRekPengirim` varchar(200) NOT NULL,
+  `namaPengirim` varchar(200) NOT NULL,
+  `namaPenerima` varchar(200) NOT NULL,
+  `read` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi_masuk`
 --
 
-INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransfer`, `transferDate`, `jenisTransaksi`, `buktiBayar`) VALUES
-(7, 8, 3000, 'test', 'BRI', '2019-01-12', 'Transfer', '1584903906background_phone.jpg'),
-(8, 8, 100000, 'test', 'BRI', '2020-01-16', 'Transfer', '1587749201background_phone.jpg');
+INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `dueMonth`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`) VALUES
+(12, 8, 1000000, 'sumbangan', 'BCA', '2020-04-25', 1, '1587833403Logo_Perbanas_Institute.png', 2, '0000-00-00', 3, 'BNI', '1342213121', '121312112', 'Test', 'Test1', 1),
+(13, 8, 3000, 'sumbangan', 'BCA', '2020-04-26', 2, '1587836783france.png', 3, '0000-00-00', 2, 'BNI', '1342213121', '123456', 'Test', 'Test1', 1),
+(14, 8, 100000, 'test', 'BCA', '2020-04-24', 1, '1587842079france.png', 1, '0000-00-00', 1, 'BNI', '1342213121', '123456', 'Test', 'Test1', 0);
 
 -- --------------------------------------------------------
 
@@ -183,10 +170,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`idUser`, `nama`, `alamat`, `phone`, `joinDate`, `email`, `password`, `role`, `username`) VALUES
-(1, 'admin', 'balige', '0813231312312', '1970-01-01', 'admin@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 1, 'admin'),
+(1, 'admin1', 'balige', '0813231312312', '1970-01-01', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, 'admin'),
 (9, 'test', 'balige', '081231231213', '0000-00-00', 'test@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test'),
 (12, 'test1', 'test1', '081231231214', '2019-01-20', 'test@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 2, 'test'),
-(13, 'test3', 'test2', '081231231235', '2019-01-20', 'test2@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test2');
+(13, 'test4', 'test2', '081231231235', '2019-01-20', 'test2@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 2, 'test2');
 
 --
 -- Indexes for dumped tables
@@ -197,12 +184,6 @@ INSERT INTO `user` (`idUser`, `nama`, `alamat`, `phone`, `joinDate`, `email`, `p
 --
 ALTER TABLE `donatur`
   ADD PRIMARY KEY (`idDonatur`);
-
---
--- Indexes for table `iuran`
---
-ALTER TABLE `iuran`
-  ADD PRIMARY KEY (`idIuran`);
 
 --
 -- Indexes for table `penerima_beasiswa`
@@ -245,12 +226,6 @@ ALTER TABLE `donatur`
   MODIFY `idDonatur` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `iuran`
---
-ALTER TABLE `iuran`
-  MODIFY `idIuran` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
@@ -272,7 +247,7 @@ ALTER TABLE `transaksi_keluar`
 -- AUTO_INCREMENT for table `transaksi_masuk`
 --
 ALTER TABLE `transaksi_masuk`
-  MODIFY `idTransaksiMasuk` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idTransaksiMasuk` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -181,6 +181,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-12">Status</label>
                                         <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="status" required>
                                             <?php if($beasiswa->status == 1){?>
                                             <option value="1" selected>Aktif</option>
                                             <option value="2">Tidak Aktif</option>
@@ -188,6 +189,7 @@
                                             <option value="1">Aktif</option>
                                             <option value="2" selected>Tidak Aktif</option>
                                             <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">

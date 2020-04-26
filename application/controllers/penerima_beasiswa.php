@@ -88,9 +88,15 @@ class Penerima_Beasiswa extends CI_Controller {
 	}
 
 	public function views($id){
-		$condition = array('id_beasiswa' => $id);
-		$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->row();
-		$this->load->view('beasiswa/view', $data);
+		if($this->session->userdata('role') == 2){
+			$condition = array('id_beasiswa' => $id, 'status' => 1);
+			$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->row();
+			$this->load->view('beasiswa/view', $data);
+		}else{
+			$condition = array('id_beasiswa' => $id);
+			$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->row();
+			$this->load->view('beasiswa/view', $data);
+		}
 	}
 
 	public function delete($id){

@@ -61,44 +61,44 @@
                                         <label class="col-md-12">Nama</label>
                                         <div class="col-md-12">
                                             <input type="text" class="form-control form-control-line" name="nama" required 
-                                            value="<?php echo $user->nama;?>">
+                                            value="<?php echo $user->nama;?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
                                             <input type="email" class="form-control form-control-line" name="email" id="example-email" required
-                                            value="<?php echo $user->email?>">
+                                            value="<?php echo $user->email?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Username</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $user->username;?>" class="form-control form-control-line" name="username" required>
+                                            <input type="text" value="<?php echo $user->username;?>" class="form-control form-control-line" name="username" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-md-12">Password</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="" class="form-control form-control-line" name="password" required>
+                                            <input type="password" value="" class="form-control form-control-line" name="password" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">No. Handphone</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $user->phone;?>" class="form-control form-control-line" name="phone" required>
+                                            <input type="text" value="<?php echo $user->phone;?>" class="form-control form-control-line" name="phone" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Bergabung</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($user->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($user->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Alamat</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $user->alamat;?></textarea>
+                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required disabled><?php echo $user->alamat;?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

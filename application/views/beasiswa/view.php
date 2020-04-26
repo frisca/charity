@@ -60,25 +60,25 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Nama</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->nama;?>" class="form-control form-control-line" name="nama" required>
+                                            <input type="text" value="<?php echo $beasiswa->nama;?>" class="form-control form-control-line" name="nama" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Angkatan</label>
                                         <div class="col-md-12">
-                                            <input type="angkatan" value="<?php echo $beasiswa->angkatan;?>" class="form-control form-control-line" name="angkatan" required>
+                                            <input type="angkatan" value="<?php echo $beasiswa->angkatan;?>" class="form-control form-control-line" name="angkatan" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Jenjang Studi</label>
                                         <div class="col-md-12">
-                                            <input type="angkatan" value="<?php echo $beasiswa->jenjang_studi;?>" class="form-control form-control-line" name="jenjang_studi" required>
+                                            <input type="angkatan" value="<?php echo $beasiswa->jenjang_studi;?>" class="form-control form-control-line" name="jenjang_studi" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-12">Jenis Kelamin</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line" name="gender" required>
+                                            <select class="form-control form-control-line" name="gender" required disabled>
                                                 <?php if($beasiswa->gender == "Laki-laki"){?>
                                                 <option value="Laki-laki" selected>Laki-laki</option>
                                                 <option value="Perempuan">Perempuan</option>
@@ -92,84 +92,85 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Alamat</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $beasiswa->alamat;?></textarea>
+                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required disabled><?php echo $beasiswa->alamat;?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Bergabung</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($beasiswa->tgl_bergabung));?>" class="form-control form-control-line" name="tgl_bergabung" id="joinDate" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($beasiswa->tgl_bergabung));?>" class="form-control form-control-line" name="tgl_bergabung" id="joinDate" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Lahir</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($beasiswa->birth_date));?>"  class="form-control form-control-line" name="birth_date" id="birthDate" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($beasiswa->birth_date));?>"  class="form-control form-control-line" name="birth_date" id="birthDate" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Semester</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->semester;?>" class="form-control form-control-line" name="semester" required>
+                                            <input type="text" value="<?php echo $beasiswa->semester;?>" class="form-control form-control-line" name="semester" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Anak ke</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->anak_ke;?>" class="form-control form-control-line" name="anak_ke" required>
+                                            <input type="text" value="<?php echo $beasiswa->anak_ke;?>" class="form-control form-control-line" name="anak_ke" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Jumlah Saudara</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->jmlh_saudara;?>" class="form-control form-control-line" name="jmlh_saudara" required>
+                                            <input type="text" value="<?php echo $beasiswa->jmlh_saudara;?>" class="form-control form-control-line" name="jmlh_saudara" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Nama Ayah</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->nama_ayah;?>" class="form-control form-control-line" name="nama_ayah" required>
+                                            <input type="text" value="<?php echo $beasiswa->nama_ayah;?>" class="form-control form-control-line" name="nama_ayah" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Pekerjaan Ayah</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->pekerjaan_ayah;?>" class="form-control form-control-line" name="pekerjaan_ayah" required>
+                                            <input type="text" value="<?php echo $beasiswa->pekerjaan_ayah;?>" class="form-control form-control-line" name="pekerjaan_ayah" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Penghasilan Ayah</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->penghasilan_ayah;?>" class="form-control form-control-line" name="penghasilan_ayah" required>
+                                            <input type="text" value="<?php echo $beasiswa->penghasilan_ayah;?>" class="form-control form-control-line" name="penghasilan_ayah" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Nama Ibu</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->nama_ibu;?>" class="form-control form-control-line" name="nama_ibu" required>
+                                            <input type="text" value="<?php echo $beasiswa->nama_ibu;?>" class="form-control form-control-line" name="nama_ibu" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Pekerjaan Ibu</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->pekerjaan_ibu;?>" class="form-control form-control-line" name="pekerjaan_ibu" required>
+                                            <input type="text" value="<?php echo $beasiswa->pekerjaan_ibu;?>" class="form-control form-control-line" name="pekerjaan_ibu" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Penghasilan Ibu</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->penghasilan_ibu;?>" class="form-control form-control-line" name="penghasilan_ibu" required>
+                                            <input type="text" value="<?php echo $beasiswa->penghasilan_ibu;?>" class="form-control form-control-line" name="penghasilan_ibu" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Rekening</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->rekening;?>" class="form-control form-control-line" name="rekening" required>
+                                            <input type="text" value="<?php echo $beasiswa->rekening;?>" class="form-control form-control-line" name="rekening" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-12">Status</label>
                                         <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="status" required disabled>
                                             <?php if($beasiswa->status == 1){?>
                                             <option value="1" selected>Aktif</option>
                                             <option value="2">Tidak Aktif</option>
@@ -177,12 +178,13 @@
                                             <option value="1">Aktif</option>
                                             <option value="2" selected>Tidak Aktif</option>
                                             <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Keterangan</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $beasiswa->keterangan;?>" class="form-control form-control-line" name="keterangan" required>
+                                            <input type="text" value="<?php echo $beasiswa->keterangan;?>" class="form-control form-control-line" name="keterangan" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
