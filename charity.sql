@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2020 at 10:46 AM
+-- Generation Time: Apr 26, 2020 at 01:43 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -42,9 +42,32 @@ CREATE TABLE `donatur` (
 --
 
 INSERT INTO `donatur` (`idDonatur`, `angkatan`, `jenisKeanggotaan`, `gender`, `birthDate`, `id_user`) VALUES
-(4, '2010', 2, 'Perempuan', '2019-12-01', 9),
+(4, '2010', 1, 'Perempuan', '2019-12-01', 9),
 (7, '2010', 2, 'Laki-laki', '2019-01-12', 12),
 (8, '2009', 2, 'Perempuan', '2019-01-12', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email`
+--
+
+CREATE TABLE `email` (
+  `idEmail` bigint(20) NOT NULL,
+  `toUser` bigint(20) NOT NULL,
+  `message` varchar(200) NOT NULL,
+  `dateEmail` date NOT NULL,
+  `status` int(11) NOT NULL,
+  `fromUser` varchar(20) NOT NULL,
+  `judul` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email`
+--
+
+INSERT INTO `email` (`idEmail`, `toUser`, `message`, `dateEmail`, `status`, `fromUser`, `judul`) VALUES
+(71, 4, '<p>Silahkan melakukan pembayaran iuran sebelum jatuh tanggal 26- 04-2020.</p><p>Jika Anda sudah membayar iuran, Anda dapat mengabaikan email ini.</p><p>Sekian dan Terimakasih.</p>', '2020-04-26', 1, 'Admin', 'Reminder Iuran');
 
 -- --------------------------------------------------------
 
@@ -128,7 +151,6 @@ CREATE TABLE `transaksi_masuk` (
   `jenisTransaksi` int(50) NOT NULL,
   `buktiBayar` varchar(250) NOT NULL,
   `status_approve` int(11) NOT NULL,
-  `dueMonth` date NOT NULL,
   `month` int(11) NOT NULL,
   `bankDonatur` varchar(200) NOT NULL,
   `noRekTujuan` varchar(200) NOT NULL,
@@ -142,10 +164,10 @@ CREATE TABLE `transaksi_masuk` (
 -- Dumping data for table `transaksi_masuk`
 --
 
-INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `dueMonth`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`) VALUES
-(12, 8, 1000000, 'sumbangan', 'BCA', '2020-04-25', 1, '1587833403Logo_Perbanas_Institute.png', 2, '0000-00-00', 3, 'BNI', '1342213121', '121312112', 'Test', 'Test1', 1),
-(13, 8, 3000, 'sumbangan', 'BCA', '2020-04-26', 2, '1587836783france.png', 3, '0000-00-00', 2, 'BNI', '1342213121', '123456', 'Test', 'Test1', 1),
-(14, 8, 100000, 'test', 'BCA', '2020-04-24', 1, '1587842079france.png', 1, '0000-00-00', 1, 'BNI', '1342213121', '123456', 'Test', 'Test1', 0);
+INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`) VALUES
+(12, 8, 1000000, 'sumbangan', 'BCA', '2020-04-25', 1, '1587833403Logo_Perbanas_Institute.png', 2, 3, 'BNI', '1342213121', '121312112', 'Test', 'Test1', 1),
+(13, 8, 3000, 'sumbangan', 'BCA', '2020-04-26', 2, '1587836783france.png', 3, 2, 'BNI', '1342213121', '123456', 'Test', 'Test1', 1),
+(14, 8, 100000, 'test', 'BCA', '2020-04-24', 1, '1587842079france.png', 1, 1, 'BNI', '1342213121', '123456', 'Test', 'Test1', 0);
 
 -- --------------------------------------------------------
 
@@ -186,6 +208,12 @@ ALTER TABLE `donatur`
   ADD PRIMARY KEY (`idDonatur`);
 
 --
+-- Indexes for table `email`
+--
+ALTER TABLE `email`
+  ADD PRIMARY KEY (`idEmail`);
+
+--
 -- Indexes for table `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
@@ -224,6 +252,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `donatur`
   MODIFY `idDonatur` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `email`
+--
+ALTER TABLE `email`
+  MODIFY `idEmail` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `penerima_beasiswa`

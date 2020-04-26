@@ -33,6 +33,7 @@
             $("#birthDate").datepicker({dateFormat: 'dd/mm/yy'});
             CKEDITOR.replace('edi');
 
+            // notif
             $.getJSON("<?php echo base_url();?>transaksi_masuk/notif", function(data){
                 if(data.notif.length == 0){
                     $(' ul li#notif a div').css('display', 'none');
@@ -105,7 +106,84 @@
                     '</li>');
                 }
             });
+
+            //message
+            $.getJSON("<?php echo base_url();?>email/notif", function(data){
+                console.log('data: ', data.message)
+                if(data.message.length == 0){
+                    $(' ul li#message a div').css('display', 'none');
+                    $('li#message ul').prepend('<li>'+
+                        '<p style="margin: 3px 10px 5px 12px;"> Anda tidak mempunyai notifikasi </p>' +
+                    '</li>');
+                    $('li#message ul li:eq(1)').css('display', 'none');
+                }else if(data.message.length == 2){
+                    $('li#message ul').prepend('<li>'+
+                        '<h5 class="font-medium py-3 px-4 border-bottom mb-0"> Anda mempunyai ' + data.message.length + ' pesan </h5>' +
+                    '</li>');
+
+                    $.each(data.message, function( i, val ) {
+                        $('li#notif ul li div.message-center').append('<a href="<?php echo base_url("email/view/'+val.idEmail+'");?>" class="border-bottom d-block text-decoration-none py-2 px-3">' +
+                            '<div class="btn btn-primary btn-circle mr-2"><i class="fa fa-credit-card"></i>' +
+                            '</div>' +
+                            '<div class="mail-contnet d-inline-block align-middle">' +
+                                '<h5 class="my-1">' + val.nama + '</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">' + val.description +
+                                    '</span>' +
+                            '</div>'+
+                        '</a>');
+                    });
+
+                    $('li#message ul').append('<li>'+
+                        '<a class="nav-link text-center border-top pt-3" href="javascript:void(0);" style="margin-top:-127px;">' +
+                            '<strong>Tidak ada detail ' +
+                                'pesan</strong></a>' +
+                    '</li>');
+                }else if(data.message.length == 1){
+                    $('li#notif ul').prepend('<li>'+
+                        '<h5 class="font-medium py-3 px-4 border-bottom mb-0"> Anda mempunyai ' + data.message.length + ' pesan </h5>' +
+                    '</li>');
+
+                    $.each(data.message, function( i, val ) {
+                        $('li#message ul li div.message-center').append('<a href="<?php echo base_url("email/views/'+val.idEmail+'");?>" class="border-bottom d-block text-decoration-none py-2 px-3">' +
+                            '<div class="btn btn-primary btn-circle mr-2"><i class="fa fa-credit-card"></i>' +
+                            '</div>' +
+                            '<div class="mail-contnet d-inline-block align-middle">' +
+                                '<h5 class="my-1">' + val.fromUser + '</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">' + val.judul +
+                                    '</span>' +
+                            '</div>'+
+                        '</a>');
+                    });
+
+                    $('li#message ul').append('<li>'+
+                        '<a class="nav-link text-center border-top pt-3" href="javascript:void(0);" style="margin-top:-189px;">' +
+                            '<strong>Tidak ada detail ' +
+                                'message</strong></a>' +
+                    '</li>');
+                }else{
+                    $('li#message ul').prepend('<li>'+
+                        '<h5 class="font-medium py-3 px-4 border-bottom mb-0"> Anda mempunyai ' + data.notif.length + ' pesan </h5>' +
+                    '</li>');
+
+                    $.each(data.message, function( i, val ) {
+                        $('li#message ul li div.message-center').append('<a href="<?php echo base_url("email/views/'+val.idEmail+'");?>" class="border-bottom d-block text-decoration-none py-2 px-3">' +
+                            '<div class="btn btn-primary btn-circle mr-2"><i class="fa fa-credit-card"></i>' +
+                            '</div>' +
+                            '<div class="mail-contnet d-inline-block align-middle">' +
+                                '<h5 class="my-1">' + val.nama + '</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">' + val.description +
+                                    '</span>' +
+                            '</div>'+
+                        '</a>');
+                    });
+
+                    $('li#message ul').append('<li>'+
+                        '<a class="nav-link text-center border-top pt-3" href="<?php echo base_url("email/index");?>" style="margin-top:-189px;">' +
+                            '<strong>Lihat semua detail ' +
+                                'pesan</strong></a>' +
+                    '</li>');
+                }
+            });
         });
+
+
 
         // function transaksiProses(){
 
@@ -127,7 +205,13 @@
         //     });
         // }
 
-        // setInterval(function(){transaksiProses()}, 1000);
+        function insertEmail(){
+            $.getJSON("<?php echo base_url();?>email/insertEmail", function(data){
+                console.log('response: ', data);
+            });
+        }
+
+        setInterval(function(){insertEmail()}, 1000);
 
 
         $('li#notif ul li div.message-center').empty();

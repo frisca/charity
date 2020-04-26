@@ -42,6 +42,8 @@
                 </li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('konfirmasi_pembayaran/index');?>" aria-expanded="false"><i class="mdi mdi-cards"></i><span class="hide-menu">Pembayaran</span></a>
                 </li>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('email/index');?>" aria-expanded="false"><i class="mdi mdi-gmail"></i><span class="hide-menu">Email</span></a>
+                </li>
                 <!-- <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-view-sequential"></i><span class="hide-menu">Laporan </span></a>
                     <ul aria-expanded="false" class="collapse">
@@ -60,8 +62,8 @@
     <!-- End Sidebar scroll-->
     <!-- Bottom points-->
     <div class="sidebar-footer">
-        <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-        <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+        <!-- item--><a href="<?php echo base_url('profile/index');?>" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        <!-- item--><a href="<?php echo base_url('email/index');?>" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
         <!-- item--><a href="<?php echo base_url('login/logout');?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
     <!-- End Bottom points-->
 </aside>

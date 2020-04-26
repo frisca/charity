@@ -80,6 +80,24 @@ class All_model extends CI_Model {
 		$result = $this->db->query($query);
 		return $result;
 	}
+
+	public function getNotifEmail($id){
+		$query = "SELECT e.*, d.*, u.idUser, u.nama FROM email e left join  donatur d on d.idDonatur = e.toUser left join user u on u.idUser = d.id_user where e.status = 0 and u.idUser = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListEmail($id){
+		$query = "SELECT e.*, d.*, u.idUser, u.nama FROM email e left join  donatur d on d.idDonatur = e.toUser left join user u on u.idUser = d.id_user where u.idUser = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getEmailById($id){
+		$query = "SELECT e.*, d.*, u.idUser, u.nama FROM email e left join  donatur d on d.idDonatur = e.toUser left join user u on u.idUser = d.id_user where e.idEmail = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */
