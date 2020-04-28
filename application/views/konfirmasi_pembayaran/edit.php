@@ -98,6 +98,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Tahun</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $konfirmasi_pembayaran->year;?>" class="form-control form-control-line" name="year" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Bank Donatur</label>
                                         <div class="col-md-12">
                                             <input type="text" value="<?php echo $konfirmasi_pembayaran->bankDonatur;?>" class="form-control form-control-line" name="bankDonatur" required>

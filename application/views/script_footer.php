@@ -29,8 +29,51 @@
         $(document).ready(function() {
             $('#example').DataTable();
             $('[data-toggle="tooltip"]').tooltip();
-            $("#joinDate").datepicker({dateFormat: 'dd/mm/yy'});
-            $("#birthDate").datepicker({dateFormat: 'dd/mm/yy'});
+            $("#joinDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                showOtherMonths:true,
+                selectOtherMonths: true
+            });
+            $("#birthDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                showOtherMonths:true,
+                selectOtherMonths: true
+            });
+            $("#startDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                showOtherMonths:true,
+                selectOtherMonths: true
+            });
+            $("#endDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                prevText:"click for previous months",
+                nextText:"click for next months",
+                showOtherMonths:true,
+                selectOtherMonths: true
+            });
+            $('.search').click(function(){
+                if($("#startDate").val() > $("#endDate").val()){
+                    alert('Dari bulan tidak boleh besar dari Sampai bulan');
+                    return false;
+                }
+
+                if($("#startDate").val() == "" && $("#endDate").val() == ""){
+                    alert('Dari bulan tidak boleh kosong dari Sampai bulan');
+                    return false;
+                }
+            })
             CKEDITOR.replace('edi');
 
             // notif

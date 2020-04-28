@@ -18,7 +18,7 @@ class Email extends CI_Controller {
 		$donatur = $this->all_model->getDataByCondition('donatur', $con_donatur)->result();
 
 		foreach ($donatur as $key => $value) {
-			$condition = array('dateEmail' => date('Y-m') . '-26', 'toUser' => $value->idDonatur);
+			$condition = array('dateEmail' => date('Y-m') . '-21', 'toUser' => $value->idDonatur);
 			$email = $this->all_model->getDataByCondition('email', $condition)->result();
 
 			if(empty($email)){

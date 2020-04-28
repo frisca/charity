@@ -93,6 +93,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-12">Tahun</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="" class="form-control form-control-line" name="year" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Bank Donatur</label>
                                         <div class="col-md-12">
                                             <input type="text" value="" class="form-control form-control-line" name="bankDonatur" required>

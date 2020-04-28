@@ -13,73 +13,73 @@ class Transaksi_Masuk extends CI_Controller {
 		$bulans = array();
 
 		$bulan['name'] = "Januari";
-		$bulan['value'] = 1;
+		$bulan['value'] = "01";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Februari";
-		$bulan['value'] = 2;
+		$bulan['value'] = "02";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Maret";
-		$bulan['value'] = 3;
+		$bulan['value'] = "03";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "April";
-		$bulan['value'] = 4;
+		$bulan['value'] = "04";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Mei";
-		$bulan['value'] = 5;
+		$bulan['value'] = "05";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juni";
-		$bulan['value'] = 6;
+		$bulan['value'] = "06";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juli";
-		$bulan['value'] = 7;
+		$bulan['value'] = "07";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Agustus";
-		$bulan['value'] = 8;
+		$bulan['value'] = "08";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "September";
-		$bulan['value'] = 9;
+		$bulan['value'] = "09";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Oktober";
-		$bulan['value'] = 10;
+		$bulan['value'] = "10";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Nopember";
-		$bulan['value'] = 11;
+		$bulan['value'] = "11";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Desember";
-		$bulan['value'] = 12;
+		$bulan['value'] = "12";
 
 		$bulans[] = $bulan;
 		$month = json_encode($bulans);
@@ -93,73 +93,73 @@ class Transaksi_Masuk extends CI_Controller {
 		$bulans = array();
 
 		$bulan['name'] = "Januari";
-		$bulan['value'] = 1;
+		$bulan['value'] = "01";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Februari";
-		$bulan['value'] = 2;
+		$bulan['value'] = "02";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Maret";
-		$bulan['value'] = 3;
+		$bulan['value'] = "03";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "April";
-		$bulan['value'] = 4;
+		$bulan['value'] = "04";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Mei";
-		$bulan['value'] = 5;
+		$bulan['value'] = "05";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juni";
-		$bulan['value'] = 6;
+		$bulan['value'] = "06";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juli";
-		$bulan['value'] = 7;
+		$bulan['value'] = "07";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Agustus";
-		$bulan['value'] = 8;
+		$bulan['value'] = "08";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "September";
-		$bulan['value'] = 9;
+		$bulan['value'] = "09";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Oktober";
-		$bulan['value'] = 10;
+		$bulan['value'] = "10";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Nopember";
-		$bulan['value'] = 11;
+		$bulan['value'] = "11";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Desember";
-		$bulan['value'] = 12;
+		$bulan['value'] = "12";
 
 		$bulans[] = $bulan;
 		$month = json_encode($bulans);
@@ -194,7 +194,8 @@ class Transaksi_Masuk extends CI_Controller {
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
-				'namaPengirim' => $this->input->post('namaPengirim')
+				'namaPengirim' => $this->input->post('namaPengirim'),
+				'year' => $this->input->post('year')
 			);
 			$result = $this->all_model->insertData('transaksi_masuk', $data);
 			if($result == true){
@@ -211,73 +212,73 @@ class Transaksi_Masuk extends CI_Controller {
 		$bulans = array();
 
 		$bulan['name'] = "Januari";
-		$bulan['value'] = 1;
+		$bulan['value'] = "01";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Februari";
-		$bulan['value'] = 2;
+		$bulan['value'] = "02";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Maret";
-		$bulan['value'] = 3;
+		$bulan['value'] = "03";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "April";
-		$bulan['value'] = 4;
+		$bulan['value'] = "04";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Mei";
-		$bulan['value'] = 5;
+		$bulan['value'] = "05";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juni";
-		$bulan['value'] = 6;
+		$bulan['value'] = "06";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juli";
-		$bulan['value'] = 7;
+		$bulan['value'] = "07";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Agustus";
-		$bulan['value'] = 8;
+		$bulan['value'] = "08";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "September";
-		$bulan['value'] = 9;
+		$bulan['value'] = "09";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Oktober";
-		$bulan['value'] = 10;
+		$bulan['value'] = "10";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Nopember";
-		$bulan['value'] = 11;
+		$bulan['value'] = "11";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Desember";
-		$bulan['value'] = 12;
+		$bulan['value'] = "12";
 
 		$bulans[] = $bulan;
 		$month = json_encode($bulans);
@@ -307,7 +308,8 @@ class Transaksi_Masuk extends CI_Controller {
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
-				'namaPengirim' => $this->input->post('namaPengirim')
+				'namaPengirim' => $this->input->post('namaPengirim'),
+				'year' => $this->input->post('year')
 			);
 
 			$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
@@ -345,7 +347,8 @@ class Transaksi_Masuk extends CI_Controller {
 					'noRekTujuan' => $this->input->post('noRekTujuan'),
 					'noRekPengirim' => $this->input->post('noRekPengirim'),
 					'namaPenerima' => $this->input->post('namaPenerima'),
-					'namaPengirim' => $this->input->post('namaPengirim')
+					'namaPengirim' => $this->input->post('namaPengirim'),
+					'year' => $this->input->post('year')
 				);
 
 				// var_dump($data);exit();
@@ -368,73 +371,73 @@ class Transaksi_Masuk extends CI_Controller {
 		$bulans = array();
 
 		$bulan['name'] = "Januari";
-		$bulan['value'] = 1;
+		$bulan['value'] = "01";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Februari";
-		$bulan['value'] = 2;
+		$bulan['value'] = "02";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Maret";
-		$bulan['value'] = 3;
+		$bulan['value'] = "03";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "April";
-		$bulan['value'] = 4;
+		$bulan['value'] = "04";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Mei";
-		$bulan['value'] = 5;
+		$bulan['value'] = "05";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juni";
-		$bulan['value'] = 6;
+		$bulan['value'] = "06";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Juli";
-		$bulan['value'] = 7;
+		$bulan['value'] = "07";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Agustus";
-		$bulan['value'] = 8;
+		$bulan['value'] = "08";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "September";
-		$bulan['value'] = 9;
+		$bulan['value'] = "09";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Oktober";
-		$bulan['value'] = 10;
+		$bulan['value'] = "10";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Nopember";
-		$bulan['value'] = 11;
+		$bulan['value'] = "11";
 
 		$bulans[] = $bulan;
 		$bulan= array();
 
 		$bulan['name'] = "Desember";
-		$bulan['value'] = 12;
+		$bulan['value'] = "12";
 
 		$bulans[] = $bulan;
 		$month = json_encode($bulans);

@@ -98,6 +98,48 @@ class All_model extends CI_Model {
 		$result = $this->db->query($query);
 		return $result;
 	}
+
+	public function getTotalTransaksi(){
+		$query = "SELECT sum(jumlah) as total FROM transaksi_masuk where status_approve = 2";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getListTransaksiMasukApprove(){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where tm.status_approve = 2";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSearchTotalTransaksiMasuk($startDate, $endDate){
+		$query = "SELECT sum(tm.jumlah) as total FROM transaksi_masuk tm WHERE tm.transferDate BETWEEN '" . $startDate . "' and '" . $endDate . "' and tm.status_approve = 2 " ;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSearchListTransaksiMasuk($startDate, $endDate){
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user WHERE tm.transferDate BETWEEN '" . $startDate . "' and '" . $endDate . "' and tm.status_approve = 2";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getTotalTransaksiKeluar(){
+		$query = "SELECT sum(jumlah) as total FROM transaksi_keluar";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSearchTotalTransaksiKeluar($startDate, $endDate){
+		$query = "SELECT sum(tk.jumlah) as total FROM transaksi_keluar tk WHERE tk.tanggalTransaksi BETWEEN '" . $startDate . "' and '" . $endDate . "'";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSearchListTransaksiKeluar($startDate, $endDate){
+		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa WHERE tk.tanggalTransaksi BETWEEN '" . $startDate . "' and '" . $endDate . "'";
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */

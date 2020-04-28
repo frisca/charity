@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2020 at 01:43 PM
+-- Generation Time: Apr 28, 2020 at 05:07 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
 
@@ -135,6 +135,13 @@ CREATE TABLE `transaksi_keluar` (
   `keterangan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `transaksi_keluar`
+--
+
+INSERT INTO `transaksi_keluar` (`idTransaksiKeluar`, `jenisTransaksiKeluar`, `jumlah`, `id_beasiswa`, `tanggalTransaksi`, `keterangan`) VALUES
+(1, 1, 3000, 3, '2020-04-01', 'penerima beasiswa');
+
 -- --------------------------------------------------------
 
 --
@@ -151,23 +158,24 @@ CREATE TABLE `transaksi_masuk` (
   `jenisTransaksi` int(50) NOT NULL,
   `buktiBayar` varchar(250) NOT NULL,
   `status_approve` int(11) NOT NULL,
-  `month` int(11) NOT NULL,
+  `month` varchar(10) NOT NULL,
   `bankDonatur` varchar(200) NOT NULL,
   `noRekTujuan` varchar(200) NOT NULL,
   `noRekPengirim` varchar(200) NOT NULL,
   `namaPengirim` varchar(200) NOT NULL,
   `namaPenerima` varchar(200) NOT NULL,
-  `read` int(11) NOT NULL
+  `read` int(11) NOT NULL,
+  `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi_masuk`
 --
 
-INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`) VALUES
-(12, 8, 1000000, 'sumbangan', 'BCA', '2020-04-25', 1, '1587833403Logo_Perbanas_Institute.png', 2, 3, 'BNI', '1342213121', '121312112', 'Test', 'Test1', 1),
-(13, 8, 3000, 'sumbangan', 'BCA', '2020-04-26', 2, '1587836783france.png', 3, 2, 'BNI', '1342213121', '123456', 'Test', 'Test1', 1),
-(14, 8, 100000, 'test', 'BCA', '2020-04-24', 1, '1587842079france.png', 1, 1, 'BNI', '1342213121', '123456', 'Test', 'Test1', 0);
+INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`, `year`) VALUES
+(12, 8, 1000000, 'sumbangan', 'BCA', '2020-04-25', 1, '1587833403Logo_Perbanas_Institute.png', 2, '03', 'BNI', '1342213121', '121312112', 'Test', 'Test1', 1, '2020'),
+(13, 8, 3000, 'sumbangan', 'BCA', '2020-04-26', 2, '1587836783france.png', 3, '02', 'BNI', '1342213121', '123456', 'Test', 'Test1', 1, '2020'),
+(14, 8, 100000, 'test', 'BCA', '2020-04-24', 1, '1587842079france.png', 1, '01', 'BNI', '1342213121', '123456', 'Test', 'Test1', 0, '2020');
 
 -- --------------------------------------------------------
 
@@ -275,7 +283,7 @@ ALTER TABLE `pengumuman`
 -- AUTO_INCREMENT for table `transaksi_keluar`
 --
 ALTER TABLE `transaksi_keluar`
-  MODIFY `idTransaksiKeluar` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTransaksiKeluar` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `transaksi_masuk`

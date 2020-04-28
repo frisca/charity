@@ -44,13 +44,13 @@
                 </li>
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('email/index');?>" aria-expanded="false"><i class="mdi mdi-gmail"></i><span class="hide-menu">Email</span></a>
                 </li>
-                <!-- <li> 
+                <li> 
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-view-sequential"></i><span class="hide-menu">Laporan </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="<?php echo base_url('laporan_masuk/index');?>">Masuk</a></li>
                         <li><a href="<?php echo base_url('laporan_keluar/index');?>">Keluar</a></li>
                     </ul>
-                </li> -->
+                </li>
                 <?php } ?>
             </ul>
             <!-- <div class="text-center m-t-30">
