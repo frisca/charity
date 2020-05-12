@@ -7,22 +7,45 @@
                 <?php if($this->session->userdata('role') == 1){?>
                 <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a>
+                <!-- <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a>
+                </li> -->
+                <!-- <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('donatur/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-account-multiple"></i><span class="hide-menu">Donatur</span>
+                    </a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('donatur/index');?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Donatur</span></a>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('admin/index');?>" aria-expanded="false"><i class="mdi mdi-account-circle"></i><span class="hide-menu">Admin</span></a>
+                <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('admin/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-account-circle"></i><span class="hide-menu">Admin</span>
+                    </a>
+                </li> -->
+                <!-- <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('role/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-account-multiple"></i><span class="hide-menu">Role</span>
+                    </a>
+                </li> -->
+                <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('user/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-account-circle"></i><span class="hide-menu">User</span>
+                    </a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penerima_beasiswa/index');?>" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Penerima Beasiswa</span></a>
+                <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('penerima_beasiswa/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-account-card-details"></i><span class="hide-menu">Penerima Beasiswa</span>
+                    </a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('pengumuman/index');?>" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Pengumuman</span></a>
+                <li> 
+                    <a class="waves-effect waves-dark" href="<?php echo base_url('pengumuman/index');?>" aria-expanded="false">
+                        <i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Pengumuman</span>
+                    </a>
                 </li>
                <!--  <li> <a class="waves-effect waves-dark" href="<?php echo base_url('iuran/index');?>" aria-expanded="false"><i class="mdi mdi-cards"></i><span class="hide-menu">Iuran</span></a> -->
                 </li>
                 <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Transaksi </span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Donasi & Giving </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('transaksi_masuk/index');?>">Masuk</a></li>
-                        <li><a href="<?php echo base_url('transaksi_keluar/index');?>">Keluar</a></li>
+                        <li><a href="<?php echo base_url('transaksi_masuk/index');?>">Donasi</a></li>
+                        <li><a href="<?php echo base_url('transaksi_keluar/index');?>">Giving</a></li>
                     </ul>
                 </li>
                 <li> 

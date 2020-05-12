@@ -140,6 +140,56 @@ class All_model extends CI_Model {
 		$result = $this->db->query($query);
 		return $result;
 	}
+
+	public function getListPengumuman(){
+		$query = "SELECT p.*, d.*, u.* FROM pengumuman p left join donatur d on d.idDonatur = p.createdBy left join user u on d.id_user = u.idUser where p.status = 1";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getCountGender($gender){
+		$query = "SELECT count(gender) as count_gender FROM donatur where gender = '" . $gender . "'";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSumDonasi(){
+		$query = "SELECT 
+					sum(case when month='1' then jumlah ELSE 0 end) as jan,
+				    sum(case when month='2' then jumlah ELSE 0 end) as feb,
+				    sum(case when month='3' then jumlah ELSE 0 end) as mar,
+				    sum(case when month='4' then jumlah ELSE 0 end) as apr,
+				    sum(case when month='5' then jumlah ELSE 0 end) as mei,
+				    sum(case when month='6' then jumlah ELSE 0 end) as jun,
+				    sum(case when month='7' then jumlah ELSE 0 end) as jul,
+				    sum(case when month='8' then jumlah ELSE 0 end) as agu,
+				    sum(case when month='9' then jumlah ELSE 0 end) as sep,
+				    sum(case when month='10' then jumlah ELSE 0 end) as okt,
+				    sum(case when month='11' then jumlah ELSE 0 end) as nov,
+				    sum(case when month='12' then jumlah ELSE 0 end) as des
+				FROM `transaksi_masuk` GROUP by idDonatur and month";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getSumGiving(){
+		$query = "SELECT 
+					sum(case when month(tanggalTransaksi)='01' then jumlah ELSE 0 end) as jan,
+				    sum(case when month(tanggalTransaksi)='02' then jumlah ELSE 0 end) as feb,
+				    sum(case when month(tanggalTransaksi)='03' then jumlah ELSE 0 end) as mar,
+				    sum(case when month(tanggalTransaksi)='04' then jumlah ELSE 0 end) as apr,
+				    sum(case when month(tanggalTransaksi)='05' then jumlah ELSE 0 end) as mei,
+				    sum(case when month(tanggalTransaksi)='06' then jumlah ELSE 0 end) as jun,
+				    sum(case when month(tanggalTransaksi)='07' then jumlah ELSE 0 end) as jul,
+				    sum(case when month(tanggalTransaksi)='08' then jumlah ELSE 0 end) as agu,
+				    sum(case when month(tanggalTransaksi)='09' then jumlah ELSE 0 end) as sep,
+				    sum(case when month(tanggalTransaksi)='10' then jumlah ELSE 0 end) as okt,
+				    sum(case when month(tanggalTransaksi)='11' then jumlah ELSE 0 end) as nov,
+				    sum(case when month(tanggalTransaksi)='12' then jumlah ELSE 0 end) as des
+				FROM transaksi_keluar group BY month(tanggalTransaksi)";
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */

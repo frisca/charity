@@ -77,7 +77,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Pengarang</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control form-control-line" name="createdBy" value="<?php echo $pengumuman->createdBy;?>" required>
+                                            <input type="text" class="form-control form-control-line" name="pengarang" value="<?php echo $pengumuman->pengarang;?>" required>
                                         </div>
                                     </div>
                                     <div class="form-group">

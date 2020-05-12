@@ -85,7 +85,7 @@
                     }
                 ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url('assets/images/users/9.jpg');?>" alt="user" class="profile-pic m-r-10" /><?php echo $this->session->userdata('username');?></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark profile" href="<?php echo base_url('profile/index');?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php if(empty($this->session->userdata('image'))){ echo base_url('assets/images/users/9.jpg');}else{ echo base_url('gambar/profile/' . $this->session->userdata('image'));}?>" alt="user" class="profile-pic m-r-10" /><?php echo $this->session->userdata('username');?></a>
                 </li>
             </ul>
         </div>

@@ -56,7 +56,7 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-block">
-                                <center class="m-t-30"> <img src="<?php echo base_url('assets/images/users/9.jpg');?>" class="img-circle" width="150" />
+                                <center class="m-t-30"> <img src="<?php if(empty($donatur->image)){echo base_url('assets/images/users/9.jpg');}else{ echo base_url('gambar/profile/' . $donatur->image);}?>" class="img-circle" width="150" />
                                     <h4 class="card-title m-t-10"><?php echo $profile->nama;?></h4>
                                    <!--  <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
                                     <div class="row text-center justify-content-md-center">
@@ -83,136 +83,83 @@
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
                                 <?php } ?>                                
-                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('profile/processUpdate');?>">
-                                    <?php if($profile->role == 1){?>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Nama</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->nama;?>" class="form-control form-control-line" name="nama" required>
-                                            </div>
+                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('profile/processUpdate');?>" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama</label>
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control form-control-line" name="nama" required 
+                                            value="<?php echo $profile->nama;?>">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="example-email" class="col-md-12">Email</label>
-                                            <div class="col-md-12">
-                                                <input type="email" value="<?php echo $profile->email;?>" class="form-control form-control-line" name="email" id="example-email" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" class="form-control form-control-line" name="email" id="example-email" required
+                                            value="<?php echo $profile->email?>">
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Username</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->username;?>" class="form-control form-control-line" name="username" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Username</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $profile->username;?>" class="form-control form-control-line" name="username" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-md-12">Password</label>
-                                            <div class="col-md-12">
-                                                <input type="password" value="" class="form-control form-control-line" name="password">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" value="" class="form-control form-control-line" name="password">
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">No. Handphone</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->phone;?>" class="form-control form-control-line" name="phone" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">No. Handphone</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $profile->phone;?>" class="form-control form-control-line" name="phone" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Tanggal Bergabung</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo date('d/m/Y', strtotime($profile->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Tanggal Bergabung</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($profile->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Alamat</label>
-                                            <div class="col-md-12">
-                                                <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $profile->alamat;?></textarea>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Tanggal Lahir</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($donatur->birthDate));?>" class="form-control form-control-line" name="birthDate" id="birthDate" required>
                                         </div>
-                                    <?php }else{ ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Jenis Keanggotan</label>
-                                            <div class="col-sm-12">
-                                                <select class="form-control form-control-line" name="jenisKeanggotan" required>
-                                                    <?php if($donatur->jenisKeanggotan == 1){?>
-                                                    <option value="1" selected>Rutin</option>
-                                                    <option value="2">Tidak Rutin</option>
-                                                    <?php }else{ ?>
-                                                    <option value="1">Rutin</option>
-                                                    <option value="2" selected>Tidak Rutin</option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Jenis Kelamin</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line" name="gender" required>
+                                                <?php if($donatur->gender == "Laki-laki"){?>
+                                                <option value="Laki-laki" selected>Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                                <?php }else{ ?>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan" selected>Perempuan</option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Nama</label>
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control form-control-line" name="nama" required 
-                                                value="<?php echo $profile->nama;?>">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Angkatan</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $donatur->angkatan;?>" class="form-control form-control-line" name="angkatan">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="example-email" class="col-md-12">Email</label>
-                                            <div class="col-md-12">
-                                                <input type="email" class="form-control form-control-line" name="email" id="example-email" required
-                                                value="<?php echo $profile->email?>">
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Alamat</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $profile->alamat;?></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Username</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->username;?>" class="form-control form-control-line" name="username" required>
-                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Gambar Profil</label>
+                                        <div class="col-md-12">
+                                            <input type="file" class="form-control form-control-line" name="userfile">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-md-12">Password</label>
-                                            <div class="col-md-12">
-                                                <input type="password" value="" class="form-control form-control-line" name="password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">No. Handphone</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $profile->phone;?>" class="form-control form-control-line" name="phone" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Tanggal Bergabung</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo date('d/m/Y', strtotime($profile->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Tanggal Lahir</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo date('d/m/Y', strtotime($donatur->birthDate));?>" class="form-control form-control-line" name="birthDate" id="birthDate" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Jenis Kelamin</label>
-                                            <div class="col-sm-12">
-                                                <select class="form-control form-control-line" name="gender" required>
-                                                    <?php if($donatur->gender == "Laki-laki"){?>
-                                                    <option value="Laki-laki" selected>Laki-laki</option>
-                                                    <option value="Perempuan">Perempuan</option>
-                                                    <?php }else{ ?>
-                                                    <option value="Laki-laki">Laki-laki</option>
-                                                    <option value="Perempuan" selected>Perempuan</option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Angkatan</label>
-                                            <div class="col-md-12">
-                                                <input type="text" value="<?php echo $donatur->angkatan;?>" class="form-control form-control-line" name="angkatan">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Alamat</label>
-                                            <div class="col-md-12">
-                                                <textarea rows="5" class="form-control form-control-line" name="alamat" required><?php echo $profile->alamat;?></textarea>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success">Ubah Profil</button>

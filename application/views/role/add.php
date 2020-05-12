@@ -37,16 +37,11 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Donatur</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Role</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Donatur</li>
+                            <li class="breadcrumb-item active">Role</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        <a href="<?php echo base_url('donatur/add');?>">
-                            <button class="btn waves-effect waves-light btn-success pull-right hidden-sm-down"><i class="mdi mdi-plus"></i> Tambah</button>
-                        </a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -58,10 +53,9 @@
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title" style="margin-bottom: 25px;">Daftar Donatur</h4>
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -72,39 +66,23 @@
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                                     <?php echo $this->session->flashdata('error');?>
                                 </div>  
-                                <?php } ?> 
-                                <!-- <div class="table-responsive"> -->
-                                    <table id="example" class="table table-striped table-bordered" style="margin-top: 30px;">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama</th>
-                                                <th>Username</th>
-                                                <th>Alamat</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($donatur as $key=>$value){?>
-                                            <tr>
-                                                <td><?php echo $value->nama;?></td>
-                                                <td><?php echo $value->username?></td>
-                                                <td><?php echo $value->alamat;?></td>
-                                                <td>
-                                                    <a href="<?php echo base_url('donatur/views/' . $value->idUser);?>">
-                                                        <button class="btn btn-success"><i class="ti-search"></i></button>
-                                                    </a>
-                                                    <a href="<?php echo base_url('donatur/edit/' . $value->idUser);?>">
-                                                        <button class="btn btn-warning"><i class="mdi mdi-border-color"></i></button>
-                                                    </a>
-                                                    <a href="<?php echo base_url('donatur/delete/' . $value->idUser);?>">
-                                                        <button class="btn btn-danger"><i class="mdi mdi-beer"></i></button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                <!-- </div> -->
+                                <?php } ?>                                
+                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('role/processAdd');?>">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Role</label>
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control form-control-line" name="role" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success" type="submit">Simpan</button> &nbsp;
+                                            <a href="<?php echo base_url('role/index');?>">
+                                                <button class="btn btn-default" type="button">Kembali</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

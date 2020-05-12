@@ -101,10 +101,12 @@ class Pengumuman extends CI_Controller {
 	public function processAdd(){
 		$pengumuman = array(
 			'judul' => $this->input->post('judul'),
-			'createdBy' => $this->input->post('createdBy'),
+			'pengarang' => $this->input->post('pengarang'),
 			'createdDate' => date('Y-m-d', strtotime(strtr($this->input->post('createdDate'), '/', '-'))),
 			'isi' => $this->input->post('isi'),
-			'status' => $this->input->post('status')
+			'status' => $this->input->post('status'),
+			'createdBy' => $this->session->userdata('id'),
+			'createdDate' => date('Y-m-d')
 		);
 
 		$res = $this->all_model->insertData('pengumuman', $pengumuman);
@@ -139,7 +141,7 @@ class Pengumuman extends CI_Controller {
 		$condition = array('id_pengumuman' => $id);
 		$pengumuman = array(
 			'judul' => $this->input->post('judul'),
-			'createdBy' => $this->input->post('createdBy'),
+			'pengarang' => $this->input->post('pengarang'),
 			'createdDate' => date('Y-m-d', strtotime(strtr($this->input->post('createdDate'), '/', '-'))),
 			'isi' => $this->input->post('isi'),
 			'status' => $this->input->post('status')

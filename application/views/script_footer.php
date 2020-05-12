@@ -27,6 +27,10 @@
     <!-- Chart JS -->
     <script type="text/javascript">
         $(document).ready(function() {
+            $('.profile').click(function(){
+                window.location.href = "<?php echo base_url('profile/index');?>";
+            });
+
             $('#example').DataTable();
             $('[data-toggle="tooltip"]').tooltip();
             $("#joinDate").datepicker({

@@ -55,95 +55,111 @@
                     <!-- Column -->
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-block">
-                                <?php if($this->session->flashdata('success') != ""){ ?>
-                                <div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('success');?>
-                                </div>  
-                                <?php }else if($this->session->flashdata('error') != ""){ ?>
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <?php echo $this->session->flashdata('error');?>
-                                </div>  
-                                <?php } ?>                                
-                                <form class="form-horizontal form-material" method="post" action="<?php echo base_url('donatur/processAdd');?>">
+                            <div class="card-block">                        
+                                <form class="form-horizontal form-material">
                                     <div class="form-group">
-                                        <label class="col-sm-12">Jenis Keanggotan</label>
+                                        <label class="col-sm-12">Role</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line" name="jenisKeanggotan" required>
-                                                <option value="1">Rutin</option>
-                                                <option value="2">Tidak Rutin</option>
+                                            <select class="form-control form-control-line" name="role" required disabled>
+                                                <option value="0">Pilih Role</option>
+                                                <?php
+                                                    if(!empty($role)){
+                                                        foreach ($role as $key => $value) {
+                                                            if($user->role == $value->id_role){
+                                                ?>
+                                                <option value="<?php echo $value->id_role;?>" selected><?php echo $value->role?></option>
+                                                <?php
+                                                            }else{
+                                                ?>
+                                                <option value="<?php echo $value->id_role;?>"><?php echo $value->role?></option>
+                                                <?php
+                                                            }
+                                                        }
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Nama</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="nama" required>
+                                            <input type="text" class="form-control form-control-line" name="nama" required 
+                                            value="<?php echo $user->nama;?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" value="" class="form-control form-control-line" name="email" id="example-email" required>
+                                            <input type="email" class="form-control form-control-line" name="email" id="example-email" required
+                                            value="<?php echo $user->email?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Username</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="username" required>
+                                            <input type="text" value="<?php echo $user->username;?>" class="form-control form-control-line" name="username" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-md-12">Password</label>
                                         <div class="col-md-12">
-                                            <input type="password" value="" class="form-control form-control-line" name="password" required>
+                                            <input type="password" value="" class="form-control form-control-line" name="password" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">No. Handphone</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="phone" required>
+                                            <input type="text" value="<?php echo $user->phone;?>" class="form-control form-control-line" name="phone" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Bergabung</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="joinDate" id="joinDate" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($user->joinDate));?>" class="form-control form-control-line" name="joinDate" id="joinDate" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Tanggal Lahir</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="birthDate" id="birthDate" required>
+                                            <input type="text" value="<?php echo date('d/m/Y', strtotime($donatur->birthDate));?>" class="form-control form-control-line" name="birthDate" id="birthDate" required disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-12">Jenis Kelamin</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line" name="gender" required>
-                                                <option value="Laki-laki">Laki-laki</option>
+                                            <select class="form-control form-control-line" name="gender" required disabled>
+                                                <?php if($donatur->gender == "Laki-laki"){?>
+                                                <option value="Laki-laki" selected>Laki-laki</option>
                                                 <option value="Perempuan">Perempuan</option>
+                                                <?php }else{ ?>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan" selected>Perempuan</option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Angkatan</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="" class="form-control form-control-line" name="angkatan">
+                                            <input type="text" value="<?php echo $donatur->angkatan;?>" class="form-control form-control-line" name="angkatan" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Alamat</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required></textarea>
+                                            <textarea rows="5" class="form-control form-control-line" name="alamat" required disabled><?php echo $user->alamat;?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Gambar Profil</label>
+                                        <div class="col-md-12">
+                                            <img src="<?php if(!empty($donatur->image)){ echo base_url('gambar/profile/' . $donatur->image); }else{ echo base_url('assets/images/users/9.jpg');}?>" style="margin: 10px 10px 13px 10px;width: 100px;height: 100px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success" type="submit">Simpan</button> &nbsp;
-                                            <a href="<?php echo base_url('donatur/index');?>">
+                                            <!-- <button class="btn btn-success" type="submit">Simpan</button> &nbsp; -->
+                                            <a href="<?php echo base_url('user/index');?>">
                                                 <button class="btn btn-default" type="button">Kembali</button>
                                             </a>
                                         </div>

@@ -31,11 +31,16 @@ class Login extends CI_Controller {
 			}
 
 			$res = $this->all_model->getDataByCondition("user", $condition)->row();
+
+			$con = array("id_user" => $res->idUser);
+			$donatur = $this->all_model->getDataByCondition("donatur", $con)->row();
+
 			$data_session = array(
 				'username'  => $res->username,
 				'id'		=> $res->idUser,
 				'logged_in' => 1,
-				'role'		=> (int)$res->role
+				'role'		=> (int)$res->role,
+				'image'		=> $donatur->image
 			);
 
 			$this->session->set_userdata($data_session);

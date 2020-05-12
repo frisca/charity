@@ -4,16 +4,20 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: js
 */
+
 $(function() {
+    var man = $('#man').val();
+    var woman = $('#woman').val();
+    console.log('donasi: ', donasi);
     "use strict";
     // ============================================================== 
     // Sales overview
     // ============================================================== 
     var chart2 = new Chartist.Bar('.amp-pxl', {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
         series: [
-            [9, 5, 3, 7, 5, 10, 3],
-            [6, 3, 9, 5, 4, 6, 4]
+            donasi,
+            giving
         ]
     }, {
         axisX: {
@@ -25,11 +29,8 @@ $(function() {
             // On the y-axis start means left and end means right
             position: 'start'
         },
-        high: '12',
-        low: '0',
-        plugins: [
-            Chartist.plugins.tooltip()
-        ]
+        fullWidth: true,
+        chartPadding: 20
     });
 
     var chart = [chart2];
@@ -78,10 +79,8 @@ $(function() {
         bindto: '#visitor',
         data: {
             columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
+                ['Laki-Laki', (man/(man+woman))*0.01],
+                ['Perempuan', (woman/(man+woman))*0.01]
             ],
 
             type: 'donut',
@@ -93,7 +92,7 @@ $(function() {
             label: {
                 show: false
             },
-            title: "Our visitor",
+            title: "Jenis Kelamin",
             width: 20,
 
         },
@@ -104,7 +103,7 @@ $(function() {
                 //or hide: ['data1', 'data2']
         },
         color: {
-            pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
+            pattern: ['#745af2', '#26c6da']
         }
     });
 
