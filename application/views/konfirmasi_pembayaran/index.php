@@ -37,10 +37,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Pembayaran</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Donasi</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Pembayaran</li>
+                            <li class="breadcrumb-item active">Donasi</li>
                         </ol>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
@@ -61,7 +61,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title" style="margin-bottom: 25px;">Pembayaran</h4>
+                                <h4 class="card-title" style="margin-bottom: 25px;">Donasi</h4>
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -77,8 +77,9 @@
                                     <table id="example" class="table table-striped table-bordered" style="margin-top: 30px;">
                                         <thead>
                                             <tr>
-                                                <th>Jenis Transaksi</th>
-                                                <th>Bulan</th>
+                                                <th>Jenis Donasi</th>
+                                                <!-- <th>Bulan</th> -->
+                                                <th>Tanggal Transfer</th>
                                                 <th>Total Dana</th>
                                                 <th>Status</th>
                                                 <th></th>
@@ -98,7 +99,7 @@
                                                         }
                                                     ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <?php 
                                                         foreach ($bulan as $keys => $values) {
                                                             if($value->month == $values->value){
@@ -106,7 +107,8 @@
                                                             }
                                                         }
                                                     ?>
-                                                </td>
+                                                </td> -->
+                                                <td><?php echo date('d/m/Y', strtotime($value->transferDate));?></td>
                                                 <td><?php echo $value->jumlah?></td>
                                                 <td>
                                                     <?php 

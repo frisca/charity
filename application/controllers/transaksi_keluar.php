@@ -14,14 +14,12 @@ class Transaksi_Keluar extends CI_Controller {
 	}
 
 	public function add(){
-		$condition = array('status' => 1);
-		$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->result();
-		$this->load->view('transaksi/keluar/add', $data);
+		$this->load->view('transaksi/keluar/add');
 	}
 
 	public function processAdd(){
 		$data = array(
-			'id_beasiswa' => $this->input->post('id_beasiswa'),
+			'penerimaBeasiswa' => $this->input->post('penerima_beasiswa'),
 			'jenisTransaksiKeluar' => $this->input->post('jenisTransaksiKeluar'),
 			'keterangan' => $this->input->post('keterangan'),
 			'jumlah' => $this->input->post('jumlah'),
@@ -38,8 +36,6 @@ class Transaksi_Keluar extends CI_Controller {
 
 
 	public function edit($id){
-		$condition = array('status' => 1);
-		$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->result();
 		$data['transaksi'] = $this->all_model->getTransaksiKeluarById((int) $id)->row();
 		$this->load->view('transaksi/keluar/edit', $data);
 	}
@@ -47,7 +43,7 @@ class Transaksi_Keluar extends CI_Controller {
 	public function processUpdate($id){
 		$condition = array('idTransaksiKeluar' => $id);
 		$data = array(
-			'id_beasiswa' => $this->input->post('id_beasiswa'),
+			'penerimaBeasiswa' => $this->input->post('penerima_beasiswa'),
 			'jenisTransaksiKeluar' => $this->input->post('jenisTransaksiKeluar'),
 			'keterangan' => $this->input->post('keterangan'),
 			'jumlah' => $this->input->post('jumlah'),
@@ -63,10 +59,8 @@ class Transaksi_Keluar extends CI_Controller {
 	}
 
 	public function views($id){
-		$condition = array('status' => 1);
-		$data['beasiswa'] = $this->all_model->getDataByCondition('penerima_beasiswa', $condition)->result();
 		$data['transaksi'] = $this->all_model->getTransaksiKeluarById((int) $id)->row();
-		$this->load->view('transaksi/keluar/edit', $data);
+		$this->load->view('transaksi/keluar/view', $data);
 	}
 
 	public function delete($id){

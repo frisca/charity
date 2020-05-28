@@ -37,10 +37,11 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Transaksi Masuk</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Donasi</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Transaksi Masuk</li>
+                            <li class="breadcrumb-item active">Donasi & Giving</li>
+                            <li class="breadcrumb-item active">Donasi</li>
                         </ol>
                     </div>
                 </div>
@@ -89,9 +90,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Jenis Transaksi</label>
+                                        <label class="col-md-12">Jenis Donatur</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line" name="jenisTransaksi" required>
+                                            <select class="form-control form-control-line" name="jenisTransaksi" required id="jenisDonatur">
                                                 <?php if($transaksi->jenisTransaksi == 1){?>
                                                 <option value="1" selected>Iuran</option>
                                                 <option value="2">Sumbangan</option>
@@ -108,7 +109,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="col-md-12">Bulan</label>
                                         <div class="col-md-12">
                                             <select class="form-control form-control-line" name="month" required>
@@ -127,15 +128,15 @@
                                                 ?>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Tahun</label>
+                                    </div> -->
+                                    <div class="form-group" id="month_year">
+                                        <label class="col-md-12">Bulan/Tahun</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="<?php echo $transaksi->year;?>" class="form-control form-control-line" name="year" required>
+                                            <input type="text" value="<?php echo $transaksi->month . '/'. $transaksi->year;?>" class="form-control form-control-line" name="month_year" required id="datepicker1">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Bank Donatur</label>
+                                        <label class="col-md-12">Bank</label>
                                         <div class="col-md-12">
                                             <input type="text" value="<?php echo $transaksi->bankDonatur;?>" class="form-control form-control-line" name="bankDonatur" required>
                                         </div>

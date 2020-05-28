@@ -16,8 +16,8 @@ $(function() {
     var chart2 = new Chartist.Bar('.amp-pxl', {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
         series: [
-            donasi,
-            giving
+            giving,
+            donasi
         ]
     }, {
         axisX: {

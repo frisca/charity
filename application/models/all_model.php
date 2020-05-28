@@ -52,13 +52,13 @@ class All_model extends CI_Model {
 	}
 
 	public function getListTransaksiKeluar(){
-		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa";
+		$query = "SELECT tk.* FROM transaksi_keluar tk";
 		$result = $this->db->query($query);
 		return $result;
 	}
 
 	public function getTransaksiKeluarById($id){
-		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa where tk.idTransaksiKeluar = " . $id;
+		$query = "SELECT tk.* FROM transaksi_keluar tk where tk.idTransaksiKeluar = " . $id;
 		$result = $this->db->query($query);
 		return $result;
 	}
@@ -136,7 +136,7 @@ class All_model extends CI_Model {
 	}
 
 	public function getSearchListTransaksiKeluar($startDate, $endDate){
-		$query = "SELECT tk.*, b.* FROM transaksi_keluar tk left join penerima_beasiswa b on tk.id_beasiswa = b.id_beasiswa WHERE tk.tanggalTransaksi BETWEEN '" . $startDate . "' and '" . $endDate . "'";
+		$query = "SELECT tk.* FROM transaksi_keluar tk  WHERE tk.tanggalTransaksi BETWEEN '" . $startDate . "' and '" . $endDate . "'";
 		$result = $this->db->query($query);
 		return $result;
 	}
@@ -155,19 +155,19 @@ class All_model extends CI_Model {
 
 	public function getSumDonasi(){
 		$query = "SELECT 
-					sum(case when month='1' then jumlah ELSE 0 end) as jan,
-				    sum(case when month='2' then jumlah ELSE 0 end) as feb,
-				    sum(case when month='3' then jumlah ELSE 0 end) as mar,
-				    sum(case when month='4' then jumlah ELSE 0 end) as apr,
-				    sum(case when month='5' then jumlah ELSE 0 end) as mei,
-				    sum(case when month='6' then jumlah ELSE 0 end) as jun,
-				    sum(case when month='7' then jumlah ELSE 0 end) as jul,
-				    sum(case when month='8' then jumlah ELSE 0 end) as agu,
-				    sum(case when month='9' then jumlah ELSE 0 end) as sep,
-				    sum(case when month='10' then jumlah ELSE 0 end) as okt,
-				    sum(case when month='11' then jumlah ELSE 0 end) as nov,
-				    sum(case when month='12' then jumlah ELSE 0 end) as des
-				FROM `transaksi_masuk` GROUP by idDonatur and month";
+					sum(case when month(transferDate)='01' then jumlah ELSE 0 end) as jan,
+				    sum(case when month(transferDate)='02' then jumlah ELSE 0 end) as feb,
+				    sum(case when month(transferDate)='03' then jumlah ELSE 0 end) as mar,
+				    sum(case when month(transferDate)='04' then jumlah ELSE 0 end) as apr,
+				    sum(case when month(transferDate)='05' then jumlah ELSE 0 end) as mei,
+				    sum(case when month(transferDate)='06' then jumlah ELSE 0 end) as jun,
+				    sum(case when month(transferDate)='07' then jumlah ELSE 0 end) as jul,
+				    sum(case when month(transferDate)='08' then jumlah ELSE 0 end) as agu,
+				    sum(case when month(transferDate)='09' then jumlah ELSE 0 end) as sep,
+				    sum(case when month(transferDate)='10' then jumlah ELSE 0 end) as okt,
+				    sum(case when month(transferDate)='11' then jumlah ELSE 0 end) as nov,
+				    sum(case when month(transferDate)='12' then jumlah ELSE 0 end) as des
+				FROM `transaksi_masuk` GROUP by idDonatur and month(transferDate)";
 		$result = $this->db->query($query);
 		return $result;
 	}
@@ -186,7 +186,7 @@ class All_model extends CI_Model {
 				    sum(case when month(tanggalTransaksi)='10' then jumlah ELSE 0 end) as okt,
 				    sum(case when month(tanggalTransaksi)='11' then jumlah ELSE 0 end) as nov,
 				    sum(case when month(tanggalTransaksi)='12' then jumlah ELSE 0 end) as des
-				FROM transaksi_keluar group BY month(tanggalTransaksi)";
+				FROM transaksi_keluar GROUP BY penerimaBeasiswa and month(tanggalTransaksi)";
 		$result = $this->db->query($query);
 		return $result;
 	}

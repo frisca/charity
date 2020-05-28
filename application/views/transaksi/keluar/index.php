@@ -37,10 +37,11 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Transaksi Keluar</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Giving</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Transaksi Keluar</li>
+                            <li class="breadcrumb-item active">Donasi & Giving</li>
+                            <li class="breadcrumb-item active">Giving</li>
                         </ol>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
@@ -61,7 +62,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title" style="margin-bottom: 25px;">Daftar Transaksi Keluar</h4>
+                                <h4 class="card-title" style="margin-bottom: 25px;">Daftar Giving</h4>
                                 <?php if($this->session->flashdata('success') != ""){ ?>
                                 <div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -78,7 +79,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Nama Penerima Beasiswa</th>
-                                                <th>Jenis Transaksi</th>
+                                                <th>Jenis Giving</th>
                                                 <th>Total Dana</th>
                                                 <th></th>
                                             </tr>
@@ -86,7 +87,7 @@
                                         <tbody>
                                              <?php foreach($transaksi as $key=>$value){?>
                                             <tr>
-                                                <td><?php echo $value->nama;?></td>
+                                                <td><?php echo $value->penerimaBeasiswa;?></td>
                                                 <td>
                                                     <?php 
                                                         if($value->jenisTransaksiKeluar == 1){ 

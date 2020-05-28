@@ -14,14 +14,18 @@ class Email extends CI_Controller {
 	}
 
 	public function insertEmail(){
-		$con_donatur = array('jenisKeanggotaan' => 1);
-		$donatur = $this->all_model->getDataByCondition('donatur', $con_donatur)->result();
+		// $con_donatur = array('jenisKeanggotaan' => 0);
+		// $donatur = $this->all_model->getDataByCondition('donatur', $con_donatur)->result();
+
+		$donatur = $this->all_model->getListDonatur()->result();
 
 		foreach ($donatur as $key => $value) {
 			$condition = array('dateEmail' => date('Y-m') . '-21', 'toUser' => $value->idDonatur);
 			$email = $this->all_model->getDataByCondition('email', $condition)->result();
-
-			if(empty($email)){
+			// if(date('Y-m-d') == date('Y-m') . '-28'){
+			// 	var_dump('testing');exit();
+			// }
+			if(empty($email) && date('Y-m-d') == date('Y-m') . '-21'){
 				$datas = array(
 					'judul' => 'Reminder Iuran',
 					'toUser' => $value->idDonatur,

@@ -44,6 +44,108 @@
                         </ol>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-7" style="margin-top: 45px;">
+                        <div class="card">
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h3 class="card-title">Donasi & Giving</h3>
+                                                <h6 class="card-subtitle">Donasi Vs Giving</h6> </div>
+                                            <div class="ml-auto">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Donasi</h6> </li>
+                                                    <li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Giving</h6> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="amp-pxl" style="height: 360px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5" style="margin-top: 45px;">
+                        <input type="hidden" name="laki-laki" id="man" value="<?php echo $man->count_gender;?>">
+                        <input type="hidden" name="perempuan" id="woman" value="<?php echo $woman->count_gender;?>">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Jenis Kelamin </h3>
+                                <h6 class="card-subtitle">Jumlah jenis kelamin yang terdaftar dalam sistem</h6>
+                                <div id="visitor" style="height:290px; width:100%;"></div>
+                            </div>
+                            <div>
+                                <hr class="m-t-0 m-b-0">
+                            </div>
+                            <div class="card-block text-center ">
+                                <ul class="list-inline m-b-0">
+                                    <li>
+                                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Laki-Laki</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Perempuan</h6> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-xlg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 style="padding: 10px 12px 10px 5px;border-bottom: 1px solid rgba(0,0,0,.1);">Pengumuman</h3>
+                                <div class="profiletimeline" style="margin-top: 30px;">
+                                    <?php 
+                                        if(!empty($pengumuman)){
+                                            foreach ($pengumuman as $key => $value) {
+                                    ?>
+                                    <div class="sl-item">
+                                        <div class="sl-left"> <img src="<?php echo base_url('assets/images/users/1.jpg');?>" alt="user" class="img-circle"> </div>
+                                        <div class="sl-right">
+                                            <div>
+                                                <a href="#" class="link">
+                                                    <?php echo $value->nama;?>   
+                                                </a>
+                                            </div>
+                                            <span class="sl-date">
+                                                <?php echo date('d-m-Y', strtotime($value->createdDate));?>
+                                            </span>
+                                            <p>
+                                                <a href="#"> <?php echo $value->judul;?></a>
+                                            </p>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 m-b-20">
+                                                    <?php echo $value->isi;?>
+                                                </div>
+                                            </div>
+                                            <div class="like-comm"> 
+                                                <a href="javascript:void(0)" class="link m-r-10"><?php echo (count($pengumuman))?> comment</a> 
+                                                    <!-- <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div> 
+                                        <input type="text" name="" class="form-control" placeholder="Tulis Komentar">
+                                    </div>
+                                    <?php
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

@@ -9,161 +9,161 @@ class Transaksi_Masuk extends CI_Controller {
 
 	public function index()
 	{
-		$bulan = array();
-		$bulans = array();
+		// $bulan = array();
+		// $bulans = array();
 
-		$bulan['name'] = "Januari";
-		$bulan['value'] = "01";
+		// $bulan['name'] = "Januari";
+		// $bulan['value'] = "01";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Februari";
-		$bulan['value'] = "02";
+		// $bulan['name'] = "Februari";
+		// $bulan['value'] = "02";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Maret";
-		$bulan['value'] = "03";
+		// $bulan['name'] = "Maret";
+		// $bulan['value'] = "03";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "April";
-		$bulan['value'] = "04";
+		// $bulan['name'] = "April";
+		// $bulan['value'] = "04";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Mei";
-		$bulan['value'] = "05";
+		// $bulan['name'] = "Mei";
+		// $bulan['value'] = "05";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juni";
-		$bulan['value'] = "06";
+		// $bulan['name'] = "Juni";
+		// $bulan['value'] = "06";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juli";
-		$bulan['value'] = "07";
+		// $bulan['name'] = "Juli";
+		// $bulan['value'] = "07";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Agustus";
-		$bulan['value'] = "08";
+		// $bulan['name'] = "Agustus";
+		// $bulan['value'] = "08";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "September";
-		$bulan['value'] = "09";
+		// $bulan['name'] = "September";
+		// $bulan['value'] = "09";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Oktober";
-		$bulan['value'] = "10";
+		// $bulan['name'] = "Oktober";
+		// $bulan['value'] = "10";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Nopember";
-		$bulan['value'] = "11";
+		// $bulan['name'] = "Nopember";
+		// $bulan['value'] = "11";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Desember";
-		$bulan['value'] = "12";
+		// $bulan['name'] = "Desember";
+		// $bulan['value'] = "12";
 
-		$bulans[] = $bulan;
-		$month = json_encode($bulans);
-		$data['bulan'] = json_decode($month);
+		// $bulans[] = $bulan;
+		// $month = json_encode($bulans);
+		// $data['bulan'] = json_decode($month);
 		$data['transaksi_masuk'] = $this->all_model->getListTransaksiMasuk()->result();
 		$this->load->view('transaksi/masuk/index', $data);
 	}
 
 	public function add(){
-		$bulan = array();
-		$bulans = array();
+		// $bulan = array();
+		// $bulans = array();
 
-		$bulan['name'] = "Januari";
-		$bulan['value'] = "01";
+		// $bulan['name'] = "Januari";
+		// $bulan['value'] = "01";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Februari";
-		$bulan['value'] = "02";
+		// $bulan['name'] = "Februari";
+		// $bulan['value'] = "02";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Maret";
-		$bulan['value'] = "03";
+		// $bulan['name'] = "Maret";
+		// $bulan['value'] = "03";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "April";
-		$bulan['value'] = "04";
+		// $bulan['name'] = "April";
+		// $bulan['value'] = "04";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Mei";
-		$bulan['value'] = "05";
+		// $bulan['name'] = "Mei";
+		// $bulan['value'] = "05";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juni";
-		$bulan['value'] = "06";
+		// $bulan['name'] = "Juni";
+		// $bulan['value'] = "06";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juli";
-		$bulan['value'] = "07";
+		// $bulan['name'] = "Juli";
+		// $bulan['value'] = "07";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Agustus";
-		$bulan['value'] = "08";
+		// $bulan['name'] = "Agustus";
+		// $bulan['value'] = "08";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "September";
-		$bulan['value'] = "09";
+		// $bulan['name'] = "September";
+		// $bulan['value'] = "09";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Oktober";
-		$bulan['value'] = "10";
+		// $bulan['name'] = "Oktober";
+		// $bulan['value'] = "10";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Nopember";
-		$bulan['value'] = "11";
+		// $bulan['name'] = "Nopember";
+		// $bulan['value'] = "11";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Desember";
-		$bulan['value'] = "12";
+		// $bulan['name'] = "Desember";
+		// $bulan['value'] = "12";
 
-		$bulans[] = $bulan;
-		$month = json_encode($bulans);
-		$data['bulan'] = json_decode($month);
+		// $bulans[] = $bulan;
+		// $month = json_encode($bulans);
+		// $data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$this->load->view('transaksi/masuk/add', $data);
 	}
@@ -180,6 +180,12 @@ class Transaksi_Masuk extends CI_Controller {
 			$this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
 			return redirect(base_url() . 'transaksi_masuk/add');
 		}else{
+			if(!empty($this->input->post('month_year'))){
+				$month = explode("/", $this->input->post('month_year'));
+			}else{
+				$month[0] = 0;
+				$month[1] = 0;
+			}
 			$data = array(
 				'buktiBayar' => $new_name,
 				'idDonatur' => $this->input->post('idDonatur'),
@@ -188,14 +194,14 @@ class Transaksi_Masuk extends CI_Controller {
 				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-				'month' => $this->input->post('month'),
+				'month' => $month[0],
 				'status_approve' => 2,
 				'bankDonatur' => $this->input->post('bankDonatur'),
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
 				'namaPengirim' => $this->input->post('namaPengirim'),
-				'year' => $this->input->post('year')
+				'year' => $month[1]
 			);
 			$result = $this->all_model->insertData('transaksi_masuk', $data);
 			if($result == true){
@@ -208,82 +214,82 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function edit($id){
-		$bulan = array();
-		$bulans = array();
+		// $bulan = array();
+		// $bulans = array();
 
-		$bulan['name'] = "Januari";
-		$bulan['value'] = "01";
+		// $bulan['name'] = "Januari";
+		// $bulan['value'] = "01";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Februari";
-		$bulan['value'] = "02";
+		// $bulan['name'] = "Februari";
+		// $bulan['value'] = "02";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Maret";
-		$bulan['value'] = "03";
+		// $bulan['name'] = "Maret";
+		// $bulan['value'] = "03";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "April";
-		$bulan['value'] = "04";
+		// $bulan['name'] = "April";
+		// $bulan['value'] = "04";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Mei";
-		$bulan['value'] = "05";
+		// $bulan['name'] = "Mei";
+		// $bulan['value'] = "05";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juni";
-		$bulan['value'] = "06";
+		// $bulan['name'] = "Juni";
+		// $bulan['value'] = "06";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juli";
-		$bulan['value'] = "07";
+		// $bulan['name'] = "Juli";
+		// $bulan['value'] = "07";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Agustus";
-		$bulan['value'] = "08";
+		// $bulan['name'] = "Agustus";
+		// $bulan['value'] = "08";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "September";
-		$bulan['value'] = "09";
+		// $bulan['name'] = "September";
+		// $bulan['value'] = "09";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Oktober";
-		$bulan['value'] = "10";
+		// $bulan['name'] = "Oktober";
+		// $bulan['value'] = "10";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Nopember";
-		$bulan['value'] = "11";
+		// $bulan['name'] = "Nopember";
+		// $bulan['value'] = "11";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Desember";
-		$bulan['value'] = "12";
+		// $bulan['name'] = "Desember";
+		// $bulan['value'] = "12";
 
-		$bulans[] = $bulan;
-		$month = json_encode($bulans);
+		// $bulans[] = $bulan;
+		// $month = json_encode($bulans);
 		
-		$data['bulan'] = json_decode($month);
+		// $data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$data['transaksi'] = $this->all_model->getTransaksiMasukById((int) $id)->row();
 		$this->load->view('transaksi/masuk/edit', $data);
@@ -292,6 +298,13 @@ class Transaksi_Masuk extends CI_Controller {
 	public function processUpdate($id){
 		$transaksi = $this->all_model->getTransaksiMasukById($id)->row();
 		$con_transaksi = array('idTransaksiMasuk' => $id);
+
+		if(!empty($this->input->post('month_year'))){
+			$month = explode("/", $this->input->post('month_year'));
+		}else{
+			$month[0] = 0;
+			$month[1] = 0;
+		}
 
 		if(!$_FILES['buktiBayar']['name']){
 			$data = array(
@@ -302,14 +315,14 @@ class Transaksi_Masuk extends CI_Controller {
 				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-				'month' => $this->input->post('month'),
+				'month' => $month[0],
 				'status_approve' => 1,
 				'bankDonatur' => $this->input->post('bankDonatur'),
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
 				'namaPengirim' => $this->input->post('namaPengirim'),
-				'year' => $this->input->post('year')
+				'year' => $month[1]
 			);
 
 			$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
@@ -341,14 +354,14 @@ class Transaksi_Masuk extends CI_Controller {
 					'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 					'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 					'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-					'month' => $this->input->post('month'),
+					'month' => $month[0],
 					'status_approve' => 1,
 					'bankDonatur' => $this->input->post('bankDonatur'),
 					'noRekTujuan' => $this->input->post('noRekTujuan'),
 					'noRekPengirim' => $this->input->post('noRekPengirim'),
 					'namaPenerima' => $this->input->post('namaPenerima'),
 					'namaPengirim' => $this->input->post('namaPengirim'),
-					'year' => $this->input->post('year')
+					'year' => $month[1]
 				);
 
 				// var_dump($data);exit();
@@ -367,82 +380,82 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function views($id){
-		$bulan = array();
-		$bulans = array();
+		// $bulan = array();
+		// $bulans = array();
 
-		$bulan['name'] = "Januari";
-		$bulan['value'] = "01";
+		// $bulan['name'] = "Januari";
+		// $bulan['value'] = "01";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Februari";
-		$bulan['value'] = "02";
+		// $bulan['name'] = "Februari";
+		// $bulan['value'] = "02";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Maret";
-		$bulan['value'] = "03";
+		// $bulan['name'] = "Maret";
+		// $bulan['value'] = "03";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "April";
-		$bulan['value'] = "04";
+		// $bulan['name'] = "April";
+		// $bulan['value'] = "04";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Mei";
-		$bulan['value'] = "05";
+		// $bulan['name'] = "Mei";
+		// $bulan['value'] = "05";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juni";
-		$bulan['value'] = "06";
+		// $bulan['name'] = "Juni";
+		// $bulan['value'] = "06";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Juli";
-		$bulan['value'] = "07";
+		// $bulan['name'] = "Juli";
+		// $bulan['value'] = "07";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Agustus";
-		$bulan['value'] = "08";
+		// $bulan['name'] = "Agustus";
+		// $bulan['value'] = "08";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "September";
-		$bulan['value'] = "09";
+		// $bulan['name'] = "September";
+		// $bulan['value'] = "09";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Oktober";
-		$bulan['value'] = "10";
+		// $bulan['name'] = "Oktober";
+		// $bulan['value'] = "10";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Nopember";
-		$bulan['value'] = "11";
+		// $bulan['name'] = "Nopember";
+		// $bulan['value'] = "11";
 
-		$bulans[] = $bulan;
-		$bulan= array();
+		// $bulans[] = $bulan;
+		// $bulan= array();
 
-		$bulan['name'] = "Desember";
-		$bulan['value'] = "12";
+		// $bulan['name'] = "Desember";
+		// $bulan['value'] = "12";
 
-		$bulans[] = $bulan;
-		$month = json_encode($bulans);
+		// $bulans[] = $bulan;
+		// $month = json_encode($bulans);
 
-		$data['bulan'] = json_decode($month);
+		// $data['bulan'] = json_decode($month);
 		$data['donatur'] = $this->all_model->getListDonatur()->result();
 		$data['transaksi'] = $this->all_model->getTransaksiMasukById((int) $id)->row();
 		$this->load->view('transaksi/masuk/view', $data);

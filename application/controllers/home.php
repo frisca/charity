@@ -9,6 +9,22 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('index');
+		$donasi = $this->all_model->getSumDonasi()->result();
+		foreach ($donasi as $key => $value) {
+			$tamp = array((int)$value->jan, (int)$value->feb, (int)$value->mar, (int)$value->apr, (int)$value->mei, (int)$value->jun, (int)$value->jul, (int)$value->agu, (int)$value->sep, (int)$value->okt, (int)$value->nov, (int)$value->des);
+		}
+
+		$data['donasi'] = $tamp;
+
+		$giving = $this->all_model->getSumGiving()->result();
+		foreach ($giving as $key => $value) {
+			$tamp1 = array((int)$value->jan, (int)$value->feb, (int)$value->mar, (int)$value->apr, (int)$value->mei, (int)$value->jun, (int)$value->jul, (int)$value->agu, (int)$value->sep, (int)$value->okt, (int)$value->nov, (int)$value->des);
+		}
+
+		$data['giving'] = $tamp1;
+		$data['man'] = $this->all_model->getCountGender('Laki-Laki')->row();
+		$data['woman'] = $this->all_model->getCountGender('Perempuan')->row();
+		$data['pengumuman'] = $this->all_model->getListPengumuman()->result();
+		$this->load->view('index', $data);
 	}
 }

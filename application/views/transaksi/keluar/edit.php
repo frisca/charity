@@ -37,10 +37,11 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Transaksi Keluar</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Giving</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Transaksi Keluar</li>
+                            <li class="breadcrumb-item active">Donasi & Giving</li>
+                            <li class="breadcrumb-item active">Giving</li>
                         </ol>
                     </div>
                 </div>
@@ -69,7 +70,7 @@
                                 <?php } ?>                                
                                 <form class="form-horizontal form-material" method="post" action="<?php echo base_url('transaksi_keluar/processUpdate/' . $transaksi->idTransaksiKeluar);?>" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label class="col-md-12">Jenis Transaksi Keluar</label>
+                                        <label class="col-md-12">Jenis Giving</label>
                                         <div class="col-sm-12">
                                             <select class="form-control form-control-line" name="jenisTransaksiKeluar" required>
                                                <?php if($transaksi->jenisTransaksiKeluar == 1){ ?>
@@ -124,7 +125,7 @@
                                             <input type="text" value="<?php echo $transaksi->jumlah;?>" class="form-control form-control-line" name="jumlah" required>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="col-md-12">Nama Penerima Beasiswa</label>
                                         <div class="col-sm-12">
                                             <select class="form-control form-control-line" name="id_beasiswa" required>
@@ -144,9 +145,15 @@
                                                 ?>
                                             </select>
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama Penerima Beasiswa</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $transaksi->penerimaBeasiswa;?>" class="form-control form-control-line" name="penerima_beasiswa" required>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Tanggal Transaksi</label>
+                                        <label class="col-md-12">Tanggal Transfer</label>
                                         <div class="col-md-12">
                                             <input type="text" value="<?php echo date('d/m/Y', strtotime($transaksi->tanggalTransaksi));?>" class="form-control form-control-line" name="tanggalTransaksi" required id="joinDate">
                                         </div>

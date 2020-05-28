@@ -19,13 +19,21 @@
     <!-- ============================================================== -->
     <!-- chartist chart -->
     <!--c3 JavaScript -->
+    <!-- chartist chart -->
+    <script src="<?php echo base_url('assets/plugins/chartist-js/dist/chartist.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js');?>"></script>
+    <!--c3 JavaScript -->
     <script src="<?php echo base_url('assets/plugins/d3/d3.min.js');?>"></script>
     <script src="<?php echo base_url('assets/plugins/c3-master/c3.min.js');?>"></script>
+    <!-- Chart JS -->
+    <script src="<?php echo base_url('assets/plugins/js/dashboard1.js');?>"></script>
     <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/ckeditor/ckeditor.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/ckfinder/ckfinder.js');?>"></script>
     <!-- Chart JS -->
     <script type="text/javascript">
+        var donasi = JSON.parse('<?php echo json_encode($donasi); ?>');
+        var giving = JSON.parse('<?php echo json_encode($giving); ?>');
         $(document).ready(function() {
             $('.profile').click(function(){
                 window.location.href = "<?php echo base_url('profile/index');?>";
@@ -40,6 +48,8 @@
                 dateFormat: 'dd/mm/yy',
                 showOtherMonths:true,
                 selectOtherMonths: true
+            }).focus(function(){
+                $('.ui-datepicker-calendar').show();
             });
             $("#birthDate").datepicker({
                 changeMonth: true,
@@ -48,6 +58,8 @@
                 dateFormat: 'dd/mm/yy',
                 showOtherMonths:true,
                 selectOtherMonths: true
+            }).focus(function(){
+                $('.ui-datepicker-calendar').show();
             });
             $("#startDate").datepicker({
                 changeMonth: true,
@@ -56,7 +68,32 @@
                 dateFormat: 'dd/mm/yy',
                 showOtherMonths:true,
                 selectOtherMonths: true
+            }).focus(function(){
+                $('.ui-datepicker-calendar').show();
             });
+            $('#jenisDonatur').change(function(){
+                jenisDonatur = $('#jenisDonatur option:selected').val();
+                if(jenisDonatur == '1'){
+                    $('#month_year').css('display', 'block');
+                }
+                if(jenisDonatur == '2'){
+                    $('#month_year').css('display', 'none');
+                }
+                if(jenisDonatur == '3'){
+                    $('#month_year').css('display', 'none');
+                }
+            });
+            jenisDonatur = $('#jenisDonatur option:selected').val();
+            console.log('jenisDonatur:',jenisDonatur);
+            if(jenisDonatur == '1'){
+                $('#month_year').css('display', 'block');
+            }
+            if(jenisDonatur == '2'){
+                $('#month_year').css('display', 'none');
+            }
+            if(jenisDonatur == '3'){
+                $('#month_year').css('display', 'none');
+            }
             $("#endDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
@@ -66,6 +103,17 @@
                 nextText:"click for next months",
                 showOtherMonths:true,
                 selectOtherMonths: true
+            }).focus(function(){
+                $('.ui-datepicker-calendar').show();
+            });
+            $('#datepicker1').datepicker( {
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'mm/yy',
+                onClose: function(dateText, inst) { 
+                    $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+                }
             });
             $('.search').click(function(){
                 if($("#startDate").val() > $("#endDate").val()){

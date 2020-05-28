@@ -84,8 +84,8 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Donatur</th>
-                                            <th>Bulan</th>
-                                            <th>Tahun</th>
+                                            <th>Tanggal Transfer</th>
+                                            <!-- <th>Tahun</th> -->
                                             <th>Total Dana</th>
                                         </tr>
                                     </thead>
@@ -93,7 +93,7 @@
                                         <?php foreach($transaksi as $key=>$value){?>
                                         <tr>
                                             <td><?php echo $value->nama;?></td>
-                                            <td>
+                                            <!-- <td>
                                                 <?php 
                                                     foreach ($bulan as $keys => $values) {
                                                         if($value->month == $values->value){
@@ -102,7 +102,8 @@
                                                     }
                                                 ?>
                                             </td>
-                                            <td><?php echo $value->year;?></td>
+                                            <td><?php echo $value->year;?></td> -->
+                                            <td><?php echo date('d/m/Y', strtotime($value->transferDate));?></td>
                                             <td><?php echo $value->jumlah;?></td>
                                         </tr>
                                         <?php } ?>                                       
