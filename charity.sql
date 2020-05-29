@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 28, 2020 at 07:44 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Host: localhost
+-- Waktu pembuatan: 29 Bulan Mei 2020 pada 12.18
+-- Versi server: 10.1.37-MariaDB
+-- Versi PHP: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `charity`
+-- Database: `charities`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Struktur dari tabel `comment`
 --
 
 CREATE TABLE `comment` (
@@ -37,16 +37,18 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `comment`
+-- Dumping data untuk tabel `comment`
 --
 
 INSERT INTO `comment` (`idComment`, `comment`, `idUser`, `commentDate`, `idPengumuman`) VALUES
-(1, 'Testing', 9, '2020-05-07', 1);
+(1, 'Testing', 14, '2020-05-07', 1),
+(7, 'testing87', 13, '2020-05-29', 1),
+(8, 'op', 13, '2020-05-29', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `donatur`
+-- Struktur dari tabel `donatur`
 --
 
 CREATE TABLE `donatur` (
@@ -60,7 +62,7 @@ CREATE TABLE `donatur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `donatur`
+-- Dumping data untuk tabel `donatur`
 --
 
 INSERT INTO `donatur` (`idDonatur`, `angkatan`, `jenisKeanggotaan`, `gender`, `birthDate`, `id_user`, `image`) VALUES
@@ -70,7 +72,7 @@ INSERT INTO `donatur` (`idDonatur`, `angkatan`, `jenisKeanggotaan`, `gender`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `email`
+-- Struktur dari tabel `email`
 --
 
 CREATE TABLE `email` (
@@ -86,7 +88,7 @@ CREATE TABLE `email` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerima_beasiswa`
+-- Struktur dari tabel `penerima_beasiswa`
 --
 
 CREATE TABLE `penerima_beasiswa` (
@@ -113,7 +115,7 @@ CREATE TABLE `penerima_beasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penerima_beasiswa`
+-- Dumping data untuk tabel `penerima_beasiswa`
 --
 
 INSERT INTO `penerima_beasiswa` (`id_beasiswa`, `angkatan`, `jenjang_studi`, `status`, `gender`, `alamat`, `tgl_bergabung`, `semester`, `anak_ke`, `jmlh_saudara`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `penghasilan_ayah`, `penghasilan_ibu`, `rekening`, `keterangan`, `birth_date`, `nama`) VALUES
@@ -122,7 +124,7 @@ INSERT INTO `penerima_beasiswa` (`id_beasiswa`, `angkatan`, `jenjang_studi`, `st
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengumuman`
+-- Struktur dari tabel `pengumuman`
 --
 
 CREATE TABLE `pengumuman` (
@@ -136,7 +138,7 @@ CREATE TABLE `pengumuman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengumuman`
+-- Dumping data untuk tabel `pengumuman`
 --
 
 INSERT INTO `pengumuman` (`id_pengumuman`, `judul`, `pengarang`, `createdDate`, `isi`, `status`, `createdBy`) VALUES
@@ -145,7 +147,7 @@ INSERT INTO `pengumuman` (`id_pengumuman`, `judul`, `pengarang`, `createdDate`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -154,7 +156,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`id_role`, `role`) VALUES
@@ -164,7 +166,7 @@ INSERT INTO `role` (`id_role`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi_keluar`
+-- Struktur dari tabel `transaksi_keluar`
 --
 
 CREATE TABLE `transaksi_keluar` (
@@ -177,7 +179,7 @@ CREATE TABLE `transaksi_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi_keluar`
+-- Dumping data untuk tabel `transaksi_keluar`
 --
 
 INSERT INTO `transaksi_keluar` (`idTransaksiKeluar`, `jenisTransaksiKeluar`, `jumlah`, `penerimaBeasiswa`, `tanggalTransaksi`, `keterangan`) VALUES
@@ -187,7 +189,7 @@ INSERT INTO `transaksi_keluar` (`idTransaksiKeluar`, `jenisTransaksiKeluar`, `ju
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi_masuk`
+-- Struktur dari tabel `transaksi_masuk`
 --
 
 CREATE TABLE `transaksi_masuk` (
@@ -211,7 +213,7 @@ CREATE TABLE `transaksi_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi_masuk`
+-- Dumping data untuk tabel `transaksi_masuk`
 --
 
 INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `description`, `bankTransferTujuan`, `transferDate`, `jenisTransaksi`, `buktiBayar`, `status_approve`, `month`, `bankDonatur`, `noRekTujuan`, `noRekPengirim`, `namaPengirim`, `namaPenerima`, `read`, `year`) VALUES
@@ -222,7 +224,7 @@ INSERT INTO `transaksi_masuk` (`idTransaksiMasuk`, `idDonatur`, `jumlah`, `descr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -238,7 +240,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`idUser`, `nama`, `alamat`, `phone`, `joinDate`, `email`, `password`, `role`, `username`) VALUES
@@ -250,113 +252,113 @@ INSERT INTO `user` (`idUser`, `nama`, `alamat`, `phone`, `joinDate`, `email`, `p
 --
 
 --
--- Indexes for table `comment`
+-- Indeks untuk tabel `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`idComment`);
 
 --
--- Indexes for table `donatur`
+-- Indeks untuk tabel `donatur`
 --
 ALTER TABLE `donatur`
   ADD PRIMARY KEY (`idDonatur`);
 
 --
--- Indexes for table `email`
+-- Indeks untuk tabel `email`
 --
 ALTER TABLE `email`
   ADD PRIMARY KEY (`idEmail`);
 
 --
--- Indexes for table `penerima_beasiswa`
+-- Indeks untuk tabel `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
   ADD PRIMARY KEY (`id_beasiswa`);
 
 --
--- Indexes for table `pengumuman`
+-- Indeks untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
   ADD PRIMARY KEY (`id_pengumuman`);
 
 --
--- Indexes for table `role`
+-- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`);
 
 --
--- Indexes for table `transaksi_keluar`
+-- Indeks untuk tabel `transaksi_keluar`
 --
 ALTER TABLE `transaksi_keluar`
   ADD PRIMARY KEY (`idTransaksiKeluar`);
 
 --
--- Indexes for table `transaksi_masuk`
+-- Indeks untuk tabel `transaksi_masuk`
 --
 ALTER TABLE `transaksi_masuk`
   ADD PRIMARY KEY (`idTransaksiMasuk`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idUser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT untuk tabel `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idComment` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idComment` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `donatur`
+-- AUTO_INCREMENT untuk tabel `donatur`
 --
 ALTER TABLE `donatur`
   MODIFY `idDonatur` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `email`
+-- AUTO_INCREMENT untuk tabel `email`
 --
 ALTER TABLE `email`
   MODIFY `idEmail` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
--- AUTO_INCREMENT for table `penerima_beasiswa`
+-- AUTO_INCREMENT untuk tabel `penerima_beasiswa`
 --
 ALTER TABLE `penerima_beasiswa`
   MODIFY `id_beasiswa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pengumuman`
+-- AUTO_INCREMENT untuk tabel `pengumuman`
 --
 ALTER TABLE `pengumuman`
   MODIFY `id_pengumuman` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
   MODIFY `id_role` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `transaksi_keluar`
+-- AUTO_INCREMENT untuk tabel `transaksi_keluar`
 --
 ALTER TABLE `transaksi_keluar`
   MODIFY `idTransaksiKeluar` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `transaksi_masuk`
+-- AUTO_INCREMENT untuk tabel `transaksi_masuk`
 --
 ALTER TABLE `transaksi_masuk`
   MODIFY `idTransaksiMasuk` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `idUser` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

@@ -5,7 +5,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <?php if($this->session->userdata('role') == 1){?>
-                <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home/index');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
                 <!-- <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a>
                 </li> -->
@@ -56,7 +56,7 @@
                     </ul>
                 </li>
                 <?php }elseif($this->session->userdata('role') == 2) { ?>
-                <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home/index');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                 </li>  
                 <!-- <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a></li> -->
                 <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penerima_beasiswa/index');?>" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Penerima Beasiswa</span></a>

@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 		$data['man'] = $this->all_model->getCountGender('Laki-Laki')->row();
 		$data['woman'] = $this->all_model->getCountGender('Perempuan')->row();
 		$data['pengumuman'] = $this->all_model->getListPengumuman()->result();
+		$data['comments'] = $this->all_model->getListComment()->result();
 		$this->load->view('welcome', $data);
 	}
 }

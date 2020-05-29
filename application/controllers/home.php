@@ -25,6 +25,27 @@ class Home extends CI_Controller {
 		$data['man'] = $this->all_model->getCountGender('Laki-Laki')->row();
 		$data['woman'] = $this->all_model->getCountGender('Perempuan')->row();
 		$data['pengumuman'] = $this->all_model->getListPengumuman()->result();
+		$data['comments'] = $this->all_model->getListComment()->result();
 		$this->load->view('index', $data);
+	}
+
+	public function insertComment(){
+		$comment = $this->input->post('comment');
+		$pengumuman = $this->input->post('pengumuman');
+		$donatur = $this->all_model->getDonatur($this->session->userdata('id'))->row();
+		$data = array(
+			"comment" => $comment,
+			"idUser" => $donatur->idDonatur,
+			"commentDate" => date('Y-m-d'),
+			"idPengumuman" => $pengumuman
+		);
+		$res = $this->all_model->insertData('comment', $data);
+		if($res == true){
+			$data = $this->all_model->getCommentByDesc($pengumuman)->row();
+			echo json_encode($data);
+		}else{
+			$data = 10;
+			echo json_encode($data);
+		}
 	}
 }

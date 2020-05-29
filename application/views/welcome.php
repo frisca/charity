@@ -162,20 +162,31 @@
                         </div>
                     </div>
                 </div>
-                <!-- Row -->
-                <!-- Row -->
+                
                 <div class="row">
                     <div class="col-lg-12 col-xlg-12 col-md-12">
                         <div class="card">
                             <div class="card-block">
                                 <h3 style="padding: 10px 12px 10px 5px;border-bottom: 1px solid rgba(0,0,0,.1);">Pengumuman</h3>
+                                <?php 
+                                    if(!empty($pengumuman)){
+                                        foreach ($pengumuman as $key => $value) {
+                                ?>
                                 <div class="profiletimeline" style="margin-top: 30px;">
-                                    <?php 
-                                        if(!empty($pengumuman)){
-                                            foreach ($pengumuman as $key => $value) {
-                                    ?>
                                     <div class="sl-item">
-                                        <div class="sl-left"> <img src="<?php echo base_url('assets/images/users/1.jpg');?>" alt="user" class="img-circle"> </div>
+                                        <div class="sl-left"> 
+                                            <?php
+                                                if(empty($value->image)){
+                                            ?>
+                                                <img src="<?php echo base_url('gambar/profile/default.png');?>" alt="user" class="img-circle">
+                                            <?php
+                                                }else{
+                                            ?> 
+                                                <img src="<?php echo base_url('gambar/profile/' . $value->image);?>" alt="user" class="img-circle">
+                                            <?php
+                                                }
+                                            ?>
+                                        </div>
                                         <div class="sl-right">
                                             <div>
                                                 <a href="#" class="link">
@@ -194,17 +205,55 @@
                                                 </div>
                                             </div>
                                             <div class="like-comm"> 
-                                                <a href="javascript:void(0)" class="link m-r-10"><?php echo (count($pengumuman))?> comment</a> 
+                                                <a href="javascript:void(0)" class="link m-r-10"><?php echo (count($comments))?> comment</a> 
                                                     <!-- <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div> -->
                                             </div>
                                         </div>
                                     </div>
                                     <hr>
-                                    <?php
+                                    <!-- <div> 
+                                        <input type="text" name="comment" class="form-control comment" placeholder="Tulis Komentar" pengumumanid="<?php echo $value->id_pengumuman;?>">
+                                    </div> -->
+                                    <div class="comments">
+                                        <?php
+                                            if(!empty($comments)){
+                                                foreach($comments as $keys=>$values){
+                                                    if($value->id_pengumuman == $values->idPengumuman){
+                                        ?>
+                                        <div class="sl-item" style="margin-left:65px;margin-top:25px;">
+                                            <div class="sl-left"> 
+                                                <?php
+                                                    if(empty($values->image)){
+                                                ?>
+                                                    <img src="<?php echo base_url('gambar/profile/default.png');?>" alt="user" class="img-circle">
+                                                <?php
+                                                    }else{
+                                                ?> 
+                                                    <img src="<?php echo base_url('gambar/profile/' . $values->image);?>" alt="user" class="img-circle">
+                                                <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                            <div class="sl-right">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 m-b-20" style="padding:5px 5px 5px 5px;">
+                                                        <?php echo $values->comment;?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                                    }
+                                                }
                                             }
-                                        }
-                                    ?>
+                                        ?>
+                                    </div>
                                 </div>
+                                <hr>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>

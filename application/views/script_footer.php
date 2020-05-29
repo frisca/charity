@@ -51,6 +51,47 @@
             }).focus(function(){
                 $('.ui-datepicker-calendar').show();
             });
+            $(".comment").keypress(function(e){
+                if(e.which == 13){
+                    if($(this).val() == ""){
+                        alert("Tidak boleh kosong");
+                    }else{
+                        // alert($(this).val());
+                        var pengumuman = $(this).attr('pengumumanid');
+                        $.post( "<?php echo base_url('home/insertComment');?>", { comment: $(this).val(), pengumuman : pengumuman }, function(data){
+							console.log('datas: ', data);
+                            if(!data.image){
+                                $('.comments').append('<div class="sl-item" style="margin-left:65px;margin-top:25px;">' +
+                                    '<div class="sl-left">' + 
+                                        '<img src="<?php echo base_url('gambar/profile/default.png');?>" alt="user" class="img-circle">' +
+                                    '</div>' +
+                                    '<div class="sl-right">' +
+                                        '<div class="row">' +
+                                            '<div class="col-lg-12 col-md-12 m-b-20" style="padding:5px 5px 5px 5px;">' +
+                                                data.comment +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>');
+                            }else{
+                                $('.comments').append('<div class="sl-item" style="margin-left:65px;margin-top:25px;">' +
+                                    '<div class="sl-left">' + 
+                                        '<img src="../gambar/profile/'+data.image+'" alt="user" class="img-circle">' +
+                                    '</div>' +
+                                    '<div class="sl-right">' +
+                                        '<div class="row">' +
+                                            '<div class="col-lg-12 col-md-12 m-b-20" style="padding:5px 5px 5px 5px;">' +
+                                                data.comment +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>');
+                            }
+						}, 'json');
+                    }
+                    $('.comment').val('');
+                }
+            })
             $("#birthDate").datepicker({
                 changeMonth: true,
                 changeYear: true,
@@ -276,6 +317,7 @@
                     '</li>');
                 }
             });
+            
         });
 
 
@@ -306,7 +348,9 @@
             });
         }
 
-        setInterval(function(){insertEmail()}, 1000);
+        // setInterval(function(){insertEmail()}, 1000);
+
+
 
 
         $('li#notif ul li div.message-center').empty();

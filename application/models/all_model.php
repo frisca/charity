@@ -190,6 +190,24 @@ class All_model extends CI_Model {
 		$result = $this->db->query($query);
 		return $result;
 	}
+
+	public function getListComment(){
+		$query = "select c.*, d.*, u.* from comment c left join donatur d on d.idDonatur = c.idUser left join user u on u.idUser = d.id_user order by c.idComment asc";
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getDonatur($id){
+		$query = "select d.*, u.* from donatur d left join user u on u.idUser = d.id_user where u.idUser = " . $id;
+		$result = $this->db->query($query);
+		return $result;
+	}
+
+	public function getCommentByDesc($id){
+		$query = "select c.*, d.*, u.* from comment c left join donatur d on d.idDonatur = c.idUser left join user u on u.idUser = d.id_user where c.idPengumuman = " . $id . " order by c.idComment desc limit 1";
+		$result = $this->db->query($query);
+		return $result;
+	}
 }
 
 /* End of file welcome.php */
