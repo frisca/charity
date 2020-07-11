@@ -19,7 +19,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
+            format: 'dd/mm/yyyy',
             showOtherMonths:true,
             selectOtherMonths: true
         }).focus(function(){
@@ -29,7 +29,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
+            format: 'dd/mm/yyyy',
             showOtherMonths:true,
             selectOtherMonths: true
         }).focus(function(){
@@ -39,7 +39,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
+            format: 'dd/mm/yyyy',
             showOtherMonths:true,
             selectOtherMonths: true
         }).focus(function(){
@@ -72,7 +72,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
+            format: 'dd/mm/yyyy',
             prevText:"click for previous months",
             nextText:"click for next months",
             showOtherMonths:true,
@@ -84,7 +84,7 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'mm/yy',
+            format: 'mm/yyyy',
             onClose: function(dateText, inst) { 
                 $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
             }
@@ -98,6 +98,46 @@
             if($("#startDate").val() == "" && $("#endDate").val() == ""){
                 alert('Dari bulan tidak boleh kosong dari Sampai bulan');
                 return false;
+            }
+        });
+
+        $(".comment").keypress(function(e){
+            if(e.which == 13){
+                if($(this).val() == ""){
+                    alert("Tidak boleh kosong");
+                }else{
+                    // alert($(this).val());
+                    var pengumuman = $(this).attr('pengumumanid');
+                    $.post( "<?php echo base_url('home/insertComment');?>", { comment: $(this).val(), pengumuman : pengumuman }, function(data){
+                        console.log('datas: ', data);
+                        if(!data.image){
+                            $('.comments').append('<div class="blog-comments__item d-flex p-3" style="width:1000px;">' +
+                                '<div class="blog-comments__avatar mr-3">' +
+                                    '<img src="<?php echo base_url('gambar/profile/default.png');?>" alt="user" class="img-circle">' + 
+                                '</div>' +
+                                '<div class="blog-comments__content">' +
+                                    '<div class="blog-comments__meta text-muted">' + 
+                                    '<a class="text-secondary" href="javascript:void(0)">'+data.nama+'</a>' +
+                                    '</div>' + 
+                                    '<p class="m-0 my-1 mb-2 text-muted">'+data.comment+'</p>' +
+                                '</div>' +
+                              '</div>');
+                        }else{
+                            $('.comments').append('<div class="blog-comments__item d-flex p-3" style="width:1000px;">' +
+                                '<div class="blog-comments__avatar mr-3">' +
+                                    '<img src="../gambar/profile/'+data.image+'" alt="user" class="img-circle">' + 
+                                '</div>' +
+                                '<div class="blog-comments__content">' +
+                                    '<div class="blog-comments__meta text-muted">' + 
+                                    '<a class="text-secondary" href="javascript:void(0)">'+data.nama+'</a>' +
+                                    '</div>' + 
+                                    '<p class="m-0 my-1 mb-2 text-muted">'+data.comment+'</p>' +
+                                '</div>' + 
+                              '</div>');
+                        }
+                    }, 'json');
+                }
+                $('.comment').val('');
             }
         });
 

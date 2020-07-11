@@ -91,7 +91,7 @@
                     }
                     $('.comment').val('');
                 }
-            })
+            });
             $("#birthDate").datepicker({
                 changeMonth: true,
                 changeYear: true,

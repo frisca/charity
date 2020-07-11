@@ -60,7 +60,9 @@
                       </div> -->
                       <div class="auth-form__meta mt-4" style="float:right;">
                         <button type="submit" class="btn btn-success">Masuk</button>
+                        <a href="<?php echo base_url();?>">
                         <button type="button" class="btn btn-default">Kembali</button>
+                        </a>
                       </div>
                     </form>
                   </div>
