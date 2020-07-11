@@ -1,97 +1,108 @@
-<aside class="left-sidebar">
-    <!-- Sidebar scroll-->
-    <div class="scroll-sidebar">
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-                <?php if($this->session->userdata('role') == 1){?>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home/index');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                </li>
-                <!-- <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a>
-                </li> -->
-                <!-- <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('donatur/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-account-multiple"></i><span class="hide-menu">Donatur</span>
-                    </a>
-                </li>
-                <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('admin/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-account-circle"></i><span class="hide-menu">Admin</span>
-                    </a>
-                </li> -->
-                <!-- <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('role/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-account-multiple"></i><span class="hide-menu">Role</span>
-                    </a>
-                </li> -->
-                <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('user/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-account-circle"></i><span class="hide-menu">User</span>
-                    </a>
-                </li>
-                <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('penerima_beasiswa/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-account-card-details"></i><span class="hide-menu">Penerima Beasiswa</span>
-                    </a>
-                </li>
-                <li> 
-                    <a class="waves-effect waves-dark" href="<?php echo base_url('pengumuman/index');?>" aria-expanded="false">
-                        <i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Pengumuman</span>
-                    </a>
-                </li>
-               <!--  <li> <a class="waves-effect waves-dark" href="<?php echo base_url('iuran/index');?>" aria-expanded="false"><i class="mdi mdi-cards"></i><span class="hide-menu">Iuran</span></a> -->
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Donasi & Giving </span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('transaksi_masuk/index');?>">Donasi</a></li>
-                        <li><a href="<?php echo base_url('transaksi_keluar/index');?>">Giving</a></li>
-                    </ul>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-view-sequential"></i><span class="hide-menu">Laporan </span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('laporan_masuk/index');?>">Donasi</a></li>
-                        <li><a href="<?php echo base_url('laporan_keluar/index');?>">Giving</a></li>
-                    </ul>
-                </li>
-                <?php }elseif($this->session->userdata('role') == 2) { ?>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('home/index');?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
-                </li>  
-                <!-- <li> <a class="waves-effect waves-dark" href="<?php echo base_url('profile/index');?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profil</span></a></li> -->
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('penerima_beasiswa/index');?>" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Penerima Beasiswa</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('pengumuman/index');?>" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Pengumuman</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('konfirmasi_pembayaran/index');?>" aria-expanded="false"><i class="mdi mdi-cards"></i><span class="hide-menu">Donasi</span></a>
-                </li>
-                <li> <a class="waves-effect waves-dark" href="<?php echo base_url('email/index');?>" aria-expanded="false"><i class="mdi mdi-gmail"></i><span class="hide-menu">Email</span></a>
-                </li>
-                <li> 
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-view-sequential"></i><span class="hide-menu">Laporan </span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="<?php echo base_url('laporan_masuk/index');?>">Donasi</a></li>
-                        <li><a href="<?php echo base_url('laporan_keluar/index');?>">Giving</a></li>
-                    </ul>
-                </li>
-                <?php } ?>
-            </ul>
-            <!-- <div class="text-center m-t-30">
-                <a href="https://wrappixel.com/templates/materialpro/" class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
-            </div> -->
-        </nav>
-        <!-- End Sidebar navigation -->
+<aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+    <div class="main-navbar">
+    <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+        <div class="d-table m-auto">
+            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="<?php echo base_url();?>assets/vendor/images/shards-dashboards-logo.svg" alt="Shards Dashboard">
+            <span class="d-none d-md-inline ml-1">Shards Dashboard</span>
+        </div>
+        </a>
+        <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+        <i class="material-icons">&#xE5C4;</i>
+        </a>
+    </nav>
     </div>
-    <!-- End Sidebar scroll-->
-    <!-- Bottom points-->
-    <div class="sidebar-footer">
-        <?php if($this->session->userdata('role') == 1){?>
-        <!-- item--><a href="<?php echo base_url('profile/index');?>" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-        <!-- item--><a href="<?php echo base_url('login/logout');?>" class="link" data-toggle="tooltip" title="Logout" style="margin-left: 80px;"><i class="mdi mdi-power"></i></a> </div>
-        <?php }else{ ?>
-        <!-- item--><a href="<?php echo base_url('profile/index');?>" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-        <!-- item--><a href="<?php echo base_url('email/index');?>" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-        <!-- item--><a href="<?php echo base_url('login/logout');?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
-        <?php } ?>
-    <!-- End Bottom points-->
+    <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+    <div class="input-group input-group-seamless ml-3">
+        <div class="input-group-prepend">
+        <div class="input-group-text">
+            <i class="fas fa-search"></i>
+        </div>
+        </div>
+        <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+    </form>
+    <div class="nav-wrapper">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link active" href="index.html">
+                <i class="material-icons">edit</i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('user/index');?>">
+                <i class="material-icons">person</i>
+                <span>User</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('penerima_beasiswa/index');?>">
+                <i class="material-icons">assignment_ind</i>
+                <span>Penerima Beasiswa</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('pengumuman/index');?>">
+                <i class="material-icons">article</i>
+                <span>Pengumuman</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <i class="material-icons">note_add</i>
+                <span>Donasi & Giving</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                <a class="dropdown-item " href="<?php echo base_url('transaksi_masuk/index');?>">Donasi & Giving - Donasi</a>
+                <a class="dropdown-item " href="<?php echo base_url('transaksi_keluar/index');?>">Donasi & Giving - Giving</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <i class="material-icons">event</i>
+                <span>Laporan</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                <a class="dropdown-item " href="laporan_masuk/index">Laporan - Donasi</a>
+                <a class="dropdown-item " href="laporan_keluar/index">Laporan - Giving</a>
+            </div>
+        </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link " href="components-blog-posts.html">
+            <i class="material-icons">vertical_split</i>
+            <span>Blog Posts</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="add-new-post.html">
+            <i class="material-icons">note_add</i>
+            <span>Add New Post</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="form-components.html">
+            <i class="material-icons">view_module</i>
+            <span>Forms &amp; Components</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="tables.html">
+            <i class="material-icons">table_chart</i>
+            <span>Tables</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="user-profile-lite.html">
+            <i class="material-icons">person</i>
+            <span>User Profile</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="errors.html">
+            <i class="material-icons">error</i>
+            <span>Errors</span>
+        </a>
+        </li> -->
+    </ul>
+    </div>
 </aside>
