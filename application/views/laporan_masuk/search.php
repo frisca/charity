@@ -1,157 +1,134 @@
-<?php $this->load->view('script_header')?>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
-        </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <?php $this->load->view('header');?>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+<?php $this->load->view('header');?>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
         <?php $this->load->view('menu');?>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Laporan Masuk</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Laporan Masuk</li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <h4 class="card-title" style="margin-bottom: 25px;">Laporan Masuk</h4>
-                                <form method="post" action="<?php echo base_url('laporan_masuk/search/');?>">
-                                <diV class="row form-material">
-                                    <div class="col-md-5">
-                                        <label class="mt-3">Dari Bulan</label>
-                                        <input type="text" class="form-control" id="startDate" name="startDate">
-                                    </div>
-                                    <div class="col-md-5">
-                                        <label class="mt-3">Sampai Bulan</label>
-                                        <input class="form-control" id="endDate" name="endDate" type="text">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="mt-3"></label>
-                                        <button type="submit" class="btn btn-primary" style="margin-top: 50px;">Cari</button>
-                                    </div>
-                                </diV>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <table id="example" class="table table-striped table-bordered" style="margin-top: 30px;">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Donatur</th>
-                                            <!-- <th>Bulan</th>
-                                            <th>Tahun</th> -->
-                                            <th>Tanggal Transfer</th>
-                                            <th>Total Dana</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($transaksi as $key=>$value){?>
-                                        <tr>
-                                            <td><?php echo $value->nama;?></td>
-                                            <!-- <td>
-                                                <?php 
-                                                    foreach ($bulan as $keys => $values) {
-                                                        if($value->month == $values->value){
-                                                            echo $values->name;
-                                                        }
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td><?php echo $value->year;?></td> -->
-                                            <td><?php echo date('d/m/Y', strtotime($value->transferDate));?></td>
-                                            <td><?php echo $value->jumlah;?></td>
-                                        </tr>
-                                        <?php } ?>                                       
-                                    </tbody>
-                                </table>
-                                <div>
-                                    <label class="mt-3" style="font-weight: bold;">
-                                        Total : 
-                                        <?php 
-                                            if(empty($total->total)){
-                                                echo 0;
-                                            }else{
-                                                echo $total->total;
-                                            }
-                                        ?>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+            <?php $this->load->view('navbar_header');?>
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Overview</span>
+                <h3 class="page-title">Laporan Donasi</h3>
+              </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <?php $this->load->view('footer');?>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <div class="row">
+                <div class="col">
+                    <?php if($this->session->flashdata('success') != ""){ ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('success');?>
+                    </div>  
+                    <?php }else if($this->session->flashdata('error') != ""){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('error');?>
+                    </div>  
+                    <?php } ?> 
+                    <div class="card card-small mb-4">
+                        <div class="card-header border-bottom">
+                            <h6 class="m-0">Daftar Laporan Donasi</h6>
+                            <!-- <a href="<?php echo base_url('pengumuman/add');?>">
+                                <button class="btn waves-effect waves-light btn-success pull-right hidden-sm-down" 
+                                style="float:right;margin-top:-30px;"><i class="mdi mdi-plus"></i> Tambah</button>
+                            </a> -->
+                            <form method="post" action="<?php echo base_url('laporan_masuk/search/');?>">
+                            <diV class="row form-material">
+                                <div class="col-md-5">
+                                    <label class="mt-3">Dari Tanggal</label>
+                                    <input type="text" class="form-control" id="startDate" name="startDate">
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="mt-3">Sampai Tanggal</label>
+                                    <input class="form-control" id="endDate" name="endDate" type="text">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="mt-3"></label>
+                                    <button type="submit" class="btn btn-primary search" style="margin-top: 42px;">Cari</button>
+                                </div>
+                            </diV>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            <table id="example" class="table table-striped table-bordered" style="margin-top: 42px;">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Donatur</th>
+                                        <th>Tanggal Transfer</th>
+                                        <!-- <th>Tahun</th> -->
+                                        <th>Total Dana</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($transaksi as $key=>$value){?>
+                                    <tr>
+                                        <td><?php echo $value->nama;?></td>
+                                        <!-- <td>
+                                            <?php 
+                                                foreach ($bulan as $keys => $values) {
+                                                    if($value->month == $values->value){
+                                                        echo $values->name;
+                                                    }
+                                                }
+                                            ?>
+                                        </td>
+                                        <td><?php echo $value->year;?></td> -->
+                                        <td><?php echo date('d/m/Y', strtotime($value->transferDate));?></td>
+                                        <td><?php echo $value->jumlah;?></td>
+                                    </tr>
+                                    <?php } ?>                                       
+                                </tbody>
+                            </table>
+                            <div>
+                                <label class="mt-3" style="font-weight: bold;">
+                                    Total : 
+                                    <?php 
+                                        if(empty($total->total)){
+                                            echo 0;
+                                        }else{
+                                            echo $total->total;
+                                        }
+                                    ?>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Default Light Table -->
+            </div>
+            <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+                <!-- <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                </ul> -->
+                <span class="copyright ml-auto my-auto mr-2">Copyright © 2018
+                <a href="https://designrevision.com" rel="nofollow">DesignRevision</a>
+                </span>
+            </footer>
+        </main>
+      </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
 <?php $this->load->view('script_footer');?>

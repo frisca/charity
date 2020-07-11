@@ -37,10 +37,12 @@
                     <div class="card card-small mb-4">
                         <div class="card-header border-bottom">
                         <h6 class="m-0">Daftar Penerima Beasiswa</h6>
+                            <?php if($this->session->userdata('role') == 1){?>
                             <a href="<?php echo base_url('penerima_beasiswa/add');?>">
                                 <button class="btn waves-effect waves-light btn-success pull-right hidden-sm-down" 
                                 style="float:right;margin-top:-30px;"><i class="mdi mdi-plus"></i> Tambah</button>
                             </a>
+                            <?php } ?>
                         </div>
                         <div class="card-body">
                             <table id="example" class="table table-striped table-bordered" style="margin-top: 30px;">

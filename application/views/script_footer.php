@@ -100,6 +100,71 @@
                 return false;
             }
         });
+
+        $.getJSON("<?php echo base_url();?>transaksi_masuk/notif", function(data){
+            console.log('data: '  + data.notif);
+            if(data.notif.length == 0){
+                // $(' ul li#notif a div').css('display', 'none');
+                // $('li#notif ul').prepend('<li>'+
+                //     '<p style="margin: 3px 10px 5px 12px;"> Anda tidak mempunyai notifikasi </p>' +
+                // '</li>');
+                // $('li#notif ul li:eq(1)').css('display', 'none');
+                $('.notifications a div').append('<span class="badge badge-pill badge-danger"></span>');
+                $('.notifications div.dropdown-menu').append('<a class="dropdown-item notification__all text-center" href="javascript:void(0)"> Tidak ada notifikasi </a>');
+            }else if(data.notif.length == 1){
+                // $('li#notif ul').prepend('<li>'+
+                //     '<h5 class="font-medium py-3 px-4 border-bottom mb-0"> Anda mempunyai ' + data.notif.length + ' notifikasi </h5>' +
+                // '</li>');
+
+                // $.each(data.notif, function( i, val ) {
+                //     $('li#notif ul li div.message-center').append('<a href="<?php echo base_url("transaksi_masuk/read/'+val.idTransaksiMasuk+'");?>" class="border-bottom d-block text-decoration-none py-2 px-3">' +
+                //         '<div class="btn btn-primary btn-circle mr-2"><i class="fa fa-credit-card"></i>' +
+                //         '</div>' +
+                //         '<div class="mail-contnet d-inline-block align-middle">' +
+                //             '<h5 class="my-1">' + val.nama + '</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">' + val.description +
+                //                 '</span>' +
+                //         '</div>'+
+                //     '</a>');
+                // });
+
+                // $('li#notif ul').append('<li>'+
+                //     '<a class="nav-link text-center border-top pt-3" href="javascript:void(0);" style="margin-top:-127px;">' +
+                //         '<strong>Tidak ada detail ' +
+                //             'notifikasi</strong></a>' +
+                // '</li>');
+                // <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a>
+                $('.notifications a div').append('<span class="badge badge-pill badge-danger">1</span>');
+                $.each(data.notif, function( i, val ) {
+                    $('.notifications div.dropdown-menu').append('<a class="dropdown-item" href="<?php echo base_url("transaksi_masuk/read/'+val.idTransaksiMasuk+'");?>">' +
+                        '<div class="notification__icon-wrapper">' +
+                        '<div class="notification__icon">' + 
+                            '<i class="material-icons">&#xE6E1;</i>' +
+                        '</div>' +
+                        '</div>' + 
+                        '<div class="notification__content">' +
+                        '<span class="notification__category">'+val.nama+'</span>' +
+                        '<p>'+val.description+'</p>' +
+                        '</div>' +
+                    '</a>');
+                });
+            }else{
+                $('.notifications a div').append('<span class="badge badge-pill badge-danger">'+data.notif.length+'</span>');
+                $.each(data.notif, function( i, val ) {
+                    $('.notifications div.dropdown-menu').append('<a class="dropdown-item" href="<?php echo base_url("transaksi_masuk/read/'+val.idTransaksiMasuk+'");?>">' +
+                        '<div class="notification__icon-wrapper">' +
+                        '<div class="notification__icon">' + 
+                            '<i class="material-icons">&#xE6E1;</i>' +
+                        '</div>' +
+                        '</div>' + 
+                        '<div class="notification__content">' +
+                        '<span class="notification__category">'+val.nama+'</span>' +
+                        '<p>'+val.description+'</p>' +
+                        '</div>' +
+                    '</a>');
+                });
+                $('.notifications div.dropdown-menu').append('<a class="dropdown-item notification__all text-center" href="<?php echo base_url("transaksi_masuk/allRead");?>"> View all Notifications </a>')
+            }
+        });
     </script>
   </body>
 </html>

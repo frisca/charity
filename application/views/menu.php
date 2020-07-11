@@ -24,49 +24,91 @@
     <div class="nav-wrapper">
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="index.html">
+            <a class="nav-link active" href="<?php echo base_url('home/index');?>">
                 <i class="material-icons">edit</i>
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('user/index');?>">
-                <i class="material-icons">person</i>
-                <span>User</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('penerima_beasiswa/index');?>">
-                <i class="material-icons">assignment_ind</i>
-                <span>Penerima Beasiswa</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('pengumuman/index');?>">
-                <i class="material-icons">article</i>
-                <span>Pengumuman</span>
-            </a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="material-icons">note_add</i>
-                <span>Donasi & Giving</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
-                <a class="dropdown-item " href="<?php echo base_url('transaksi_masuk/index');?>">Donasi & Giving - Donasi</a>
-                <a class="dropdown-item " href="<?php echo base_url('transaksi_keluar/index');?>">Donasi & Giving - Giving</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="material-icons">event</i>
-                <span>Laporan</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
-                <a class="dropdown-item " href="laporan_masuk/index">Laporan - Donasi</a>
-                <a class="dropdown-item " href="laporan_keluar/index">Laporan - Giving</a>
-            </div>
-        </li>
+        <?php if($this->session->userdata('role') == 1){?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('user/index');?>">
+                    <i class="material-icons">person</i>
+                    <span>User</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('penerima_beasiswa/index');?>">
+                    <i class="material-icons">assignment_ind</i>
+                    <span>Penerima Beasiswa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('pengumuman/index');?>">
+                    <i class="material-icons">article</i>
+                    <span>Pengumuman</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">note_add</i>
+                    <span>Donasi & Giving</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item " href="<?php echo base_url('transaksi_masuk/index');?>">Donasi & Giving - Donasi</a>
+                    <a class="dropdown-item " href="<?php echo base_url('transaksi_keluar/index');?>">Donasi & Giving - Giving</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">event</i>
+                    <span>Laporan</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item " href="<?php echo base_url('laporan_masuk/index');?>">Laporan - Donasi</a>
+                    <a class="dropdown-item " href="<?php echo base_url('laporan_keluar/index');?>">Laporan - Giving</a>
+                </div>
+            </li>
+        <?php } ?>
+        <?php if($this->session->userdata('role') == 2){?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('penerima_beasiswa/index');?>">
+                    <i class="material-icons">assignment_ind</i>
+                    <span>Penerima Beasiswa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('pengumuman/index');?>">
+                    <i class="material-icons">article</i>
+                    <span>Pengumuman</span>
+                </a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">note_add</i>
+                    <span>Donasi & Giving</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item " href="<?php echo base_url('transaksi_masuk/index');?>">Donasi & Giving - Donasi</a>
+                    <a class="dropdown-item " href="<?php echo base_url('transaksi_keluar/index');?>">Donasi & Giving - Giving</a>
+                </div>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('konfirmasi_pembayaran/index');?>">
+                    <i class="material-icons">note_add</i>
+                    <span>Donasi</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">event</i>
+                    <span>Laporan</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item " href="<?php echo base_url('laporan_masuk/index');?>">Laporan - Donasi</a>
+                    <a class="dropdown-item " href="<?php echo base_url('laporan_keluar/index');?>">Laporan - Giving</a>
+                </div>
+            </li>
+        <?php } ?>
         <!-- <li class="nav-item">
         <a class="nav-link " href="components-blog-posts.html">
             <i class="material-icons">vertical_split</i>
