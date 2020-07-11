@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
+    <title>IA DEL CHARITY</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -71,8 +71,8 @@
               <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
                 <a class="navbar-brand" href="#" style="line-height: 25px;">
                   <div class="d-table m-auto">
-                    <img id="main-logo" class="d-inline-block align-top mr-1 ml-3" style="max-width: 25px;" src="<?php echo base_url();?>assets/vendor/images/shards-dashboards-logo.svg" alt="Shards Dashboard">
-                    <span class="d-none d-md-inline ml-1">Shards Dashboard</span>
+                    <img id="main-logo" class="d-inline-block align-top mr-1 ml-3" style="width: 70px;height: 30px;" src="<?php echo base_url();?>assets/vendor/images/logo.png" alt="IA DEL CHARITY">
+                    <span class="d-none d-md-inline ml-1"></span>
                   </div>
                 </a>
                 <div class="navbar-nav flex-row ml-auto">

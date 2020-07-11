@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
+    <title>IA DEL CHARIT</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -29,7 +29,7 @@
               <div class="col-lg-3 col-md-5 auth-form mx-auto my-auto">
                 <div class="card">
                   <div class="card-body">
-                    <img class="auth-form__logo d-table mx-auto mb-3" src="<?php echo base_url();?>assets/vendor/images/shards-dashboards-logo.svg" alt="Shards Dashboards - Register Template">
+                    <img class="auth-form__logo d-table mx-auto mb-3" src="<?php echo base_url();?>assets/vendor/images/logo.png" alt="IA DEL CHARITY" style="width: 70px;height: 30px;">
                     <h5 class="auth-form__title text-center mb-4">Silahkan Login</h5>
                     <form action="<?php echo base_url('login/processLogin');?>" method="post">
                         <?php if($this->session->flashdata('success') != ""){ ?>
