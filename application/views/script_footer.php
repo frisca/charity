@@ -101,15 +101,20 @@
             }
         });
 
-        $(".comment").keypress(function(e){
+        $('.comment').keypress(function(e){
             if(e.which == 13){
                 if($(this).val() == ""){
                     alert("Tidak boleh kosong");
                 }else{
                     // alert($(this).val());
                     var pengumuman = $(this).attr('pengumumanid');
+                    // console.log(pengumuman);
+                    // $('.comments').append('<p>te</p>');
                     $.post( "<?php echo base_url('home/insertComment');?>", { comment: $(this).val(), pengumuman : pengumuman }, function(data){
                         console.log('datas: ', data);
+                        if(data == ""){
+                        $('.comments').append('<span>asas</span>');
+                        }
                         if(!data.image){
                             $('.comments').append('<div class="blog-comments__item d-flex p-3" style="width:1000px;">' +
                                 '<div class="blog-comments__avatar mr-3">' +
@@ -136,13 +141,14 @@
                               '</div>');
                         }
                     }, 'json');
+                    // $(this).parent().parent().find('.comments').append('<span>sas</span>');
                 }
                 $('.comment').val('');
             }
         });
 
         $.getJSON("<?php echo base_url();?>transaksi_masuk/notif", function(data){
-            console.log('data: '  + data.notif);
+            console.log('data: '  + data.notif.id_user);
             if(data.notif.length == 0){
                 // $(' ul li#notif a div').css('display', 'none');
                 // $('li#notif ul').prepend('<li>'+
@@ -205,6 +211,83 @@
                 $('.notifications div.dropdown-menu').append('<a class="dropdown-item notification__all text-center" href="<?php echo base_url("transaksi_masuk/allRead");?>"> View all Notifications </a>')
             }
         });
+        // $('a[data-toggle="dropdown"]').on('click', function() {
+
+        // var $el = $(this);
+
+        // if ( $el.is(':hover') ) {
+
+        //     if ( $el.length && $el.attr('href') ) {
+        //         location.href =$el.attr('href');
+        //     }
+
+        // }
+
+        // });
+        // $('.laporan').mouseenter(function() {
+        //     $(this).addClass('show')
+        //     $(this).children('.dropdown-menu-wide').addClass('show');
+        // });
+
+        // $('.laporan').mouseleave(function() {
+        //     $(this).removeClass('show');
+        //     $(this).children('.dropdown-menu-wide').removeClass('show');
+        // });
+        // jQuery(function($) {
+            $('.laporan').hover(function(){
+                $(this).addClass('show');
+                $('.laporans').addClass('show');
+                $('.laporans').css('display', 'block');
+                // alert('test');
+            });
+            $('.laporan').click(function(){
+                // var href = 'laporan/index';
+                location.href = '<?php echo base_url('laporan/index')?>';
+                // alert('test');
+            });
+            $('.laporan').mouseleave(function(){
+                $(this).removeClass('show');
+                $('.laporans').removeClass('show');
+                $('.laporans').css('display', 'none');
+                // alert('test');
+            });
+            $('.donasi').hover(function(){
+                $(this).addClass('show');
+                $('.donasis').addClass('show');
+                $('.donasis').css('display', 'block');
+                // alert('test');
+            });
+            $('.donasi').mouseleave(function(){
+                $(this).removeClass('show');
+                $('.donasis').removeClass('show');
+                $('.donasis').css('display', 'none');
+                // alert('test');
+            });
+            $('.header').hover(function(){
+                $(this).addClass('show');
+                $('.headers').addClass('show');
+                $('.headers').css('display', 'block');
+                // alert('test');
+            });
+            $('.header').mouseleave(function(){
+                $(this).removeClass('show');
+                $('.headers').removeClass('show');
+                $('.headers').css('display', 'none');
+                // alert('test');
+            });
+            $('.notifications').hover(function(){
+                $(this).addClass('show');
+                $('.notif').addClass('show');
+                $('.notif').css('display', 'block');
+                // alert('test');
+            });
+            $('.notifications').mouseleave(function(){
+                $(this).removeClass('show');
+                $('.notif').removeClass('show');
+                $('.notif').css('display', 'none');
+                // alert('test');
+            });
+        // });
     </script>
   </body>
 </html>

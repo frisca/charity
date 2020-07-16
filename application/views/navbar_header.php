@@ -16,7 +16,7 @@
                 <!-- <span class="badge badge-pill badge-danger"></span> -->
             </div>
         </a>
-        <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
+        <div class="dropdown-menu dropdown-menu-small notif" aria-labelledby="dropdownMenuLink">
             <!-- <a class="dropdown-item" href="#">
                 <div class="notification__icon-wrapper">
                 <div class="notification__icon">
@@ -44,14 +44,14 @@
             <!-- <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a> -->
         </div>
     </li>
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown header">
         <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <img class="user-avatar rounded-circle mr-2" 
             src="<?php if(empty($this->session->userdata('image'))){ echo base_url('assets/images/users/9.jpg');}else{echo base_url('gambar/profile/' . $this->session->userdata('image'));}?>" 
             alt="User Avatar" style="width:40px;height:40px;">
         <span class="d-none d-md-inline-block"><?php echo $this->session->userdata('username');?></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-small">
+        <div class="dropdown-menu dropdown-menu-small headers">
             <a class="dropdown-item" href="<?php echo base_url('profile/index');?>">
                 <i class="material-icons">&#xE7FD;</i> Profile
             </a>

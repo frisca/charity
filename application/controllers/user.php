@@ -56,14 +56,11 @@ class User extends CI_Controller {
 			$new_name                   = time().$_FILES["userfile"]['name'];
 	        $config['file_name']        = $new_name;
 			$config['upload_path']      = './gambar/profile/';
-			$config['allowed_types']    = 'gif|jpg|png';
+			// $config['allowed_types']    = 'gif|jpg|png';
 
 			$this->load->library('upload', $config);
  
-			if ( ! $this->upload->do_upload('userfile')){
-				$this->session->set_flashdata('error', 'Data user gagal disimpan');
-				return redirect(base_url() . 'user/add');
-			}else{
+			if ($this->upload->do_upload('userfile')){
 				$donatur = array(
 					'angkatan' => $this->input->post('angkatan'),
 					'gender' => $this->input->post('gender'),
@@ -78,6 +75,9 @@ class User extends CI_Controller {
 				}
 				$this->session->set_flashdata('success', 'Data user berhasil disimpan');
 				return redirect(base_url() . 'user/index');
+			}else{
+				$this->session->set_flashdata('error', 'Data user gagal disimpan');
+				return redirect(base_url() . 'user/add');
 			}
 
 		}

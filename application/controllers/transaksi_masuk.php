@@ -169,17 +169,14 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function processAdd(){
+		
 		$new_name                   = time().$_FILES["buktiBayar"]['name'];
-        $config['file_name']        = $new_name;
+		$config['file_name']        = $new_name;
 		$config['upload_path']      = './gambar/';
-		$config['allowed_types']    = 'gif|jpg|png';
- 
+		$config['allowed_types']    = 'gif|jpg|png|jpeg';
 		$this->load->library('upload', $config);
- 
-		if ( ! $this->upload->do_upload('buktiBayar')){
-			$this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
-			return redirect(base_url() . 'transaksi_masuk/add');
-		}else{
+
+		if ($this->upload->do_upload('buktiBayar')){
 			if(!empty($this->input->post('month_year'))){
 				$month = explode("/", $this->input->post('month_year'));
 			}else{
@@ -203,14 +200,55 @@ class Transaksi_Masuk extends CI_Controller {
 				'namaPengirim' => $this->input->post('namaPengirim'),
 				'year' => $month[1]
 			);
+
 			$result = $this->all_model->insertData('transaksi_masuk', $data);
 			if($result == true){
 				$this->session->set_flashdata('success', 'Data transaksi masuk berhasil disimpan');
 				return redirect(base_url() . 'transaksi_masuk/index');
 			}
+		}else{
+			$this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
+			return redirect(base_url() . 'transaksi_masuk/add');
 		}
-		$this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
-		return redirect(base_url() . 'transaksi_masuk/add');
+
+		// var_dump($data);exit();
+		// if ( ! $this->upload->do_upload('buktiBayar')){
+		// 	$this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
+		// 	return redirect(base_url() . 'transaksi_masuk/add');
+		// }else{
+			
+		// 	// var_dump(explode("/", $this->input->post('month_year')));exit();
+		// 	if(!empty($this->input->post('month_year'))){
+		// 		$month = explode("/", $this->input->post('month_year'));
+		// 	}else{
+		// 		$month[0] = 0;
+		// 		$month[1] = 0;
+		// 	}
+		// 	$data = array(
+		// 		'buktiBayar' => $new_name,
+		// 		'idDonatur' => $this->input->post('idDonatur'),
+		// 		'jumlah' => $this->input->post('jumlah'),
+		// 		'description' => $this->input->post('description'),
+		// 		'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
+		// 		'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
+		// 		'jenisTransaksi' => $this->input->post('jenisTransaksi'),
+		// 		'month' => $month[0],
+		// 		'status_approve' => 2,
+		// 		'bankDonatur' => $this->input->post('bankDonatur'),
+		// 		'noRekTujuan' => $this->input->post('noRekTujuan'),
+		// 		'noRekPengirim' => $this->input->post('noRekPengirim'),
+		// 		'namaPenerima' => $this->input->post('namaPenerima'),
+		// 		'namaPengirim' => $this->input->post('namaPengirim'),
+		// 		'year' => $month[1]
+		// 	);
+		// 	$result = $this->all_model->insertData('transaksi_masuk', $data);
+		// 	if($result == true){
+		// 		$this->session->set_flashdata('success', 'Data transaksi masuk berhasil disimpan');
+		// 		return redirect(base_url() . 'transaksi_masuk/index');
+		// 	}
+		// }
+		// $this->session->set_flashdata('error', 'Data transaksi masuk gagal disimpan');
+		// return redirect(base_url() . 'transaksi_masuk/add');
 	}
 
 	public function edit($id){
@@ -324,6 +362,7 @@ class Transaksi_Masuk extends CI_Controller {
 				'namaPengirim' => $this->input->post('namaPengirim'),
 				'year' => $month[1]
 			);
+			var_dump($data);exit();
 
 			$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
 			if($result == true){
@@ -338,7 +377,7 @@ class Transaksi_Masuk extends CI_Controller {
 			$new_name                   = time().$_FILES["buktiBayar"]['name'];
 	        $config['file_name']        = $new_name;
 			$config['upload_path']      = './gambar/';
-			$config['allowed_types']    = 'gif|jpg|png';
+			// $config['allowed_types']    = 'gif|jpg|png';
 
 			$this->load->library('upload', $config);
  
@@ -363,6 +402,8 @@ class Transaksi_Masuk extends CI_Controller {
 					'namaPengirim' => $this->input->post('namaPengirim'),
 					'year' => $month[1]
 				);
+
+				var_dump('gambar1: ', $data);exit();
 
 				// var_dump($data);exit();
 				$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
@@ -512,15 +553,19 @@ class Transaksi_Masuk extends CI_Controller {
 	}
 
 	public function notif(){
+		
 		if($this->session->userdata('role') == 1){
 			$data['notif'] = $this->all_model->getListTransaksiMasukProses()->result();
 			echo json_encode($data);
 		}
 
 		if($this->session->userdata('role') == 2){
-			$condition = array('id_user' => $this->session->userdata('id'));
+			
+			$condition = array('id_user' => (int)$this->session->userdata('id'));
 			$donatur = $this->all_model->getDataByCondition('donatur', $condition)->row();
-			$data['notif'] = $this->all_model->getListTransaksiMasukApproveAndReject($donatur->idDonatur)->result();
+			// var_dump($this->session->userdata('id'));exit();
+			$data['notif'] = $this->all_model->getListTransaksiMasukApproveAndReject((int)$donatur->idDonatur)->result();
+			// var_dump($data['notif']);exit();
 			echo json_encode($data);
 		}
 	}

@@ -26,7 +26,7 @@
         <li class="nav-item">
             <a class="nav-link active" href="<?php echo base_url('home/index');?>">
                 <i class="material-icons">edit</i>
-                <span>Dashboard</span>
+                <span>Home</span>
             </a>
         </li>
         <?php if($this->session->userdata('role') == 1){?>
@@ -48,22 +48,22 @@
                     <span>Pengumuman</span>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown donasi">
                 <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="material-icons">note_add</i>
                     <span>Donasi & Giving</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                <div class="donasis dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
                     <a class="dropdown-item " href="<?php echo base_url('transaksi_masuk/index');?>">Donasi & Giving - Donasi</a>
                     <a class="dropdown-item " href="<?php echo base_url('transaksi_keluar/index');?>">Donasi & Giving - Giving</a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+            <li class="nav-item dropdown laporan">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url('laporan/index');?>" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="material-icons">event</i>
                     <span>Laporan</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                <div class="laporans dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
                     <a class="dropdown-item " href="<?php echo base_url('laporan_masuk/index');?>">Laporan - Donasi</a>
                     <a class="dropdown-item " href="<?php echo base_url('laporan_keluar/index');?>">Laporan - Giving</a>
                 </div>

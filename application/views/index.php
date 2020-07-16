@@ -14,66 +14,72 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Analytics</h3>
+                <h3 class="page-title">Home</h3>
               </div>
             </div>
             <!-- End Page Header -->
             <div class="row">
-              <!-- Users Stats -->
-              <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
-                <div class="card card-small">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">Donasi vs Giving</h6>
-                  </div>
-                  <div class="card-body pt-0">
-                    <!-- <div class="row border-bottom py-2 bg-light">
-                      <div class="col-12 col-sm-6">
-                        <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
-                          <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
-                          <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
-                          <span class="input-group-append">
-                            <span class="input-group-text">
-                              <i class="material-icons"></i>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
-                        <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View Full Report &rarr;</button>
-                      </div>
-                    </div> -->
-                    <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
-                  </div>
-                </div>
-              </div>
-              <!-- End Users Stats -->
-              <!-- Users By Device Stats -->
-              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card card-small h-100">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">Jenis Kelamin</h6>
-                  </div>
-                  <div class="card-body d-flex py-0">
-                    <canvas height="220" class="blog-users-by-device m-auto"></canvas>
-                  </div>
-                  <!-- <div class="card-footer border-top">
-                    <div class="row">
-                      <div class="col">
-                        <select class="custom-select custom-select-sm" style="max-width: 130px;">
-                          <option selected>Last Week</option>
-                          <option value="1">Today</option>
-                          <option value="2">Last Month</option>
-                          <option value="3">Last Year</option>
-                        </select>
-                      </div>
-                      <div class="col text-right view-report">
-                        <a href="#">Full report &rarr;</a>
-                      </div>
+              <!-- Slide Show -->
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+                  
+                  <!-- The slideshow -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="<?php echo base_url('assets/images/la.jpg');?>" alt="Los Angeles" width="1100" height="500">
                     </div>
-                  </div> -->
+                    <div class="carousel-item">
+                      <img src="<?php echo base_url('assets/images/chicago.jpg');?>" alt="Chicago" width="1100" height="500">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="<?php echo base_url('assets/images/ny.jpg');?>" alt="New York" width="1100" height="500">
+                    </div>
+                  </div>
+                  
+                  <!-- Left and right controls -->
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
                 </div>
               </div>
-              <!-- End Users By Device Stats -->
+              <!-- End Slide Show -->
+
+              <!-- About IA Del Charity -->
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+                <div class="card card-small blog-comments">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Tentang IADEL Charity</h6>
+                  </div>
+                  <div class="card-body p-0">
+                    <div style="padding: 18px 20px 20px 15px;font-size: 1;text-align: justify;font-size: 15px;">
+                    Del adalah sebuah institusi akademik yang didirikan dengan visi menciptakan para agen perubahan yang membawa kebaikan di setiap lingkungan dimanapun berada. Sejak meluluskan generasi pertama di tahun 2004, ketika itu Del masih berbentuk Politeknik, keberadaan para lulusan menjadi penjabat di berbagai posisi pekerjaan baik dalam institusi pemerintahan dan swasta, merupakan indikator ketercapaian cita-cita pendiri Del.
+
+ 
+
+Alumni del tidak berhenti sampai pada titik tersebut. Dalam perjalanannya dengan kapasitas yang semakin besar seiring perjalanan waktu, sebagai dampak bertambahnya jumlah lulusan yang berkerja dan berkarya, para alumni merasakan dan menyadari bahwa baiklah bila keberadaannya dapat berdampak langsung bagi lingkungan. Alumni memilih untuk bisa memberi lebih lagi dalam bidang sosial, menyatakan kepedulian terhadap lingkungan. Dengan pengalaman dididik di lingkungan tepian Danau Toba dengan kondisi masyarakat yang secara garis besar termasuk pada golongan masyarakat kurang mampu, Alumni memilih untuk terlebih dahulu dapat berdampak bagi lingkungan kampusnya dan lingkungan tinggalnya.
+
+ 
+
+Berbagai kegiatan telah dilakukan, menggalang dana untuk membantu anak sekolah di daerah Tapanuli, menggalang dana untuk beasiswa para mahasiswa aktif di Del, program donor darah, program pengadaan buku untuk kampus, dan beberapa kegiatan sosial lainnya. Kegiatan tersebut menggambarkan begitu besarnya kerinduan para alumni yang sudah terlebih dahulu merasakan berbagai kebaikan yang diperoleh dari institusi del, untuk bisa kembali berbagi kebaikan-kebaikan yang diperoleh kepada lingkungan.
+
+ 
+
+Suatu kerinduan untuk dapat membuat kegiatan yang berkelanjutan dan berkesinambungan dan terkoordinir dengan baik, sehingga semakin memperbesar dampak keberadaan alumni di lingkungan, membawa beberapa anggota alumni kepada suatu gagasan untuk membentuk sebuah komunitas. Komunitas tersebut nantinya akan menjadi komunitas yang bekerjasama dengan ikatan alumni dan bahkan akan berada di bawah payung seksi sosial ikatan alumni del.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- About IA Del Charity -->
+
               <!-- Discussions Component -->
               <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                 <div class="card card-small blog-comments">
@@ -107,11 +113,11 @@
                             </div>
                             <p class="m-0 my-1 mb-2 text-muted"><?php echo $value->isi;?></p>
                             <div class="like-comm"> 
-                                <a href="javascript:void(0)" class="link m-r-10"><?php echo (count($comments))?> comment</a> 
+                                <a href="javascript:void(0)" class="link m-r-10"><?php echo $value->count_comment;?> comment</a> 
                                     <!-- <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div> -->
                             </div>
                             <hr>
-                            <div> 
+                            <div style="width:1000px;"> 
                                 <input type="text" name="comment" class="form-control comment" placeholder="Tulis Komentar" pengumumanid="<?php echo $value->id_pengumuman;?>"
                                 style="margin-bottom:10px;">
                             </div>

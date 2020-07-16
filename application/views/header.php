@@ -13,9 +13,19 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" id="theme" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
       .ui-datepicker-calendar{
             display: none;
         }​
+        .laporan:hover {
+            display: block;
+        }
+        .carousel-inner img {
+          width: 100%;
+          height: 100%;
+        }
     </style>
   </head>

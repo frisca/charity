@@ -76,7 +76,7 @@ class All_model extends CI_Model {
 	}
 
 	public function getListTransaksiMasukApproveAndReject($id){
-		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where (tm.read = 0 and tm.status_approve = 2) or (tm.read = 0 and tm.status_approve = 3) and d.idDonatur = " . $id;
+		$query = "SELECT tm.*, d.*, u.* FROM transaksi_masuk tm left join  donatur d on d.idDonatur = tm.idDonatur left join user u on u.idUser = d.id_user where (tm.read = 0 and tm.status_approve = 2 or tm.status_approve = 3) and d.idDonatur = " . $id;
 		$result = $this->db->query($query);
 		return $result;
 	}
@@ -142,7 +142,10 @@ class All_model extends CI_Model {
 	}
 
 	public function getListPengumuman(){
-		$query = "SELECT p.*, d.*, u.* FROM pengumuman p left join donatur d on d.idDonatur = p.createdBy left join user u on d.id_user = u.idUser where p.status = 1";
+		$query = "SELECT p.*, d.*, u.*, count(c.idComment) as count_comment FROM pengumuman p 
+				left join donatur d on d.idDonatur = p.createdBy left join user u on d.id_user = u.idUser 
+				left join comment c on c.idPengumuman=p.id_pengumuman 
+				where p.status = 1 group by c.idPengumuman order by p.id_pengumuman desc limit 1";
 		$result = $this->db->query($query);
 		return $result;
 	}
