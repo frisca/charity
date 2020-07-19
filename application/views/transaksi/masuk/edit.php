@@ -46,7 +46,7 @@
                             <form class="form-horizontal form-material" method="post" action="<?php echo base_url('transaksi_masuk/processUpdate/' . $transaksi->idTransaksiMasuk);?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Donatur</label>
-                                    <div class="col-sm-12">
+                                    <!-- <div class="col-sm-12">
                                         <select class="form-control form-control-line" name="idDonatur" required>
                                             <?php
                                                 foreach ($donatur as $key => $value) {
@@ -62,6 +62,11 @@
                                                 }
                                             ?>
                                         </select>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <input type="text" value="<?php echo $transaksi->nama;?>" class="form-control form-control-line" id="donaturs" name="donatur"
+                                        disabled>
+                                        <input type="hidden" value="<?php echo $transaksi->idDonatur;?>" class="form-control form-control-line" name="idDonatur">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -104,12 +109,12 @@
                                         </select>
                                     </div>
                                 </div> -->
-                                <div class="form-group" id="month_year">
+                                <!-- <div class="form-group" id="month_year">
                                     <label class="col-md-12">Bulan/Tahun</label>
                                     <div class="col-md-12">
                                         <input type="text" value="<?php echo $transaksi->month . '/'. $transaksi->year;?>" class="form-control form-control-line" name="month_year" required id="datepicker1">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="col-md-12">Bank</label>
                                     <div class="col-md-12">

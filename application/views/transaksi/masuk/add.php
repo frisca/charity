@@ -46,7 +46,7 @@
                             <form class="form-horizontal form-material" method="post" action="<?php echo base_url('transaksi_masuk/processAdd');?>" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Donatur</label>
-                                    <div class="col-sm-12">
+                                    <!-- <div class="col-sm-12">
                                         <select class="form-control form-control-line" name="idDonatur" required>
                                             <option value="">Pilih Nama Donatur</option>
                                             <?php
@@ -57,6 +57,10 @@
                                                 } 
                                             ?>
                                         </select>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <input type="text" value="" class="form-control form-control-line" id="donaturs" name="donatur">
+                                        <input type="hidden" value="" class="form-control form-control-line" name="idDonatur">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -83,12 +87,12 @@
                                         </select>
                                     </div>
                                 </div> -->
-                                <div class="form-group" id="month_year">
+                                <!-- <div class="form-group" id="month_year">
                                     <label class="col-md-12">Bulan/Tahun</label>
                                     <div class="col-md-12">
                                         <input type="text" value="" class="form-control form-control-line" id="datepicker1" name="month_year">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="col-md-12">Bank</label>
                                     <div class="col-md-12">

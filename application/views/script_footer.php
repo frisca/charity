@@ -11,6 +11,7 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/ckeditor/ckeditor.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/ckfinder/ckfinder.js');?>"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $('#example').DataTable();
         CKEDITOR.replace('edi');
@@ -147,6 +148,49 @@
             }
         });
 
+        // $('.nav-item a').click(function(e){
+        //     e.preventDefault();
+        //     $('.nav-item a').removeClass('active');
+        //     $(this).addClass('active');
+        // });
+
+        var current = location.pathname;
+        $('.nav-item a').each(function(){
+            var $this = $(this);
+            // if the current path is like this link, make it active
+            if($this.attr('href').indexOf(current) !== -1){
+                $('.nav-item a').removeClass('active');
+                $this.addClass('active');
+            }
+        });
+
+        $('#donaturs').autocomplete({
+			source: "<?php echo site_url('donatur/getAllDonatur');?>",
+			// select: function(event, ui) {
+			// 	// console.log("ui: " + ui.item.label);
+			// 	$('input[name="customers"]').val(ui.item.label);
+			// }
+			// focus: function (event, ui) {
+			// 	event.preventDefault();
+			// 	$("input[name='donatur']").attr('value', ui.item.label);
+			// },
+			// select: function (event, ui) {
+			// 	// event.preventDefault();
+			// 	$("input[name='idDonatur']").val(ui.item.value);
+			// 	$("#donaturs").attr('value', ui.item.label);
+            //     return false;
+			// }
+            focus: function (event, ui) {
+                $ ( "#donaturs") .val (ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $ ( "#donaturs") .val (ui.item.label);
+                $ ( "input[name='idDonatur']") .val (ui.item.value);
+                return false;
+            }
+		});
+
         $.getJSON("<?php echo base_url();?>transaksi_masuk/notif", function(data){
             console.log('data: '  + data.notif.id_user);
             if(data.notif.length == 0){
@@ -240,7 +284,8 @@
                 $('.laporans').css('display', 'block');
                 // alert('test');
             });
-            $('.laporan').click(function(){
+            $('.laporan').click(function(e){
+                e.preventDefault();
                 // var href = 'laporan/index';
                 location.href = '<?php echo base_url('laporan/index')?>';
                 // alert('test');

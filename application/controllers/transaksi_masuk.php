@@ -177,12 +177,12 @@ class Transaksi_Masuk extends CI_Controller {
 		$this->load->library('upload', $config);
 
 		if ($this->upload->do_upload('buktiBayar')){
-			if(!empty($this->input->post('month_year'))){
-				$month = explode("/", $this->input->post('month_year'));
-			}else{
-				$month[0] = 0;
-				$month[1] = 0;
-			}
+			// if(!empty($this->input->post('month_year'))){
+			// 	$month = explode("/", $this->input->post('month_year'));
+			// }else{
+			// 	$month[0] = 0;
+			// 	$month[1] = 0;
+			// }
 			$data = array(
 				'buktiBayar' => $new_name,
 				'idDonatur' => $this->input->post('idDonatur'),
@@ -191,14 +191,14 @@ class Transaksi_Masuk extends CI_Controller {
 				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-				'month' => $month[0],
+				// 'month' => $month[0],
 				'status_approve' => 2,
 				'bankDonatur' => $this->input->post('bankDonatur'),
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
-				'namaPengirim' => $this->input->post('namaPengirim'),
-				'year' => $month[1]
+				'namaPengirim' => $this->input->post('namaPengirim')
+				// 'year' => $month[1]
 			);
 
 			$result = $this->all_model->insertData('transaksi_masuk', $data);
@@ -337,12 +337,12 @@ class Transaksi_Masuk extends CI_Controller {
 		$transaksi = $this->all_model->getTransaksiMasukById($id)->row();
 		$con_transaksi = array('idTransaksiMasuk' => $id);
 
-		if(!empty($this->input->post('month_year'))){
-			$month = explode("/", $this->input->post('month_year'));
-		}else{
-			$month[0] = 0;
-			$month[1] = 0;
-		}
+		// if(!empty($this->input->post('month_year'))){
+		// 	$month = explode("/", $this->input->post('month_year'));
+		// }else{
+		// 	$month[0] = 0;
+		// 	$month[1] = 0;
+		// }
 
 		if(!$_FILES['buktiBayar']['name']){
 			$data = array(
@@ -353,16 +353,16 @@ class Transaksi_Masuk extends CI_Controller {
 				'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 				'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 				'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-				'month' => $month[0],
+				// 'month' => $month[0],
 				'status_approve' => 1,
 				'bankDonatur' => $this->input->post('bankDonatur'),
 				'noRekTujuan' => $this->input->post('noRekTujuan'),
 				'noRekPengirim' => $this->input->post('noRekPengirim'),
 				'namaPenerima' => $this->input->post('namaPenerima'),
-				'namaPengirim' => $this->input->post('namaPengirim'),
-				'year' => $month[1]
+				'namaPengirim' => $this->input->post('namaPengirim')
+				// 'year' => $month[1]
 			);
-			var_dump($data);exit();
+			// var_dump($data);exit();
 
 			$result = $this->all_model->updateData('transaksi_masuk', $con_transaksi, $data);
 			if($result == true){
@@ -393,14 +393,14 @@ class Transaksi_Masuk extends CI_Controller {
 					'bankTransferTujuan' => $this->input->post('bankTransferTujuan'),
 					'transferDate' => date('Y-m-d', strtotime(strtr($this->input->post('transferDate'), '/', '-'))),
 					'jenisTransaksi' => $this->input->post('jenisTransaksi'),
-					'month' => $month[0],
+					// 'month' => $month[0],
 					'status_approve' => 1,
 					'bankDonatur' => $this->input->post('bankDonatur'),
 					'noRekTujuan' => $this->input->post('noRekTujuan'),
 					'noRekPengirim' => $this->input->post('noRekPengirim'),
 					'namaPenerima' => $this->input->post('namaPenerima'),
-					'namaPengirim' => $this->input->post('namaPengirim'),
-					'year' => $month[1]
+					'namaPengirim' => $this->input->post('namaPengirim')
+					// 'year' => $month[1]
 				);
 
 				var_dump('gambar1: ', $data);exit();
