@@ -123,8 +123,12 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Penerima Beasiswa</label>
-                                    <div class="col-md-12">
+                                    <!-- <div class="col-md-12">
                                         <input type="text" value="<?php echo $transaksi->penerimaBeasiswa;?>" class="form-control form-control-line" name="penerima_beasiswa" required>
+                                    </div> -->
+                                    <div class="col-md-12">
+                                        <input type="text" value="<?php echo $transaksi->nama;?>" class="form-control form-control-line" name="beasiswa" required id="beasiswa">
+                                        <input type="hidden" value="<?php echo $transaksi->id_beasiswa;?>" class="form-control form-control-line" name="penerima_beasiswa" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

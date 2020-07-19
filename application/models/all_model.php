@@ -52,13 +52,14 @@ class All_model extends CI_Model {
 	}
 
 	public function getListTransaksiKeluar(){
-		$query = "SELECT tk.* FROM transaksi_keluar tk";
+		$query = "SELECT tk.*, p.* FROM transaksi_keluar tk left join penerima_beasiswa p on p.id_beasiswa = tk.penerimaBeasiswa";
 		$result = $this->db->query($query);
 		return $result;
 	}
 
 	public function getTransaksiKeluarById($id){
-		$query = "SELECT tk.* FROM transaksi_keluar tk where tk.idTransaksiKeluar = " . $id;
+		$query = "SELECT tk.*, p.* FROM transaksi_keluar tk left join penerima_beasiswa p on p.id_beasiswa = tk.penerimaBeasiswa 
+				where tk.idTransaksiKeluar = " . $id;
 		$result = $this->db->query($query);
 		return $result;
 	}

@@ -65,7 +65,7 @@
                                     </div> -->
                                     <div class="col-md-12">
                                         <input type="text" value="<?php echo $transaksi->nama;?>" class="form-control form-control-line" id="donaturs" name="donatur"
-                                        disabled>
+                                        required>
                                         <input type="hidden" value="<?php echo $transaksi->idDonatur;?>" class="form-control form-control-line" name="idDonatur">
                                     </div>
                                 </div>

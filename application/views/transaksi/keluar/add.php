@@ -81,7 +81,8 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Nama Penerima Beasiswa</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="" class="form-control form-control-line" name="penerima_beasiswa" required>
+                                        <input type="text" value="" class="form-control form-control-line" name="beasiswa" required id="beasiswa">
+                                        <input type="hidden" value="" class="form-control form-control-line" name="penerima_beasiswa" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

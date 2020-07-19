@@ -59,7 +59,8 @@
                                         </select>
                                     </div> -->
                                     <div class="col-md-12">
-                                        <input type="text" value="" class="form-control form-control-line" id="donaturs" name="donatur">
+                                        <input type="text" value="" class="form-control form-control-line" id="donaturs" name="donatur"
+                                        required>
                                         <input type="hidden" value="" class="form-control form-control-line" name="idDonatur">
                                     </div>
                                 </div>

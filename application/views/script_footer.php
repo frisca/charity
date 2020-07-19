@@ -191,6 +191,33 @@
             }
 		});
 
+        $('#beasiswa').autocomplete({
+			source: "<?php echo site_url('penerima_beasiswa/getAllBeasiswa');?>",
+			// select: function(event, ui) {
+			// 	// console.log("ui: " + ui.item.label);
+			// 	$('input[name="customers"]').val(ui.item.label);
+			// }
+			// focus: function (event, ui) {
+			// 	event.preventDefault();
+			// 	$("input[name='donatur']").attr('value', ui.item.label);
+			// },
+			// select: function (event, ui) {
+			// 	// event.preventDefault();
+			// 	$("input[name='idDonatur']").val(ui.item.value);
+			// 	$("#donaturs").attr('value', ui.item.label);
+            //     return false;
+			// }
+            focus: function (event, ui) {
+                $ ( "#beasiswa") .val (ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $ ( "#beasiswa") .val (ui.item.label);
+                $ ( "input[name='penerima_beasiswa']") .val (ui.item.value);
+                return false;
+            }
+		});
+
         $.getJSON("<?php echo base_url();?>transaksi_masuk/notif", function(data){
             console.log('data: '  + data.notif.id_user);
             if(data.notif.length == 0){

@@ -55,7 +55,7 @@
                                 <tbody>
                                     <?php foreach($transaksi as $key=>$value){?>
                                     <tr>
-                                        <td><?php echo $value->penerimaBeasiswa;?></td>
+                                        <td><?php echo $value->nama;?></td>
                                         <td>
                                             <?php 
                                                 if($value->jenisTransaksiKeluar == 1){ 

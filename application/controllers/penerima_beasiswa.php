@@ -109,4 +109,32 @@ class Penerima_Beasiswa extends CI_Controller {
 		$this->session->set_flashdata('error', 'Data penerima beasiswa gagal dihapus');
 		return redirect(base_url() . 'penerima_beasiswa/index');
 	}
+
+	public function getAllBeasiswa(){
+		// $result = $this->all_model->getListDonatur()->result();
+		if (isset($_GET['term'])) {
+            // $result = $this->blog_model->search_blog($_GET['term']);
+            // if (count($result) > 0) {
+            // foreach ($result as $row)
+            //     $arr_result[] = $row->blog_title;
+            //     echo json_encode($arr_result);
+			// }
+			// $condition = array('nama_project' => $_GET['term']);
+			// $result = $this->all_model->getDataByCondition('project', $condition)->result();
+			// if(count($result) > 0){
+			// 	foreach($result as $row){
+			// 		$arr_result[] = $row->nama_project;
+			// 		echo json_encode($arr_result);
+			// 	}
+			// }
+			// var_dump($_GET['term']);exit();
+			
+			$result = $this->all_model->getAllData('penerima_beasiswa')->result();
+			if (count($result) > 0) {
+			foreach ($result as $row)
+				$arr_result[] = array('label' => $row->nama, 'value' => $row->id_beasiswa);
+				echo json_encode($arr_result);
+			}
+        }
+	}
 }
