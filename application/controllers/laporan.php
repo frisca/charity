@@ -9,7 +9,11 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
+		$tamp = array();
+		$tamp1 = array();
+		
 		$donasi = $this->all_model->getSumDonasi()->result();
+		
 		foreach ($donasi as $key => $value) {
 			$tamp = array((int)$value->jan, (int)$value->feb, (int)$value->mar, (int)$value->apr, (int)$value->mei, (int)$value->jun, (int)$value->jul, (int)$value->agu, (int)$value->sep, (int)$value->okt, (int)$value->nov, (int)$value->des);
 		}
