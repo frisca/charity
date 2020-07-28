@@ -23,7 +23,7 @@ class Transaksi_Keluar extends CI_Controller {
 			'jenisTransaksiKeluar' => $this->input->post('jenisTransaksiKeluar'),
 			'keterangan' => $this->input->post('keterangan'),
 			'jumlah' => $this->input->post('jumlah'),
-			'tanggalTransaksi' => date('Y-m-d', strtotime(strtr($this->input->post('tanggalTransaksi'), '/', '-')))
+			'tanggalTransaksi' => date('Y-m-d', strtotime($this->input->post('tanggalTransaksi')))
 		);
 		$result = $this->all_model->insertData('transaksi_keluar', $data);
 		if($result == true){
@@ -47,7 +47,7 @@ class Transaksi_Keluar extends CI_Controller {
 			'jenisTransaksiKeluar' => $this->input->post('jenisTransaksiKeluar'),
 			'keterangan' => $this->input->post('keterangan'),
 			'jumlah' => $this->input->post('jumlah'),
-			'tanggalTransaksi' => date('Y-m-d', strtotime(strtr($this->input->post('tanggalTransaksi'), '/', '-')))
+			'tanggalTransaksi' => date('Y-m-d', strtotime($this->input->post('tanggalTransaksi')))
 		);
 		$result = $this->all_model->updateData('transaksi_keluar', $condition, $data);
 		if($result == true){

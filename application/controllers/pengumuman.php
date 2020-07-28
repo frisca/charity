@@ -85,7 +85,12 @@ class Pengumuman extends CI_Controller {
 
 	public function index()
 	{
-		$data['pengumuman'] = $this->all_model->getAllData('pengumuman')->result();
+		if($this->session->userdata('role') == 1){
+			$data['pengumuman'] = $this->all_model->getAllData('pengumuman')->result();
+		}else{
+			$condition = array('status' => 1);
+			$data['pengumuman'] = $this->all_model->getDataByCondition('pengumuman', $condition)->result();
+		}
 		$this->load->view('pengumuman/index', $data);
 	}
 
