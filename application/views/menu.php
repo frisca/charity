@@ -104,8 +104,8 @@
                     <span>Laporan</span>
                 </a>
                 <div class="laporans dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
-                    <a class="dropdown-item " href="<?php echo base_url('laporan_masuk/index');?>">Laporan - Donasi</a>
-                    <a class="dropdown-item " href="<?php echo base_url('laporan_keluar/index');?>">Laporan - Giving</a>
+                    <a class="dropdown-item donasi" href="<?php echo base_url('laporan_masuk/index');?>">Laporan - Donasi</a>
+                    <a class="dropdown-item giving" href="<?php echo base_url('laporan_keluar/index');?>">Laporan - Giving</a>
                 </div>
             </li>
         <?php } ?>
