@@ -49,7 +49,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nama</th>
-                                        <th>Angkatan</th>
+                                        <th>Pendidikan</th>
                                         <th>Alamat</th>
                                         <th></th>
                                     </tr>
@@ -58,7 +58,7 @@
                                     <?php foreach($beasiswa as $key=>$value){?>
                                     <tr>
                                         <td><?php echo $value->nama;?></td>
-                                        <td><?php echo $value->angkatan?></td>
+                                        <td><?php echo $value->jenjang_studi?></td>
                                         <td><?php echo $value->alamat;?></td>
                                         <td>
                                             <a href="<?php echo base_url('penerima_beasiswa/views/' . $value->id_beasiswa);?>">

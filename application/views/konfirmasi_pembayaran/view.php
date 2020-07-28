@@ -48,15 +48,15 @@
                                 <div class="col-sm-12">
                                     <select class="form-control form-control-line" name="jenisTransaksi" required disabled id="jenisDonatur" disabled>
                                         <?php if($konfirmasi_pembayaran->jenisTransaksi == 1){?>
-                                        <option value="1" selected>Iuran</option>
+                                        <option value="1" selected>Iuran Anggota</option>
                                         <option value="2">Sumbangan</option>
                                         <option value="3">Dan Lain-lain</option>
                                         <?php }elseif($konfirmasi_pembayaran->jenisTransaksi == 2){ ?>
-                                        <option value="1">Iuran</option>
+                                        <option value="1">Iuran Anggota</option>
                                         <option value="2" selected>Sumbangan</option>
                                         <option value="3">Dan Lain-lain</option>
                                         <?php }else{ ?>
-                                        <option value="1">Iuran</option>
+                                        <option value="1">Iuran Anggota</option>
                                         <option value="2">Sumbangan</option>
                                         <option value="3" selected>Dan Lain-lain</option>
                                         <?php } ?>

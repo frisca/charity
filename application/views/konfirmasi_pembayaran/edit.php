@@ -49,15 +49,15 @@
                                     <div class="col-sm-12">
                                         <select class="form-control form-control-line" name="jenisTransaksi" required id="jenisDonatur">
                                             <?php if($konfirmasi_pembayaran->jenisTransaksi == 1){?>
-                                            <option value="1" selected>Iuran</option>
+                                            <option value="1" selected>Iuran Anggota</option>
                                             <option value="2">Sumbangan</option>
                                             <option value="3">Dan Lain-lain</option>
                                             <?php }elseif($konfirmasi_pembayaran->jenisTransaksi == 2){ ?>
-                                            <option value="1">Iuran</option>
+                                            <option value="1">Iuran Anggota</option>
                                             <option value="2" selected>Sumbangan</option>
                                             <option value="3">Dan Lain-lain</option>
                                             <?php }else{ ?>
-                                            <option value="1">Iuran</option>
+                                            <option value="1">Iuran Anggota</option>
                                             <option value="2">Sumbangan</option>
                                             <option value="3" selected>Dan Lain-lain</option>
                                             <?php } ?>
@@ -90,12 +90,12 @@
                                         <input type="text" value="<?php echo $konfirmasi_pembayaran->year;?>" class="form-control form-control-line" name="year" required>
                                     </div>
                                 </div> -->
-                                <div class="form-group" id="month_year">
+                                <!-- <div class="form-group" id="month_year">
                                     <label class="col-md-12">Bulan/Tahun</label>
                                     <div class="col-md-12">
                                         <input type="text" value="<?php echo date('m/Y', strtotime($konfirmasi_pembayaran->year . '-'. $konfirmasi_pembayaran->month));?>" class="form-control form-control-line" name="month_year" required id="datepicker1">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="col-md-12">Bank</label>
                                     <div class="col-md-12">

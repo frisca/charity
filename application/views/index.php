@@ -62,18 +62,15 @@
                   <div class="card-body p-0">
                     <div style="padding: 18px 20px 20px 15px;font-size: 1;text-align: justify;font-size: 15px;">
                     Del adalah sebuah institusi akademik yang didirikan dengan visi menciptakan para agen perubahan yang membawa kebaikan di setiap lingkungan dimanapun berada. Sejak meluluskan generasi pertama di tahun 2004, ketika itu Del masih berbentuk Politeknik, keberadaan para lulusan menjadi penjabat di berbagai posisi pekerjaan baik dalam institusi pemerintahan dan swasta, merupakan indikator ketercapaian cita-cita pendiri Del.
-
- 
-
-Alumni del tidak berhenti sampai pada titik tersebut. Dalam perjalanannya dengan kapasitas yang semakin besar seiring perjalanan waktu, sebagai dampak bertambahnya jumlah lulusan yang berkerja dan berkarya, para alumni merasakan dan menyadari bahwa baiklah bila keberadaannya dapat berdampak langsung bagi lingkungan. Alumni memilih untuk bisa memberi lebih lagi dalam bidang sosial, menyatakan kepedulian terhadap lingkungan. Dengan pengalaman dididik di lingkungan tepian Danau Toba dengan kondisi masyarakat yang secara garis besar termasuk pada golongan masyarakat kurang mampu, Alumni memilih untuk terlebih dahulu dapat berdampak bagi lingkungan kampusnya dan lingkungan tinggalnya.
-
- 
-
-Berbagai kegiatan telah dilakukan, menggalang dana untuk membantu anak sekolah di daerah Tapanuli, menggalang dana untuk beasiswa para mahasiswa aktif di Del, program donor darah, program pengadaan buku untuk kampus, dan beberapa kegiatan sosial lainnya. Kegiatan tersebut menggambarkan begitu besarnya kerinduan para alumni yang sudah terlebih dahulu merasakan berbagai kebaikan yang diperoleh dari institusi del, untuk bisa kembali berbagi kebaikan-kebaikan yang diperoleh kepada lingkungan.
-
- 
-
-Suatu kerinduan untuk dapat membuat kegiatan yang berkelanjutan dan berkesinambungan dan terkoordinir dengan baik, sehingga semakin memperbesar dampak keberadaan alumni di lingkungan, membawa beberapa anggota alumni kepada suatu gagasan untuk membentuk sebuah komunitas. Komunitas tersebut nantinya akan menjadi komunitas yang bekerjasama dengan ikatan alumni dan bahkan akan berada di bawah payung seksi sosial ikatan alumni del.
+                    </div>
+                    <div style="padding: 18px 20px 20px 15px;font-size: 1;text-align: justify;font-size: 15px;">
+                    Alumni del tidak berhenti sampai pada titik tersebut. Dalam perjalanannya dengan kapasitas yang semakin besar seiring perjalanan waktu, sebagai dampak bertambahnya jumlah lulusan yang berkerja dan berkarya, para alumni merasakan dan menyadari bahwa baiklah bila keberadaannya dapat berdampak langsung bagi lingkungan. Alumni memilih untuk bisa memberi lebih lagi dalam bidang sosial, menyatakan kepedulian terhadap lingkungan. Dengan pengalaman dididik di lingkungan tepian Danau Toba dengan kondisi masyarakat yang secara garis besar termasuk pada golongan masyarakat kurang mampu, Alumni memilih untuk terlebih dahulu dapat berdampak bagi lingkungan kampusnya dan lingkungan tinggalnya.
+                    </div>
+                    <div style="padding: 18px 20px 20px 15px;font-size: 1;text-align: justify;font-size: 15px;">
+                    Berbagai kegiatan telah dilakukan, menggalang dana untuk membantu anak sekolah di daerah Tapanuli, menggalang dana untuk beasiswa para mahasiswa aktif di Del, program donor darah, program pengadaan buku untuk kampus, dan beberapa kegiatan sosial lainnya. Kegiatan tersebut menggambarkan begitu besarnya kerinduan para alumni yang sudah terlebih dahulu merasakan berbagai kebaikan yang diperoleh dari institusi del, untuk bisa kembali berbagi kebaikan-kebaikan yang diperoleh kepada lingkungan.
+                    </div>
+                    <div style="padding: 18px 20px 20px 15px;font-size: 1;text-align: justify;font-size: 15px;">
+                    Suatu kerinduan untuk dapat membuat kegiatan yang berkelanjutan dan berkesinambungan dan terkoordinir dengan baik, sehingga semakin memperbesar dampak keberadaan alumni di lingkungan, membawa beberapa anggota alumni kepada suatu gagasan untuk membentuk sebuah komunitas. Komunitas tersebut nantinya akan menjadi komunitas yang bekerjasama dengan ikatan alumni dan bahkan akan berada di bawah payung seksi sosial ikatan alumni del.
                     </div>
                   </div>
                 </div>
