@@ -24,7 +24,7 @@ class User extends CI_Controller {
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
 			'phone' => $this->input->post('phone'),
-			'joinDate' => date('Y-m-d', strtotime(strtr($this->input->post('joinDate'), '/', '-'))),
+			'joinDate' => date('Y-m-d', strtotime($this->input->post('joinDate'))),
 			'email' => $this->input->post('email'),
 			'password' => md5($this->input->post('password')),
 			'role' => $this->input->post('role'),
@@ -37,12 +37,13 @@ class User extends CI_Controller {
 			return redirect(base_url() . 'user/add');
 		}
 
-		$users = $this->all_model->getDataByLimit('user', 'idUser', 'desc', 1)->row();
-		if(!$_FILES['userfile']['name']){
+		// $users = $this->all_model->getDataByLimit('user', 'idUser', 'desc', 1)->row();
+		if(!$_FILES['userfiles']['name']){
+			$users = $this->all_model->getDataByLimit('user', 'idUser', 'desc', 1)->row();
 			$donatur = array(
 				'angkatan' => $this->input->post('angkatan'),
 				'gender' => $this->input->post('gender'),
-				'birthDate' => date('Y-m-d', strtotime(strtr($this->input->post('birthDate'), '/', '-'))),
+				'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate'))),
 				'id_user' => $users->idUser
 			);
 			$res = $this->all_model->insertData('donatur', $donatur);
@@ -53,20 +54,22 @@ class User extends CI_Controller {
 			$this->session->set_flashdata('success', 'Data user berhasil disimpan');
 			return redirect(base_url() . 'user/index');
 		}else{
-			$new_name                   = time().$_FILES["userfile"]['name'];
-	        $config['file_name']        = $new_name;
+			$users = $this->all_model->getDataByLimit('user', 'idUser', 'desc', 1)->row();
+			$new_name                   = time().$_FILES["userfiles"]['name'];
+			$config['file_name']        = $new_name;
 			$config['upload_path']      = './gambar/profile/';
-			// $config['allowed_types']    = 'gif|jpg|png';
-
+			$config['allowed_types']    = 'gif|jpg|png|jpeg';
 			$this->load->library('upload', $config);
- 
-			if ($this->upload->do_upload('userfile')){
+
+			if ($this->upload->do_upload('userfiles')){
+				// var_dump($this->upload->do_upload('userfiles'));
 				$donatur = array(
 					'angkatan' => $this->input->post('angkatan'),
 					'gender' => $this->input->post('gender'),
-					'birthDate' => date('Y-m-d', strtotime(strtr($this->input->post('birthDate'), '/', '-'))),
+					'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate'))),
 					'id_user' => $users->idUser,
-					'image' => $new_name
+					'image' => $new_name,
+					'jenisKeanggotaan' => 0
 				);
 				$res = $this->all_model->insertData('donatur', $donatur);
 				if($res == false){
@@ -76,10 +79,42 @@ class User extends CI_Controller {
 				$this->session->set_flashdata('success', 'Data user berhasil disimpan');
 				return redirect(base_url() . 'user/index');
 			}else{
+				// var_dump($this->upload->do_upload('userfiles'));
 				$this->session->set_flashdata('error', 'Data user gagal disimpan');
 				return redirect(base_url() . 'user/add');
 			}
 
+			// $new_name                   = time().$_FILES["userfile"]['name'];
+	        // $config['file_name']        = $new_name;
+			// $config['upload_path']      = './gambar/profile/';
+			// $config['allowed_types']    = 'gif|jpg|png|jpeg';
+
+			// $this->load->library('upload', $config);
+			// var_dump('upload: ',$this->upload->do_upload('userfile'));exit();
+
+			// if (!$this->upload->do_upload('userfile')){
+			// 	$donatur = array(
+			// 		'angkatan' => $this->input->post('angkatan'),
+			// 		'gender' => $this->input->post('gender'),
+			// 		'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate'))),
+			// 		'id_user' => $users->idUser,
+			// 		'image' => $new_name,
+			// 		'jenisKeanggotaan' => 0
+			// 	);
+			// 	var_dump($donatur);exit();
+			// 	// $res = $this->all_model->insertData('donatur', $donatur);
+			// 	// if($res == false){
+			// 	// 	$this->session->set_flashdata('error', 'Data user gagal disimpan');
+			// 	// 	return redirect(base_url() . 'user/add');
+			// 	// }
+			// 	// $this->session->set_flashdata('success', 'Data user berhasil disimpan');
+			// 	// return redirect(base_url() . 'user/index');
+			// }else{
+			// 	var_dump($donatur);exit();
+			// 	// $this->session->set_flashdata('error', 'Data user gagal disimpan');
+			// 	// return redirect(base_url() . 'user/add');
+			// }
+		
 		}
 	}
 
@@ -102,13 +137,14 @@ class User extends CI_Controller {
 	}
 
 	public function processEdit($id){
+		// var_dump('join date: ', date('Y-m-d', strtotime($this->input->post('joinDate'))));exit();
 		$con_user = array('idUser' => $id);
 		$data_user = $this->all_model->getDataByCondition('user', $con_user)->row();
 		$user = array(
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
 			'phone' => $this->input->post('phone'),
-			'joinDate' => date('Y-m-d', strtotime(strtr($this->input->post('joinDate'), '/', '-'))),
+			'joinDate' => date('Y-m-d', strtotime($this->input->post('joinDate'))),
 			'email' => $this->input->post('email'),
 			'password' => $this->input->post('password') == "" ? $data_user->password : md5($this->input->post('password')),
 			'username' => $this->input->post('username')
@@ -125,7 +161,7 @@ class User extends CI_Controller {
 			$donatur = array(
 				'angkatan' => $this->input->post('angkatan'),
 				'gender' => $this->input->post('gender'),
-				'birthDate' => date('Y-m-d', strtotime(strtr($this->input->post('birthDate'), '/', '-')))
+				'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate')))
 			);
 
 			$res = $this->all_model->updateData('donatur', $con_donatur, $donatur);
@@ -141,21 +177,18 @@ class User extends CI_Controller {
 
 			unlink(FCPATH."gambar/profile/".$res_donatur->image);
 
-			$new_name                   = time().$_FILES["userfile"]['name'];
+			$new_name                   = time().$_FILES["userfiles"]['name'];
 	        $config['file_name']        = $new_name;
 			$config['upload_path']      = './gambar/profile/';
-			$config['allowed_types']    = 'gif|jpg|png';
+			$config['allowed_types']    = 'gif|jpg|png|jpeg';
 
 			$this->load->library('upload', $config);
  
-			if ( ! $this->upload->do_upload('userfile')){
-				$this->session->set_flashdata('error', 'Data user gagal diubah');
-				return redirect(base_url() . 'user/edit/' . $id);
-			}else{
+			if ($this->upload->do_upload('userfiles')){
 				$donatur = array(
 					'angkatan' => $this->input->post('angkatan'),
 					'gender' => $this->input->post('gender'),
-					'birthDate' => date('Y-m-d', strtotime(strtr($this->input->post('birthDate'), '/', '-'))),
+					'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate'))),
 					'image' => $new_name
 				);
 
@@ -166,6 +199,25 @@ class User extends CI_Controller {
 				}
 				$this->session->set_flashdata('success', 'Data user berhasil diubah');
 					return redirect(base_url() . 'user/index');
+				// $this->session->set_flashdata('error', 'Data user gagal diubah');
+				// return redirect(base_url() . 'user/edit/' . $id);
+			}else{
+				// $donatur = array(
+				// 	'angkatan' => $this->input->post('angkatan'),
+				// 	'gender' => $this->input->post('gender'),
+				// 	'birthDate' => date('Y-m-d', strtotime($this->input->post('birthDate'))),
+				// 	'image' => $new_name
+				// );
+
+				// $res = $this->all_model->updateData('donatur', $con_donatur, $donatur);
+				// if($res == false){
+				// 	$this->session->set_flashdata('error', 'Data user gagal diubah');
+				// 	return redirect(base_url() . 'user/edit/' . $id);
+				// }
+				// $this->session->set_flashdata('success', 'Data user berhasil diubah');
+				// 	return redirect(base_url() . 'user/index');
+				$this->session->set_flashdata('error', 'Data user gagal diubah');
+				return redirect(base_url() . 'user/edit/' . $id);
 			}
 		}
 	}

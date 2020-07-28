@@ -166,7 +166,7 @@ Suatu kerinduan untuk dapat membuat kegiatan yang berkelanjutan dan berkesinambu
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Pengumuman</h6>
                   </div>
-                  <div class="card-body p-0">
+                  <div class="card-body p-0"> 
                     <?php 
                         if(!empty($pengumuman)){
                             foreach ($pengumuman as $key => $value) {

@@ -142,7 +142,7 @@
                                     <label class="col-sm-2 col-form-label text-right">Gambar Profil</label>
                                     <div class="col-md-10">
                                         <img src="<?php if(!empty($donatur->image)){ echo base_url('gambar/profile/' . $donatur->image); }else{ echo base_url('assets/images/users/9.jpg');}?>" style="margin: 10px 10px 13px 10px;width: 100px;height: 100px;">
-                                        <input type="file" class="form-control form-control-line" name="userfile">
+                                        <input type="file" class="form-control form-control-line" name="userfiles">
                                     </div>
                                 </div>
                                 <div class="form-group row">

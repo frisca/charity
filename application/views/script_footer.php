@@ -305,31 +305,50 @@
         //     $(this).children('.dropdown-menu-wide').removeClass('show');
         // });
         // jQuery(function($) {
-            $('.laporan').hover(function(){
+            $('.laporan a').hover(function(){
                 $(this).addClass('show');
                 $('.laporans').addClass('show');
                 $('.laporans').css('display', 'block');
+                $('.donasis').removeClass('show');
+                $('.donasis').css('display', 'none');
                 // alert('test');
             });
-            $('.laporan').click(function(e){
+            $('.laporan a').click(function(e){
                 e.preventDefault();
                 // var href = 'laporan/index';
                 location.href = '<?php echo base_url('laporan/index')?>';
                 // alert('test');
+                $(this).addClass('active');
             });
-            $('.laporan').mouseleave(function(){
+            $('.laporans a.donasi').click(function(e){
+                e.preventDefault();
+                // var href = 'laporan/index';
+                location.href = '<?php echo base_url('laporan_masuk/index')?>';
+                // alert('test');
+            });
+            $('.laporans a.giving').click(function(e){
+                e.preventDefault();
+                // var href = 'laporan/index';
+                location.href = '<?php echo base_url('laporan_keluar/index')?>';
+                // $('li.laporan a').addClass('active');
+                // alert('test');
+                $('.laporan a.dropdown-toggle').addClass('active');
+            });
+            $('.laporan a').mouseleave(function(){
                 $(this).removeClass('show');
                 $('.laporans').removeClass('show');
                 $('.laporans').css('display', 'none');
                 // alert('test');
             });
-            $('.donasi').hover(function(){
+            $('.donasi a').hover(function(){
                 $(this).addClass('show');
                 $('.donasis').addClass('show');
                 $('.donasis').css('display', 'block');
+                $('.laporans').removeClass('show');
+                $('.laporans').css('display', 'none');
                 // alert('test');
             });
-            $('.donasi').mouseleave(function(){
+            $('.donasi a').mouseleave(function(){
                 $(this).removeClass('show');
                 $('.donasis').removeClass('show');
                 $('.donasis').css('display', 'none');
