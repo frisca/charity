@@ -89,12 +89,12 @@
                                     <input type="text" value="<?php echo $konfirmasi_pembayaran->year;?>" class="form-control form-control-line" name="year" disabled required>
                                 </div>
                             </div> -->
-                            <div class="form-group" id="month_year">
+                            <!-- <div class="form-group" id="month_year">
                                 <label class="col-md-12">Bulan/Tahun</label>
                                 <div class="col-md-12">
                                     <input type="text" value="<?php echo date('m/Y', strtotime($konfirmasi_pembayaran->year . '-'. $konfirmasi_pembayaran->month));?>" class="form-control form-control-line" name="month_year" required id="datepicker1" disabled>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label class="col-md-12">Bank</label>
                                 <div class="col-md-12">

@@ -69,12 +69,12 @@
                                             </select>
                                         </div>
                                     </div> -->
-                                    <div class="form-group col-sm-12" id="month_year">
+                                    <!-- <div class="form-group col-sm-12" id="month_year">
                                         <label>Bulan/Tahun</label>
                                         <div class="input-group">
                                             <input type="text" value="" class="form-control form-control-line" id="datepicker1" name="month_year">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group col-sm-4">
                                         <label>Bank Pengirim</label>
                                         <div class="input-group">
